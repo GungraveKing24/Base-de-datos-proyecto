@@ -66,14 +66,17 @@ namespace Machote_Admin_Bases_D
                 if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellido) || string.IsNullOrEmpty(usuarioName) || string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(password))
                 {
                     MessageBox.Show("Por favor, ingrese un número de teléfono válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 if (txt_telefono.TextLength > 8)
                 {
                     MessageBox.Show("Numero muy largo");
+                    return;
                 }
             }
-            catch
+            catch (Exception EX)
             {
+                throw EX;
             }
         }
 
