@@ -36,3 +36,41 @@ C:\Users\gungr\source\repos\Base de datos\obj\Debug\Machote_Admin_Bases_D.frmInv
 C:\Users\gungr\source\repos\Base de datos\obj\Debug\Machote_Admin_Bases_D.frmEmpleado.resources
 C:\Users\gungr\source\repos\Base de datos\obj\Debug\Machote_Admin_Bases_D.frmMain.resources
 C:\Users\gungr\source\repos\Base de datos\obj\Debug\Machote_Admin_Bases_D.frmProveedores.resources
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\Base de datos.exe.config
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\Base de datos.exe
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\Base de datos.pdb
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\MySqlConnector.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Buffers.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Memory.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Text.Json.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.ValueTuple.dll
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\MySqlConnector.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Buffers.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Memory.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Text.Json.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\bin\Debug\System.ValueTuple.xml
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.AssemblyReference.cache
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmEmpleado.resources
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmInventario.resources
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmMain.resources
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmProveedores.resources
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.Login.resources
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.VistaProducto.resources
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Properties.Resources.resources
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.GenerateResource.cache
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.CoreCompileInputs.cache
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.CopyComplete
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.exe
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.pdb
