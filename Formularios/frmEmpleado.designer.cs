@@ -56,14 +56,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_telefono = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.chk_admin = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_terminado = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
-            this.btn_terminado = new System.Windows.Forms.Button();
-            this.cmb_categoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -270,6 +268,7 @@
             // 
             this.txt_contra.Location = new System.Drawing.Point(419, 500);
             this.txt_contra.Name = "txt_contra";
+            this.txt_contra.PasswordChar = '*';
             this.txt_contra.Size = new System.Drawing.Size(183, 22);
             this.txt_contra.TabIndex = 17;
             // 
@@ -311,16 +310,6 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Teléfono:";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(626, 502);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(87, 21);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Categoría:";
-            // 
             // chk_admin
             // 
             this.chk_admin.AutoSize = true;
@@ -341,6 +330,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(956, 118);
             this.panel1.TabIndex = 25;
+            // 
+            // btn_terminado
+            // 
+            this.btn_terminado.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_terminado.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_terminado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_terminado.Location = new System.Drawing.Point(726, 15);
+            this.btn_terminado.Name = "btn_terminado";
+            this.btn_terminado.Size = new System.Drawing.Size(207, 84);
+            this.btn_terminado.TabIndex = 3;
+            this.btn_terminado.Text = "Terminado";
+            this.btn_terminado.UseVisualStyleBackColor = false;
+            this.btn_terminado.Click += new System.EventHandler(this.btn_terminado_Click);
             // 
             // btn_eliminar
             // 
@@ -371,37 +373,15 @@
             this.btn_agregar.TabIndex = 0;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
-            // 
-            // btn_terminado
-            // 
-            this.btn_terminado.BackColor = System.Drawing.Color.IndianRed;
-            this.btn_terminado.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_terminado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_terminado.Location = new System.Drawing.Point(726, 15);
-            this.btn_terminado.Name = "btn_terminado";
-            this.btn_terminado.Size = new System.Drawing.Size(207, 84);
-            this.btn_terminado.TabIndex = 3;
-            this.btn_terminado.Text = "Terminado";
-            this.btn_terminado.UseVisualStyleBackColor = false;
-            this.btn_terminado.Click += new System.EventHandler(this.btn_terminado_Click);
-            // 
-            // cmb_categoria
-            // 
-            this.cmb_categoria.FormattingEnabled = true;
-            this.cmb_categoria.Location = new System.Drawing.Point(720, 501);
-            this.cmb_categoria.Name = "cmb_categoria";
-            this.cmb_categoria.Size = new System.Drawing.Size(121, 24);
-            this.cmb_categoria.TabIndex = 26;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // frmEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 720);
-            this.Controls.Add(this.cmb_categoria);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chk_admin);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.txt_telefono);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -461,13 +441,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_telefono;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox chk_admin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.Button btn_terminado;
-        private System.Windows.Forms.ComboBox cmb_categoria;
     }
 }
