@@ -45,12 +45,10 @@ namespace Base_de_datos.Clases
                     }
                 }
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
                 throw ex;
             }
-
-            // DateTime fecha = DateTime.Now;
         }
     }
 }

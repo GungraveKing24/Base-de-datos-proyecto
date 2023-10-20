@@ -19,6 +19,7 @@ namespace Machote_Admin_Bases_D
             InitializeComponent();
         }
 
+        //Variables
         private string nombre;
         private string apellido;
         private string usuarioName;
@@ -29,62 +30,78 @@ namespace Machote_Admin_Bases_D
         private string fechaFormateada;
         private string contrasena;
 
-        //Verificar datos
-        public void verificar_nombre()
+        public bool verificar_datos()
         {
+            bool verificacion = false;
+
             try
             {
-
                 nombre = txt_nombre.Text;
                 apellido = txt_apellido.Text;
                 usuarioName = txt_usuario.Text;
                 correo = txt_correo.Text;
-                password = txt_contra.Text;
-                telefono = Convert.ToInt32(txt_telefono.Text);
+                contrasena = txt_contra.Text;
 
                 // Verificar el estado del checkbox
                 bool administrador = chk_admin.Checked;
-                string comprovaradmin;
-                if (administrador == true)
-                {
-                    comprovaradmin = "1";
-                }
-                else
-                {
-                    comprovaradmin = "0";
-                }
-
-                admin = comprovaradmin;
+                admin = administrador ? "1" : "0";
 
                 // Obtener la fecha actual y formatearla
                 DateTime fecha = DateTime.Now;
                 fechaFormateada = fecha.ToString("yyyy-MM-dd");
 
-                // Otras operaciones con las variables si es necesario
-                contrasena = txt_contra.Text;
+                bool verificado1 = true;
+                bool verificado2 = true;
 
-                if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellido) || string.IsNullOrEmpty(usuarioName) || string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(password))
+                // Validar campos obligatorios
+                if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(apellido) || string.IsNullOrEmpty(usuarioName) || string.IsNullOrWhiteSpace(correo) || string.IsNullOrWhiteSpace(contrasena))
                 {
-                    MessageBox.Show("Por favor, ingrese un número de teléfono válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    MessageBox.Show("Por favor, complete todos los campos obligatorios.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    verificado1 = false;
                 }
-                if (txt_telefono.TextLength > 8)
+
+                // Validar número de teléfono
+                if (txt_telefono.Text.Length > 8 || !int.TryParse(txt_telefono.Text, out telefono))
                 {
-                    MessageBox.Show("Numero muy largo");
-                    return;
+                    MessageBox.Show("Por favor, ingrese un número de teléfono válido de hasta 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    verificado2 = false;
+                }
+
+                if (verificado1 && verificado2)
+                {
+                    verificacion = true;
                 }
             }
-            catch (Exception EX)
+            catch (Exception ex)
             {
-                throw EX;
+                MessageBox.Show("Ocurrió un error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            return verificacion;
         }
 
         private void Agregar()
         {
-            verificar_nombre();
-            Empleados empleados = new Empleados();
-            empleados.insertar(nombre, apellido, usuarioName, correo, telefono, admin, fechaFormateada, contrasena);
+            try
+            {
+                bool verificacion = verificar_datos();
+
+                if (verificacion)
+                {
+                    Empleados empleados = new Empleados();
+                    empleados.insertar(nombre, apellido, usuarioName, correo, telefono, admin, fechaFormateada, contrasena);
+
+                    MessageBox.Show("Datos insertados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al insertar datos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void label8_Click(object sender, EventArgs e)
