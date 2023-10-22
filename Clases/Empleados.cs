@@ -20,7 +20,7 @@ namespace Base_de_datos.Clases
                 string connectionString = Conectar.conectar();
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    string query = "INSERT INTO empleado (nombre_empleado, apellido_empleado, nombre_usuario, correoelectronico_empleado, telefono_empleado, administrador, fecharegistro_empleado, contraseña) VALUES (@nombre_empleado, @apellido_empleado, @nombre_usuario, @correoelectronico_empleado, @telefono_empleado, @administrador, @fecharegistro_empleado, @contraseña)";
+                    string query = "INSERT INTO empleado (nombre_empleado, apellido_empleado, nombre_usuario, correoelectronico_empleado, telefono_empleado, administrador, fecharegistro_empleado, contraseña) VALUES (@nombre_empleado, @apellido_empleado, @nombre_usuario, @correoelectronico_empleado, @telefono_empleado, @administrador, @fecharegistro_empleado, @contraseña);";
                     MySqlCommand command = new MySqlCommand(query, connection);
                     command.Parameters.AddWithValue("@nombre_empleado", nombre);
                     command.Parameters.AddWithValue("@apellido_empleado", apellido);
