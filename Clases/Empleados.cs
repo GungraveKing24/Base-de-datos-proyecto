@@ -33,19 +33,59 @@ namespace Base_de_datos.Clases
 
 
                     connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Datos insertados correctamente en la base de datos.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo insertar los datos en la base de datos.");
-                    }
+                    command.ExecuteNonQuery();             
                 }
             }
             catch (MySqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Update(int id, string nombre, string apellido, string nombre_usuario, string Correo, int telefono, string Administrador, string password)
+        {
+            try
+            {
+                string connectionString = Conectar.conectar();
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = "UPDATE empleado SET nombre_empleado = @nombre_empleado, apellido_empleado = @apellido_empleado, nombre_usuario = @nombre_usuario, correoelectronico_empleado = @correoelectronico_empleado, telefono_empleado = @telefono_empleado, administrador = @administrador, contraseña = @contraseña WHERE id_empleado = @id;";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@nombre_empleado", nombre);
+                    command.Parameters.AddWithValue("@apellido_empleado", apellido);
+                    command.Parameters.AddWithValue("@nombre_usuario", nombre_usuario);
+                    command.Parameters.AddWithValue("@correoelectronico_empleado", Correo);
+                    command.Parameters.AddWithValue("@telefono_empleado", telefono);
+                    command.Parameters.AddWithValue("@administrador", Administrador);
+                    command.Parameters.AddWithValue("@contraseña", password);
+                    command.Parameters.AddWithValue("@id", id);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                string connectionString = Conectar.conectar();
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = "DELETE FROM empleado WHERE id_empleado = @id;";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", id);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }

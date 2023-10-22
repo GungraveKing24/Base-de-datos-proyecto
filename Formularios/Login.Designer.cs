@@ -45,7 +45,7 @@
             this.TextBoxUsuario.Name = "TextBoxUsuario";
             this.TextBoxUsuario.Size = new System.Drawing.Size(243, 38);
             this.TextBoxUsuario.TabIndex = 0;
-            this.TextBoxUsuario.Text = "jorgefran";
+            this.TextBoxUsuario.Text = "esmenb";
             // 
             // TextBoxContraseña
             // 
