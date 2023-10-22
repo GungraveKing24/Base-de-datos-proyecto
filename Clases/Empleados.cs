@@ -90,5 +90,40 @@ namespace Base_de_datos.Clases
                 throw ex;
             }
         }
+
+        public string ObtenerContraseña(int id)
+        {
+            try
+            {
+                string connectionString = Conectar.conectar();
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = "SELECT contraseña FROM empleado WHERE id_empleado = @id;";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id", id);
+
+                    connection.Open();
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            // Obtener el valor de la contraseña desde la base de datos
+                            string contraseña = reader.GetString(0);
+                            return contraseña;
+                        }
+                        else
+                        {
+                            // Si no se encuentra el empleado con el ID proporcionado, puedes manejarlo como consideres apropiado
+                            return null; // O lanzar una excepción o devolver un valor predeterminado según tus necesidades
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

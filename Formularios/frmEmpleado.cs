@@ -76,6 +76,8 @@ namespace Machote_Admin_Bases_D
         private string fechaFormateada;
         private string contrasena;
 
+        ErrorProvider errorProvider1 = new ErrorProvider();
+
         //verificar la entrada de datos
         public bool verificar_datos()
         {
@@ -100,56 +102,37 @@ namespace Machote_Admin_Bases_D
                 bool verificado1 = true;
                 bool verificado2 = true;
 
-                System.Windows.Forms.TextBox TextBoxFocus = null;
-
-                // Validar campos obligatorios
                 if (string.IsNullOrWhiteSpace(nombre))
                 {
-                    MessageBox.Show("Por favor, ingrese el nombre correcto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorProvider1.SetError(txt_nombre, "Por favor, ingrese el nombre correcto.");
                     verificado1 = false;
-                    TextBoxFocus = txt_nombre;
                 }
-
                 if (string.IsNullOrWhiteSpace(apellido))
                 {
-                    MessageBox.Show("Por favor, ingrese el apellido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorProvider1.SetError(txt_apellido, "Por favor, ingrese el apellido correcto.");
                     verificado1 = false;
-                    TextBoxFocus = txt_apellido;
                 }
-
-                if (string.IsNullOrEmpty(usuarioName))
+                if (string.IsNullOrWhiteSpace(usuarioName))
                 {
-                    MessageBox.Show("Por favor, ingrese el usuario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorProvider1.SetError(txt_usuario, "Por favor, ingrese un usuario correcto.");
                     verificado1 = false;
-                    TextBoxFocus = txt_usuario;
                 }
-
                 if (string.IsNullOrWhiteSpace(correo))
                 {
-                    MessageBox.Show("Por favor, ingrese el correo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorProvider1.SetError(txt_correo, "Por favor, ingrese un correo valido");
                     verificado1 = false;
-                    TextBoxFocus = txt_correo;
                 }
-
                 if (string.IsNullOrWhiteSpace(contrasena))
                 {
-                    MessageBox.Show("Por favor, ingrese una contraseña.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorProvider1.SetError(txt_contra, "Por favor, ingrese una contraseña");
                     verificado1 = false;
-                    TextBoxFocus = txt_contra;
                 }
-
-                if (TextBoxFocus != null)
-                {
-                    TextBoxFocus.Focus();
-                }
-
 
                 // Validar número de teléfono
-                if (txt_telefono.Text.Length > 8 || !int.TryParse(txt_telefono.Text, out telefono))
+                else if (txt_telefono.Text.Length > 8 || !int.TryParse(txt_telefono.Text, out telefono))
                 {
                     MessageBox.Show("Por favor, ingrese un número de teléfono válido de hasta 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     verificado2 = false;
-
                 }
 
                 if (verificado1 && verificado2)
@@ -159,6 +142,7 @@ namespace Machote_Admin_Bases_D
             }
             catch
             {
+
             }
 
             return verificacion;
@@ -176,7 +160,8 @@ namespace Machote_Admin_Bases_D
                     empleados.insertar(nombre, apellido, usuarioName, correo, telefono, admin, fechaFormateada, contrasena);
 
                     MessageBox.Show("Datos insertados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
+                    errorProvider1.Clear();
                     dgvProductos.Rows.Clear();
                     CargarDatos();
                     limpiar();
@@ -210,24 +195,33 @@ namespace Machote_Admin_Bases_D
                 {
                     admin = "0";
                 }
-                
+
+                Empleados empleados = new Empleados();
+                string contraseñaBaseDatos = empleados.ObtenerContraseña(id);
+
                 string contrasena = txt_contra.Text;
+
                 bool clave = false;
                 if (string.IsNullOrWhiteSpace(contrasena))
                 {
-                    clave = false;
+                    errorProvider1.SetError(txt_contra, "Ingrese una contraseña");
+                }
+                else if (contrasena == contraseñaBaseDatos) // Comparar la contraseña ingresada con la contraseña de la base de datos
+                {
+                    clave = true;
+                    errorProvider1.Clear(); // Limpiar el error si la contraseña es correcta
                 }
                 else
                 {
-                    clave = true;
+                    errorProvider1.SetError(txt_contra, "La contraseña ingresada no coincide con la contraseña actual");
                 }
 
                 if (clave == true)
                 {
-                    Empleados empleados = new Empleados();
                     empleados.Update(id, nombre, apellido, usuarioName, correo, telefono, admin, contrasena);
                     MessageBox.Show("Datos modificados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    errorProvider1.Clear();
                     dgvProductos.Rows.Clear();
                     CargarDatos();
                     limpiar();
@@ -243,7 +237,7 @@ namespace Machote_Admin_Bases_D
             }
         }
 
-        private void eliminar()
+        private void Eliminar()
         {
             try
             {
@@ -323,7 +317,7 @@ namespace Machote_Admin_Bases_D
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            eliminar();
+            Eliminar();
         }
 
         private void txt_busqueda_TextChanged(object sender, EventArgs e)
@@ -332,54 +326,32 @@ namespace Machote_Admin_Bases_D
             {
                 string textoBusqueda = txt_busqueda.Text.Trim().ToLower();
                 string filtrarbusqueda = Busqueda_filtro.SelectedItem.ToString();
-                int ColumnaBusqueda = 0;
 
-                if (filtrarbusqueda == "ID")
+                // Mapeo de nombres de columnas a índices de columnas
+                Dictionary<string, int> columnas = new Dictionary<string, int>
                 {
-                    ColumnaBusqueda = 0;
-                }
+                    { "ID", 0 },
+                    { "Nombre", 1 },
+                    { "Apellido", 2 },
+                    { "Usuario", 3 },
+                    { "Correo", 4 },
+                    { "Telefono", 5 }
+                };
 
-                else if (filtrarbusqueda == "Nombre")
-                {
-                    ColumnaBusqueda = 1;
-                }
+                int ColumnaBusqueda = columnas.ContainsKey(filtrarbusqueda) ? columnas[filtrarbusqueda] : 0;
 
-                else if (filtrarbusqueda == "Apellido")
-                {
-                    ColumnaBusqueda = 2;
-                }
-
-                else if (filtrarbusqueda == "Usuario")
-                {
-                    ColumnaBusqueda = 3;
-                }
-
-                else if (filtrarbusqueda == "Correo")
-                {
-                    ColumnaBusqueda = 4;
-                }
-
-                else if (filtrarbusqueda == "Telefono")
-                {
-                    ColumnaBusqueda = 5;
-                }
-
-                int busqueda = ColumnaBusqueda;
-            
                 foreach (DataGridViewRow row in dgvProductos.Rows)
                 {
-                    // Obtener el valor de la celda de la columna específica en cada fila
-                    string valorCelda = row.Cells[busqueda].Value?.ToString().ToLower();
+                    string valorCelda = row.Cells[ColumnaBusqueda].Value?.ToString().ToLower();
 
-                    // Verificar si el valor de la celda contiene el texto de búsqueda
                     bool filaVisible = !string.IsNullOrEmpty(valorCelda) && valorCelda.Contains(textoBusqueda);
 
-                    row.Visible = filaVisible; // Mostrar u ocultar la fila según el resultado de la búsqueda
+                    row.Visible = filaVisible;
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                // Maneja las excepciones si es necesario
+                throw ex;
             }
         }
 
