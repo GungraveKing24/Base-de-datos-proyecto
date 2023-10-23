@@ -23,7 +23,10 @@ namespace Machote_Admin_Bases_D
             CargarDatos();
             style();
             limpiar();
+
+            Busqueda_filtro.Text = "ID"; //Solucion chafas
         }
+
         //Cargar Empleados
         conexion GetConexion = new conexion();
 
@@ -357,7 +360,6 @@ namespace Machote_Admin_Bases_D
 
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
-
             if (dgvProductos.CurrentRow != null)
             {
                 DataGridViewRow row = dgvProductos.CurrentRow;

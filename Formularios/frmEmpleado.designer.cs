@@ -29,6 +29,15 @@
         private void InitializeComponent()
         {
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.id_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correoelectronico_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.administrador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecharesgitro_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,15 +60,6 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
-            this.id_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correoelectronico_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.administrador = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecharesgitro_empleado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contraseña = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_busqueda = new System.Windows.Forms.TextBox();
             this.Busqueda_filtro = new System.Windows.Forms.ComboBox();
@@ -90,6 +90,70 @@
             this.dgvProductos.Size = new System.Drawing.Size(1250, 351);
             this.dgvProductos.TabIndex = 1;
             this.dgvProductos.SelectionChanged += new System.EventHandler(this.dgvProductos_SelectionChanged);
+            // 
+            // id_empleado
+            // 
+            this.id_empleado.HeaderText = "ID";
+            this.id_empleado.MinimumWidth = 6;
+            this.id_empleado.Name = "id_empleado";
+            this.id_empleado.Width = 125;
+            // 
+            // nombre_empleado
+            // 
+            this.nombre_empleado.HeaderText = "Nombre";
+            this.nombre_empleado.MinimumWidth = 6;
+            this.nombre_empleado.Name = "nombre_empleado";
+            this.nombre_empleado.Width = 125;
+            // 
+            // apellido_empleado
+            // 
+            this.apellido_empleado.HeaderText = "Apellido";
+            this.apellido_empleado.MinimumWidth = 6;
+            this.apellido_empleado.Name = "apellido_empleado";
+            this.apellido_empleado.Width = 125;
+            // 
+            // nombre_usuario
+            // 
+            this.nombre_usuario.HeaderText = "Usuario";
+            this.nombre_usuario.MinimumWidth = 6;
+            this.nombre_usuario.Name = "nombre_usuario";
+            this.nombre_usuario.Width = 125;
+            // 
+            // correoelectronico_empleado
+            // 
+            this.correoelectronico_empleado.HeaderText = "Correo";
+            this.correoelectronico_empleado.MinimumWidth = 6;
+            this.correoelectronico_empleado.Name = "correoelectronico_empleado";
+            this.correoelectronico_empleado.Width = 125;
+            // 
+            // telefono_empleado
+            // 
+            this.telefono_empleado.HeaderText = "Teléfono";
+            this.telefono_empleado.MinimumWidth = 6;
+            this.telefono_empleado.Name = "telefono_empleado";
+            this.telefono_empleado.Width = 125;
+            // 
+            // administrador
+            // 
+            this.administrador.HeaderText = "Administrador";
+            this.administrador.MinimumWidth = 6;
+            this.administrador.Name = "administrador";
+            this.administrador.Width = 125;
+            // 
+            // fecharesgitro_empleado
+            // 
+            this.fecharesgitro_empleado.HeaderText = "Fecha Ingreso";
+            this.fecharesgitro_empleado.MinimumWidth = 6;
+            this.fecharesgitro_empleado.Name = "fecharesgitro_empleado";
+            this.fecharesgitro_empleado.Width = 125;
+            // 
+            // contraseña
+            // 
+            this.contraseña.HeaderText = "Contraseña";
+            this.contraseña.MinimumWidth = 6;
+            this.contraseña.Name = "contraseña";
+            this.contraseña.Visible = false;
+            this.contraseña.Width = 125;
             // 
             // label1
             // 
@@ -298,70 +362,6 @@
             this.btn_agregar.UseVisualStyleBackColor = true;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
-            // id_empleado
-            // 
-            this.id_empleado.HeaderText = "ID";
-            this.id_empleado.MinimumWidth = 6;
-            this.id_empleado.Name = "id_empleado";
-            this.id_empleado.Width = 125;
-            // 
-            // nombre_empleado
-            // 
-            this.nombre_empleado.HeaderText = "Nombre";
-            this.nombre_empleado.MinimumWidth = 6;
-            this.nombre_empleado.Name = "nombre_empleado";
-            this.nombre_empleado.Width = 125;
-            // 
-            // apellido_empleado
-            // 
-            this.apellido_empleado.HeaderText = "Apellido";
-            this.apellido_empleado.MinimumWidth = 6;
-            this.apellido_empleado.Name = "apellido_empleado";
-            this.apellido_empleado.Width = 125;
-            // 
-            // nombre_usuario
-            // 
-            this.nombre_usuario.HeaderText = "Usuario";
-            this.nombre_usuario.MinimumWidth = 6;
-            this.nombre_usuario.Name = "nombre_usuario";
-            this.nombre_usuario.Width = 125;
-            // 
-            // correoelectronico_empleado
-            // 
-            this.correoelectronico_empleado.HeaderText = "Correo";
-            this.correoelectronico_empleado.MinimumWidth = 6;
-            this.correoelectronico_empleado.Name = "correoelectronico_empleado";
-            this.correoelectronico_empleado.Width = 125;
-            // 
-            // telefono_empleado
-            // 
-            this.telefono_empleado.HeaderText = "Teléfono";
-            this.telefono_empleado.MinimumWidth = 6;
-            this.telefono_empleado.Name = "telefono_empleado";
-            this.telefono_empleado.Width = 125;
-            // 
-            // administrador
-            // 
-            this.administrador.HeaderText = "Administrador";
-            this.administrador.MinimumWidth = 6;
-            this.administrador.Name = "administrador";
-            this.administrador.Width = 125;
-            // 
-            // fecharesgitro_empleado
-            // 
-            this.fecharesgitro_empleado.HeaderText = "Fecha Ingreso";
-            this.fecharesgitro_empleado.MinimumWidth = 6;
-            this.fecharesgitro_empleado.Name = "fecharesgitro_empleado";
-            this.fecharesgitro_empleado.Width = 125;
-            // 
-            // contraseña
-            // 
-            this.contraseña.HeaderText = "Contraseña";
-            this.contraseña.MinimumWidth = 6;
-            this.contraseña.Name = "contraseña";
-            this.contraseña.Visible = false;
-            this.contraseña.Width = 125;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -384,6 +384,7 @@
             // Busqueda_filtro
             // 
             this.Busqueda_filtro.FormattingEnabled = true;
+            this.Busqueda_filtro.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Busqueda_filtro.Items.AddRange(new object[] {
             "ID",
             "Nombre",
