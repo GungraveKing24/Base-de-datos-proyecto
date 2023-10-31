@@ -305,7 +305,7 @@ namespace Machote_Admin_Bases_D
         {
             frmMain mainForm = new frmMain();
             mainForm.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)
@@ -381,6 +381,11 @@ namespace Machote_Admin_Bases_D
                     chk_admin.Checked = false;
                 }
             }
+        }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

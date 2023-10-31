@@ -17,7 +17,6 @@ namespace Machote_Admin_Bases_D
         public frmMain()
         {
             InitializeComponent();
-            
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -71,6 +70,25 @@ namespace Machote_Admin_Bases_D
             frmInventario frmInventario = new frmInventario();
             frmInventario.Show();
             this.Hide();
+        }
+
+        private void btn_entradas_Click(object sender, EventArgs e)
+        {
+            frmEntradas frmEntrada = new frmEntradas();
+            frmEntrada.Show();
+            this.Hide();
+        }
+
+        private void btn_salidas_Click(object sender, EventArgs e)
+        {
+            frmSalidas frmSalida = new frmSalidas();
+            frmSalida.Show();
+            this.Hide();
+        }
+
+        private void btn_informes_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

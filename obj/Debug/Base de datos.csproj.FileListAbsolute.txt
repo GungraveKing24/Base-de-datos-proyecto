@@ -74,3 +74,85 @@ C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.c
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.CopyComplete
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.exe
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.pdb
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\Base de datos.exe.config
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\Base de datos.exe
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\Base de datos.pdb
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\MySqlConnector.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Buffers.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Memory.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Text.Json.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.ValueTuple.dll
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\MySqlConnector.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Buffers.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Memory.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Text.Json.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\bin\Debug\System.ValueTuple.xml
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.AssemblyReference.cache
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.SuggestedBindingRedirects.cache
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmEmpleado.resources
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmInventario.resources
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmMain.resources
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmProveedores.resources
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.Login.resources
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base_de_datos.VistaProducto.resources
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Properties.Resources.resources
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.GenerateResource.cache
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.CoreCompileInputs.cache
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.CopyComplete
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base de datos.exe
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base de datos.pdb
+C:\Users\dabur\Downloads\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.frmEntradas.resources
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\Base de datos.exe.config
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\Base de datos.exe
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\Base de datos.pdb
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\MySqlConnector.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Buffers.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Memory.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Text.Json.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.ValueTuple.dll
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\MySqlConnector.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Buffers.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Memory.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Text.Json.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\bin\Debug\System.ValueTuple.xml
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.AssemblyReference.cache
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmEmpleado.resources
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.frmEntradas.resources
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmInventario.resources
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmMain.resources
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmProveedores.resources
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.frmSalidas.resources
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.Login.resources
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base_de_datos.VistaProducto.resources
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Properties.Resources.resources
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.GenerateResource.cache
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.CoreCompileInputs.cache
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.CopyComplete
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base de datos.exe
+C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base de datos.pdb
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.frmEntradas.resources
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.frmSalidas.resources

@@ -5,23 +5,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Machote_Admin_Bases_D
+namespace Base_de_datos.Formularios
 {
-    public partial class frmProveedores : Form
+    public partial class frmSalidas : Form
     {
         readonly conexion GetConexion = new conexion(); //Llamar la clase conexion
-
-        public frmProveedores()
+        public frmSalidas()
         {
             InitializeComponent();
             CargarDatos();
         }
-        private void CargarDatos()
+
+        private void CargarDatos()      //movimiento inventario
         {
             try
             {
@@ -29,8 +30,9 @@ namespace Machote_Admin_Bases_D
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    string query = "SELECT id_proveedor, nombre_proveedor, telefono_proveedor, correoelectronico_proveedor, ciudad_proveedor, descripcion " +
-                                    "FROM proveedor p ";
+                    string query = "SELECT id_movimiento, fecha_movimiento, cantidad_movimiento, tipo_movimiento " +
+                                    "FROM movimiento_inventario  " +
+                                    "JOIN producto  ON  id_producto = id_productomovimiento";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
                     connection.Open();
@@ -40,14 +42,11 @@ namespace Machote_Admin_Bases_D
                         while (reader.Read())
                         {
                             int ID = reader.GetInt32(0);
-                            string NombrePro = reader.GetString(1);
-                            string Telefono_proveedor = reader.GetString(2);
-                            string Correo_proveedor = reader.GetString(3);
-                            string Ciudad = reader.GetString (4);
-                            string descripcion = reader.GetString(5);
-                
+                            DateTime Fecha_movimiento = reader.GetDateTime(1);
+                            int Cantidad = reader.GetInt32(2);
+                            string Tipo_movimiento = reader.GetString(3);
 
-                            int rowIndex = dgvProveedores.Rows.Add(ID, NombrePro, Telefono_proveedor, Correo_proveedor, Ciudad, descripcion);
+                            int rowIndex = dgvSalidas.Rows.Add(ID, Fecha_movimiento, Cantidad, Tipo_movimiento);
 
                         }
                     }
@@ -59,13 +58,6 @@ namespace Machote_Admin_Bases_D
             }
         }
 
-        private void btn_terminado_Click(object sender, EventArgs e)
-        {
-            frmMain mainForm = new frmMain();
-            mainForm.Show();
-            this.Hide();
-
-        }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

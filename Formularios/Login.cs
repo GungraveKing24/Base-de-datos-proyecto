@@ -123,12 +123,19 @@ namespace Base_de_datos.Formularios
                 else if (GetAdmin == true)
                 {
                     Campos_usuario_admin();
+                    
+                    
                 }
             }
             else
             {
                 //nada
             }
+        }
+
+        private void TextBoxUsuario_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

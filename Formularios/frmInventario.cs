@@ -32,7 +32,7 @@ namespace Machote_Admin_Bases_D
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    string query = "SELECT p.id_producto, p.nombre_producto, p.precio_entrada, p.precio_salida, p.categoria, st.id_stock, st.cantidadstock, st.fecha_stock " +
+                    string query = "SELECT p.id_producto, p.nombre_producto,  p.categoria, st.cantidadstock,  p.precio_entrada, p.precio_salida, st.fecha_stock, p.id_proveedorproducto " +
                                     "FROM producto p " +
                                     "JOIN stock st ON p.id_producto = st.id_productostock";
                     MySqlCommand command = new MySqlCommand(query, connection);
@@ -45,15 +45,15 @@ namespace Machote_Admin_Bases_D
                         {
                             int ID = reader.GetInt32(0);
                             string Nombre = reader.GetString(1);
-                            double PrecioEntrada = reader.GetDouble(2);
-                            double PrecioSalida = reader.GetDouble(3);
-                            string categoria = reader.GetString(4);
-                            int Stock = reader.GetInt32(5);
-                            int CantidadStock = reader.GetInt32(6);
-                            DateTime FechaStock = reader.GetDateTime(7);
+                            string categoria = reader.GetString(2);
+                            int CantidadStock = reader.GetInt32(3);
+                            double PrecioEntrada = reader.GetDouble(4);
+                            double PrecioSalida = reader.GetDouble(5);
+                            DateTime FechaStock = reader.GetDateTime(6);
+                            int ID_Proveedor = reader.GetInt32(7);
 
 
-                            int rowIndex = dgvProductos.Rows.Add(ID, Nombre, PrecioEntrada, PrecioSalida, categoria, Stock, CantidadStock, FechaStock);
+                            int rowIndex = dgvProductos.Rows.Add(ID, Nombre, categoria, CantidadStock,  PrecioEntrada, PrecioSalida, FechaStock, ID_Proveedor);
 
                         }
                     }
@@ -96,7 +96,24 @@ namespace Machote_Admin_Bases_D
 
         private void btn_terminado_Click(object sender, EventArgs e)
         {
+            frmMain mainForm = new frmMain();
+            mainForm.Show();
             this.Close();
+        }
+
+        private void btn_modificar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_pEntrada_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

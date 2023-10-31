@@ -41,11 +41,13 @@
             this.TextBoxUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TextBoxUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxUsuario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TextBoxUsuario.Location = new System.Drawing.Point(195, 118);
+            this.TextBoxUsuario.Location = new System.Drawing.Point(219, 148);
+            this.TextBoxUsuario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxUsuario.Name = "TextBoxUsuario";
-            this.TextBoxUsuario.Size = new System.Drawing.Size(243, 38);
+            this.TextBoxUsuario.Size = new System.Drawing.Size(273, 44);
             this.TextBoxUsuario.TabIndex = 0;
             this.TextBoxUsuario.Text = "esmenb";
+            this.TextBoxUsuario.TextChanged += new System.EventHandler(this.TextBoxUsuario_TextChanged);
             // 
             // TextBoxContraseña
             // 
@@ -54,9 +56,10 @@
             this.TextBoxContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextBoxContraseña.ForeColor = System.Drawing.Color.Gainsboro;
             this.TextBoxContraseña.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.TextBoxContraseña.Location = new System.Drawing.Point(195, 212);
+            this.TextBoxContraseña.Location = new System.Drawing.Point(219, 265);
+            this.TextBoxContraseña.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.TextBoxContraseña.Name = "TextBoxContraseña";
-            this.TextBoxContraseña.Size = new System.Drawing.Size(243, 38);
+            this.TextBoxContraseña.Size = new System.Drawing.Size(273, 44);
             this.TextBoxContraseña.TabIndex = 1;
             this.TextBoxContraseña.Text = "mecareempresa0";
             // 
@@ -66,9 +69,10 @@
             this.LoginButton.CausesValidation = false;
             this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.LoginButton.ForeColor = System.Drawing.Color.Gainsboro;
-            this.LoginButton.Location = new System.Drawing.Point(127, 319);
+            this.LoginButton.Location = new System.Drawing.Point(143, 399);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(184, 53);
+            this.LoginButton.Size = new System.Drawing.Size(207, 66);
             this.LoginButton.TabIndex = 2;
             this.LoginButton.Text = "Ingresar";
             this.LoginButton.UseVisualStyleBackColor = false;
@@ -79,9 +83,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(28, 121);
+            this.label1.Location = new System.Drawing.Point(32, 151);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 32);
+            this.label1.Size = new System.Drawing.Size(130, 38);
             this.label1.TabIndex = 3;
             this.label1.Text = "Usuario";
             // 
@@ -90,23 +94,24 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(28, 215);
+            this.label2.Location = new System.Drawing.Point(32, 269);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(161, 32);
+            this.label2.Size = new System.Drawing.Size(186, 38);
             this.label2.TabIndex = 4;
             this.label2.Text = "Contraseña";
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(0)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(457, 424);
+            this.ClientSize = new System.Drawing.Size(514, 530);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.TextBoxContraseña);
             this.Controls.Add(this.TextBoxUsuario);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);
