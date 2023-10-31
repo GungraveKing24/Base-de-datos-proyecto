@@ -60,7 +60,7 @@
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(509, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(376, 653);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(376, 523);
             this.flowLayoutPanel1.TabIndex = 15;
             // 
             // btn_salir
@@ -68,7 +68,7 @@
             this.btn_salir.BackColor = System.Drawing.Color.IndianRed;
             this.btn_salir.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_salir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_salir.Location = new System.Drawing.Point(10, 591);
+            this.btn_salir.Location = new System.Drawing.Point(10, 461);
             this.btn_salir.Margin = new System.Windows.Forms.Padding(10);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(356, 52);
@@ -80,7 +80,7 @@
             // btn_informes
             // 
             this.btn_informes.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_informes.Location = new System.Drawing.Point(10, 519);
+            this.btn_informes.Location = new System.Drawing.Point(10, 389);
             this.btn_informes.Margin = new System.Windows.Forms.Padding(10);
             this.btn_informes.Name = "btn_informes";
             this.btn_informes.Size = new System.Drawing.Size(356, 52);
@@ -91,7 +91,7 @@
             // btn_salidas
             // 
             this.btn_salidas.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_salidas.Location = new System.Drawing.Point(10, 447);
+            this.btn_salidas.Location = new System.Drawing.Point(10, 317);
             this.btn_salidas.Margin = new System.Windows.Forms.Padding(10);
             this.btn_salidas.Name = "btn_salidas";
             this.btn_salidas.Size = new System.Drawing.Size(356, 52);
@@ -102,7 +102,7 @@
             // btn_entradas
             // 
             this.btn_entradas.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_entradas.Location = new System.Drawing.Point(10, 375);
+            this.btn_entradas.Location = new System.Drawing.Point(10, 245);
             this.btn_entradas.Margin = new System.Windows.Forms.Padding(10);
             this.btn_entradas.Name = "btn_entradas";
             this.btn_entradas.Size = new System.Drawing.Size(356, 52);
@@ -113,7 +113,7 @@
             // btn_proveedores
             // 
             this.btn_proveedores.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_proveedores.Location = new System.Drawing.Point(10, 303);
+            this.btn_proveedores.Location = new System.Drawing.Point(10, 173);
             this.btn_proveedores.Margin = new System.Windows.Forms.Padding(10);
             this.btn_proveedores.Name = "btn_proveedores";
             this.btn_proveedores.Size = new System.Drawing.Size(356, 52);
@@ -125,7 +125,7 @@
             // btn_inventario
             // 
             this.btn_inventario.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_inventario.Location = new System.Drawing.Point(10, 231);
+            this.btn_inventario.Location = new System.Drawing.Point(10, 101);
             this.btn_inventario.Margin = new System.Windows.Forms.Padding(10);
             this.btn_inventario.Name = "btn_inventario";
             this.btn_inventario.Size = new System.Drawing.Size(356, 52);
@@ -137,7 +137,7 @@
             // btn_empleados
             // 
             this.btn_empleados.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_empleados.Location = new System.Drawing.Point(10, 159);
+            this.btn_empleados.Location = new System.Drawing.Point(10, 29);
             this.btn_empleados.Margin = new System.Windows.Forms.Padding(10);
             this.btn_empleados.Name = "btn_empleados";
             this.btn_empleados.Size = new System.Drawing.Size(356, 52);
@@ -153,15 +153,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(509, 653);
+            this.panel1.Size = new System.Drawing.Size(509, 523);
             this.panel1.TabIndex = 16;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(109, 61);
+            this.pictureBox2.Location = new System.Drawing.Point(95, 29);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(290, 222);
+            this.pictureBox2.Size = new System.Drawing.Size(360, 311);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
@@ -170,7 +170,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 361);
+            this.label1.Location = new System.Drawing.Point(38, 389);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(438, 90);
             this.label1.TabIndex = 14;
@@ -181,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(885, 653);
+            this.ClientSize = new System.Drawing.Size(885, 523);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

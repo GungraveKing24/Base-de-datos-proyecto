@@ -123,6 +123,8 @@ namespace Base_de_datos.Formularios
                 else if (GetAdmin == true)
                 {
                     Campos_usuario_admin();
+                    
+                    
                 }
             }
             else

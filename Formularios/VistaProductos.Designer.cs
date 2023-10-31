@@ -30,6 +30,7 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.DatagridStock = new System.Windows.Forms.DataGridView();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.DatagridStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,18 +47,28 @@
             // DatagridStock
             // 
             this.DatagridStock.ColumnHeadersHeight = 29;
-            this.DatagridStock.Location = new System.Drawing.Point(26, 155);
+            this.DatagridStock.Location = new System.Drawing.Point(26, 253);
             this.DatagridStock.Name = "DatagridStock";
             this.DatagridStock.RowHeadersVisible = false;
             this.DatagridStock.RowHeadersWidth = 51;
-            this.DatagridStock.Size = new System.Drawing.Size(1793, 741);
+            this.DatagridStock.Size = new System.Drawing.Size(1793, 643);
             this.DatagridStock.TabIndex = 5;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(582, 78);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(402, 116);
+            this.listBox1.TabIndex = 7;
             // 
             // VistaProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1929, 976);
+            this.ClientSize = new System.Drawing.Size(1924, 976);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DatagridStock);
             this.Name = "VistaProducto";
@@ -71,6 +82,7 @@
 
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView DatagridStock;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
