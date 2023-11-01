@@ -24,6 +24,7 @@ namespace Base_de_datos.Formularios
             InitializeComponent();
         }
 
+        //Resultado del tipo de login al usuario
         private bool login()
         {
             bool exito = false;
@@ -77,6 +78,39 @@ namespace Base_de_datos.Formularios
             return exito;
         }
 
+        //Obtener el nombre para usarlo en el informe
+        public void loginName()
+        {
+            string username = TextBoxUsuario.Text;
+            string password = TextBoxContraseña.Text;
+            bool Confirmacion = login();
+            string connectionString = GetConexion.conectar();
+            MySqlConnection connection = new MySqlConnection(connectionString);
+            if (Confirmacion == true)
+            {
+                try
+                {
+                    connection.Open();
+                    string query = "SELECT id_empleado, nombre_usuario, administrador, contraseña FROM empleado WHERE nombre_usuario = @username AND contraseña = @contraseña";
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@contraseña", password);
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    frmInventario inventory = new frmInventario();
+                    inventory.ObetenerUser(username);
+                    inventory.txt_nombre.Text = username;
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+            }
+        }
+
         public void Campos_usuario_regular()
         {
             //Formularios
@@ -105,6 +139,7 @@ namespace Base_de_datos.Formularios
             FormularioMain.btn_empleados.Enabled = true;
             FormularioMain.btn_proveedores.Enabled = true;
             FormularioMain.Show();
+            this.Hide();
         }
         //Boton login
         private void button1_Click(object sender, EventArgs e)
@@ -123,8 +158,6 @@ namespace Base_de_datos.Formularios
                 else if (GetAdmin == true)
                 {
                     Campos_usuario_admin();
-                    
-                    
                 }
             }
             else

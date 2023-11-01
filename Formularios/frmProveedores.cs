@@ -63,8 +63,7 @@ namespace Machote_Admin_Bases_D
         {
             frmMain mainForm = new frmMain();
             mainForm.Show();
-            this.Hide();
-
+            this.Close();
         }
 
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)

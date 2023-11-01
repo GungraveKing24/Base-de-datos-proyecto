@@ -58,14 +58,9 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_empleados);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(574, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(509, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-<<<<<<< HEAD
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(422, 654);
-=======
             this.flowLayoutPanel1.Size = new System.Drawing.Size(376, 523);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.flowLayoutPanel1.TabIndex = 15;
             // 
             // btn_salir
@@ -73,15 +68,10 @@
             this.btn_salir.BackColor = System.Drawing.Color.IndianRed;
             this.btn_salir.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_salir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-<<<<<<< HEAD
-            this.btn_salir.Location = new System.Drawing.Point(11, 577);
-            this.btn_salir.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
-=======
             this.btn_salir.Location = new System.Drawing.Point(10, 461);
             this.btn_salir.Margin = new System.Windows.Forms.Padding(10);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(400, 65);
+            this.btn_salir.Size = new System.Drawing.Size(356, 52);
             this.btn_salir.TabIndex = 15;
             this.btn_salir.Text = "Salir";
             this.btn_salir.UseVisualStyleBackColor = false;
@@ -90,32 +80,21 @@
             // btn_informes
             // 
             this.btn_informes.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btn_informes.Location = new System.Drawing.Point(11, 488);
-            this.btn_informes.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
-=======
             this.btn_informes.Location = new System.Drawing.Point(10, 389);
             this.btn_informes.Margin = new System.Windows.Forms.Padding(10);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.btn_informes.Name = "btn_informes";
-            this.btn_informes.Size = new System.Drawing.Size(400, 65);
+            this.btn_informes.Size = new System.Drawing.Size(356, 52);
             this.btn_informes.TabIndex = 14;
             this.btn_informes.Text = "Informes";
             this.btn_informes.UseVisualStyleBackColor = true;
-            this.btn_informes.Click += new System.EventHandler(this.btn_informes_Click);
             // 
             // btn_salidas
             // 
             this.btn_salidas.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btn_salidas.Location = new System.Drawing.Point(11, 399);
-            this.btn_salidas.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
-=======
             this.btn_salidas.Location = new System.Drawing.Point(10, 317);
             this.btn_salidas.Margin = new System.Windows.Forms.Padding(10);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.btn_salidas.Name = "btn_salidas";
-            this.btn_salidas.Size = new System.Drawing.Size(400, 65);
+            this.btn_salidas.Size = new System.Drawing.Size(356, 52);
             this.btn_salidas.TabIndex = 13;
             this.btn_salidas.Text = "Salidas";
             this.btn_salidas.UseVisualStyleBackColor = true;
@@ -124,15 +103,10 @@
             // btn_entradas
             // 
             this.btn_entradas.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btn_entradas.Location = new System.Drawing.Point(11, 310);
-            this.btn_entradas.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
-=======
             this.btn_entradas.Location = new System.Drawing.Point(10, 245);
             this.btn_entradas.Margin = new System.Windows.Forms.Padding(10);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.btn_entradas.Name = "btn_entradas";
-            this.btn_entradas.Size = new System.Drawing.Size(400, 65);
+            this.btn_entradas.Size = new System.Drawing.Size(356, 52);
             this.btn_entradas.TabIndex = 12;
             this.btn_entradas.Text = "Entradas";
             this.btn_entradas.UseVisualStyleBackColor = true;
@@ -141,15 +115,10 @@
             // btn_proveedores
             // 
             this.btn_proveedores.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btn_proveedores.Location = new System.Drawing.Point(11, 221);
-            this.btn_proveedores.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
-=======
             this.btn_proveedores.Location = new System.Drawing.Point(10, 173);
             this.btn_proveedores.Margin = new System.Windows.Forms.Padding(10);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.btn_proveedores.Name = "btn_proveedores";
-            this.btn_proveedores.Size = new System.Drawing.Size(400, 65);
+            this.btn_proveedores.Size = new System.Drawing.Size(356, 52);
             this.btn_proveedores.TabIndex = 11;
             this.btn_proveedores.Text = "Proveedores";
             this.btn_proveedores.UseVisualStyleBackColor = true;
@@ -158,15 +127,10 @@
             // btn_inventario
             // 
             this.btn_inventario.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btn_inventario.Location = new System.Drawing.Point(11, 132);
-            this.btn_inventario.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
-=======
             this.btn_inventario.Location = new System.Drawing.Point(10, 101);
             this.btn_inventario.Margin = new System.Windows.Forms.Padding(10);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.btn_inventario.Name = "btn_inventario";
-            this.btn_inventario.Size = new System.Drawing.Size(400, 65);
+            this.btn_inventario.Size = new System.Drawing.Size(356, 52);
             this.btn_inventario.TabIndex = 3;
             this.btn_inventario.Text = "Inventario";
             this.btn_inventario.UseVisualStyleBackColor = true;
@@ -175,15 +139,10 @@
             // btn_empleados
             // 
             this.btn_empleados.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.btn_empleados.Location = new System.Drawing.Point(11, 43);
-            this.btn_empleados.Margin = new System.Windows.Forms.Padding(11, 12, 11, 12);
-=======
             this.btn_empleados.Location = new System.Drawing.Point(10, 29);
             this.btn_empleados.Margin = new System.Windows.Forms.Padding(10);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.btn_empleados.Name = "btn_empleados";
-            this.btn_empleados.Size = new System.Drawing.Size(400, 65);
+            this.btn_empleados.Size = new System.Drawing.Size(356, 52);
             this.btn_empleados.TabIndex = 10;
             this.btn_empleados.Text = "Empleados";
             this.btn_empleados.UseVisualStyleBackColor = true;
@@ -195,28 +154,16 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-<<<<<<< HEAD
-            this.panel1.Size = new System.Drawing.Size(574, 654);
-=======
             this.panel1.Size = new System.Drawing.Size(509, 523);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.panel1.TabIndex = 16;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-<<<<<<< HEAD
-            this.pictureBox2.Location = new System.Drawing.Point(107, 36);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(405, 389);
-=======
             this.pictureBox2.Location = new System.Drawing.Point(95, 29);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(360, 311);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
@@ -225,31 +172,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-            this.label1.Location = new System.Drawing.Point(43, 486);
-=======
             this.label1.Location = new System.Drawing.Point(38, 389);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(537, 108);
+            this.label1.Size = new System.Drawing.Size(438, 90);
             this.label1.TabIndex = 14;
             this.label1.Text = "Bienvenido a la \r\nadministración de MeCare\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
-            this.ClientSize = new System.Drawing.Size(996, 654);
-=======
             this.ClientSize = new System.Drawing.Size(885, 523);
->>>>>>> 70715aaa7a4172afe3962213531bcc718ab1a788
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.IsMdiContainer = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmMain";
             this.Text = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);

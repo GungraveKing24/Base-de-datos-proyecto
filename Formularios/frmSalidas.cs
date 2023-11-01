@@ -1,4 +1,5 @@
 ﻿using Base_de_datos;
+using Machote_Admin_Bases_D;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,13 @@ namespace Base_de_datos.Formularios
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btn_terminado_Click(object sender, EventArgs e)
+        {
+            frmMain mainForm = new frmMain();
+            mainForm.Show();
+            this.Close();
         }
     }
 }

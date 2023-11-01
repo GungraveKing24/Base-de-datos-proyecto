@@ -1,4 +1,5 @@
 ﻿using Base_de_datos;
+using Base_de_datos.Formularios;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,7 @@ namespace Machote_Admin_Bases_D
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    string query = "SELECT p.id_producto, p.nombre_producto,  p.categoria, st.cantidadstock,  p.precio_entrada, p.precio_salida, st.fecha_stock, p.id_proveedorproducto " +
-                                    "FROM producto p " +
-                                    "JOIN stock st ON p.id_producto = st.id_productostock";
+                    string query = "SELECT p.id_producto, p.nombre_producto,  p.categoria, st.cantidadstock,  p.precio_entrada, p.precio_salida, st.fecha_stock, pr.nombre_proveedor FROM producto p JOIN stock st ON p.id_producto = st.id_productostock JOIN proveedor pr ON p.id_proveedorproducto = pr.id_proveedor";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
                     connection.Open();
@@ -50,11 +49,12 @@ namespace Machote_Admin_Bases_D
                             double PrecioEntrada = reader.GetDouble(4);
                             double PrecioSalida = reader.GetDouble(5);
                             DateTime FechaStock = reader.GetDateTime(6);
-                            int ID_Proveedor = reader.GetInt32(7);
+                            string ID_Proveedor = reader.GetString(7);
 
 
                             int rowIndex = dgvProductos.Rows.Add(ID, Nombre, categoria, CantidadStock,  PrecioEntrada, PrecioSalida, FechaStock, ID_Proveedor);
 
+                            dgvProductos.CellFormatting += dgvProductos_CellFormatting;
                         }
                     }
                 }
@@ -65,29 +65,44 @@ namespace Machote_Admin_Bases_D
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            if (e.RowIndex >= 0 && e.ColumnIndex == dgvProductos.Columns["cantidadstock"].Index)
+            {
+                int cantidadStock = -1;
+                if (e.Value != null)
+                    cantidadStock = Convert.ToInt32(e.Value);
 
+                if (cantidadStock <= 5)
+                {
+                    e.CellStyle.ForeColor = Color.Red;
+                }
+                if (cantidadStock > 6 && cantidadStock <= 19)
+                {
+                    e.CellStyle.ForeColor = Color.DarkOrange;
+                }
+                if (cantidadStock >= 20)
+                {
+                    e.CellStyle.ForeColor = Color.Green;
+                }
+            }
         }
 
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        public void ObetenerUser(string ObetenerUserName)
         {
-
+             
         }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void btn_agregar_Click(object sender, EventArgs e)
         {
-
+            Login login = new Login();
+            login.loginName();
         }
 
         private void Invertario_Load(object sender, EventArgs e)
@@ -102,11 +117,6 @@ namespace Machote_Admin_Bases_D
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_pEntrada_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -105,37 +105,66 @@ namespace Machote_Admin_Bases_D
                 bool verificado1 = true;
                 bool verificado2 = true;
 
+                //Verificacion Nombre
                 if (string.IsNullOrWhiteSpace(nombre))
                 {
                     errorProvider1.SetError(txt_nombre, "Por favor, ingrese el nombre correcto.");
                     verificado1 = false;
                 }
+                else
+                {
+                    errorProvider1.SetError(txt_nombre, "");
+                }
+                //Verificacion Apellido
                 if (string.IsNullOrWhiteSpace(apellido))
                 {
                     errorProvider1.SetError(txt_apellido, "Por favor, ingrese el apellido correcto.");
                     verificado1 = false;
                 }
+                else
+                {
+                    errorProvider1.SetError(txt_apellido, "");
+                }
+                //Verificacion UsuarioName (Nombre de usuario)
                 if (string.IsNullOrWhiteSpace(usuarioName))
                 {
                     errorProvider1.SetError(txt_usuario, "Por favor, ingrese un usuario correcto.");
                     verificado1 = false;
                 }
+                else
+                {
+                    errorProvider1.SetError(txt_usuario, "");
+                }
+                //Verificacion Correo
                 if (string.IsNullOrWhiteSpace(correo))
                 {
                     errorProvider1.SetError(txt_correo, "Por favor, ingrese un correo valido");
                     verificado1 = false;
                 }
+                else
+                {
+                    errorProvider1.SetError(txt_correo, "");
+                }
+                //Verificacion Contraseña
                 if (string.IsNullOrWhiteSpace(contrasena))
                 {
                     errorProvider1.SetError(txt_contra, "Por favor, ingrese una contraseña");
                     verificado1 = false;
                 }
+                else
+                {
+                    errorProvider1.SetError(txt_contra, "");
+                }
 
                 // Validar número de teléfono
-                else if (txt_telefono.Text.Length > 8 || !int.TryParse(txt_telefono.Text, out telefono))
+                if (txt_telefono.Text.Length != 8 || !int.TryParse(txt_telefono.Text, out telefono))
                 {
-                    MessageBox.Show("Por favor, ingrese un número de teléfono válido de hasta 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorProvider1.SetError(txt_telefono,"Por favor, ingrese un número de teléfono válido de exactamente 8 dígitos.");
                     verificado2 = false;
+                }
+                else
+                {
+                    errorProvider1.SetError(txt_telefono, "");
                 }
 
                 if (verificado1 && verificado2)
