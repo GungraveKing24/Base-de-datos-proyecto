@@ -79,36 +79,11 @@ namespace Base_de_datos.Formularios
         }
 
         //Obtener el nombre para usarlo en el informe
-        public void loginName()
+        public string loginName()
         {
-            string username = TextBoxUsuario.Text;
-            string password = TextBoxContraseña.Text;
-            bool Confirmacion = login();
-            string connectionString = GetConexion.conectar();
-            MySqlConnection connection = new MySqlConnection(connectionString);
-            if (Confirmacion == true)
-            {
-                try
-                {
-                    connection.Open();
-                    string query = "SELECT id_empleado, nombre_usuario, administrador, contraseña FROM empleado WHERE nombre_usuario = @username AND contraseña = @contraseña";
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-                    cmd.Parameters.AddWithValue("@username", username);
-                    cmd.Parameters.AddWithValue("@contraseña", password);
+            string nombreUser = TextBoxUsuario.Text;
 
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-                    frmInventario inventory = new frmInventario();
-                    inventory.ObetenerUser(username);
-                    inventory.txt_nombre.Text = username;
-
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
+            return nombreUser;
         }
 
         public void Campos_usuario_regular()

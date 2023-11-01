@@ -94,15 +94,11 @@ namespace Machote_Admin_Bases_D
            
         }
 
-        public void ObetenerUser(string ObetenerUserName)
-        {
-             
-        }
-        
         private void btn_agregar_Click(object sender, EventArgs e)
         {
             Login login = new Login();
-            login.loginName();
+            txt_nombre.Text = login.loginName();
+            
         }
 
         private void Invertario_Load(object sender, EventArgs e)
