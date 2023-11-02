@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Machote_Admin_Bases_D
 {
@@ -22,6 +23,10 @@ namespace Machote_Admin_Bases_D
         {
             InitializeComponent();
             CargarDatos();
+    
+            //Cargar los combobox con datos
+            categoriaBox(); 
+            provedorbox();
         }
 
         //metodo cargar datos
@@ -65,6 +70,68 @@ namespace Machote_Admin_Bases_D
             }
         }
 
+        private void categoriaBox()
+        {
+            string connectionString = GetConexion.conectar();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                // Abre la conexión
+                connection.Open();
+
+                // Aquí ejecutarás la consulta y poblarás el ComboBox
+
+                string query = "SELECT categoria FROM producto GROUP BY categoria;";
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Verifica si hay filas en el resultado
+                        if (reader.HasRows)
+                        {
+                            // Itera a través de las filas y agrega los datos al ComboBox
+                            while (reader.Read())
+                            {
+                                string nombre = reader.GetString(0);
+                                cmb_categoria.Items.Add(nombre);
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+        private void provedorbox()
+        {
+            string connectionString = GetConexion.conectar();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                // Abre la conexión
+                connection.Open();
+
+                // Aquí ejecutarás la consulta y poblarás el ComboBox
+
+                string query = "SELECT nombre_proveedor FROM proveedor GROUP BY nombre_proveedor;";
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Verifica si hay filas en el resultado
+                        if (reader.HasRows)
+                        {
+                            // Itera a través de las filas y agrega los datos al ComboBox
+                            while (reader.Read())
+                            {
+                                string provedor = reader.GetString(0);
+                                cmb_proveedor.Items.Add(provedor);
+                            }
+                        }
+                    }
+                }
+            }
+        }
         private void dgvProductos_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.RowIndex >= 0 && e.ColumnIndex == dgvProductos.Columns["cantidadstock"].Index)
@@ -88,6 +155,19 @@ namespace Machote_Admin_Bases_D
             }
         }
 
+        private void Guardar()
+        {
+            int cantidadStock = (int)nudStock.Value;
+            try
+            {
+
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -96,6 +176,8 @@ namespace Machote_Admin_Bases_D
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
+            Guardar();
+
             Login login = new Login();
             txt_nombre.Text = login.loginName();
             
@@ -103,6 +185,7 @@ namespace Machote_Admin_Bases_D
 
         private void Invertario_Load(object sender, EventArgs e)
         {
+
         }
 
         private void btn_terminado_Click(object sender, EventArgs e)
