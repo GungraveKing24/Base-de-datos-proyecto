@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio_Entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio_Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha_Ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
@@ -60,6 +52,15 @@
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
+            this.id_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantidadstock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio_Entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio_Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_Ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.test = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
@@ -77,7 +78,8 @@
             this.Precio_Entrada,
             this.Precio_Salida,
             this.Fecha_Ingreso,
-            this.Proveedor});
+            this.Proveedor,
+            this.test});
             this.dgvProductos.EnableHeadersVisualStyles = false;
             this.dgvProductos.Location = new System.Drawing.Point(15, 62);
             this.dgvProductos.Name = "dgvProductos";
@@ -89,70 +91,6 @@
             this.dgvProductos.TabIndex = 0;
             this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             this.dgvProductos.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProductos_CellFormatting);
-            // 
-            // id_producto
-            // 
-            this.id_producto.HeaderText = "ID";
-            this.id_producto.MinimumWidth = 6;
-            this.id_producto.Name = "id_producto";
-            this.id_producto.ReadOnly = true;
-            this.id_producto.Width = 125;
-            // 
-            // nombre_producto
-            // 
-            this.nombre_producto.HeaderText = "Nombre";
-            this.nombre_producto.MinimumWidth = 6;
-            this.nombre_producto.Name = "nombre_producto";
-            this.nombre_producto.ReadOnly = true;
-            this.nombre_producto.Width = 125;
-            // 
-            // Categoria
-            // 
-            this.Categoria.HeaderText = "Categoría";
-            this.Categoria.MinimumWidth = 6;
-            this.Categoria.Name = "Categoria";
-            this.Categoria.ReadOnly = true;
-            this.Categoria.Width = 125;
-            // 
-            // cantidadstock
-            // 
-            this.cantidadstock.HeaderText = "Stock";
-            this.cantidadstock.MinimumWidth = 6;
-            this.cantidadstock.Name = "cantidadstock";
-            this.cantidadstock.ReadOnly = true;
-            this.cantidadstock.Width = 125;
-            // 
-            // Precio_Entrada
-            // 
-            this.Precio_Entrada.HeaderText = "Precio Entrada";
-            this.Precio_Entrada.MinimumWidth = 6;
-            this.Precio_Entrada.Name = "Precio_Entrada";
-            this.Precio_Entrada.ReadOnly = true;
-            this.Precio_Entrada.Width = 125;
-            // 
-            // Precio_Salida
-            // 
-            this.Precio_Salida.HeaderText = "Precio Salida";
-            this.Precio_Salida.MinimumWidth = 6;
-            this.Precio_Salida.Name = "Precio_Salida";
-            this.Precio_Salida.ReadOnly = true;
-            this.Precio_Salida.Width = 125;
-            // 
-            // Fecha_Ingreso
-            // 
-            this.Fecha_Ingreso.HeaderText = "Fecha Ingreso";
-            this.Fecha_Ingreso.MinimumWidth = 6;
-            this.Fecha_Ingreso.Name = "Fecha_Ingreso";
-            this.Fecha_Ingreso.ReadOnly = true;
-            this.Fecha_Ingreso.Width = 125;
-            // 
-            // Proveedor
-            // 
-            this.Proveedor.HeaderText = "Proveedor";
-            this.Proveedor.MinimumWidth = 6;
-            this.Proveedor.Name = "Proveedor";
-            this.Proveedor.ReadOnly = true;
-            this.Proveedor.Width = 125;
             // 
             // label1
             // 
@@ -384,6 +322,78 @@
             this.btn_agregar.UseVisualStyleBackColor = true;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
+            // id_producto
+            // 
+            this.id_producto.HeaderText = "ID";
+            this.id_producto.MinimumWidth = 6;
+            this.id_producto.Name = "id_producto";
+            this.id_producto.ReadOnly = true;
+            this.id_producto.Width = 125;
+            // 
+            // nombre_producto
+            // 
+            this.nombre_producto.HeaderText = "Nombre";
+            this.nombre_producto.MinimumWidth = 6;
+            this.nombre_producto.Name = "nombre_producto";
+            this.nombre_producto.ReadOnly = true;
+            this.nombre_producto.Width = 125;
+            // 
+            // Categoria
+            // 
+            this.Categoria.HeaderText = "Categoría";
+            this.Categoria.MinimumWidth = 6;
+            this.Categoria.Name = "Categoria";
+            this.Categoria.ReadOnly = true;
+            this.Categoria.Width = 125;
+            // 
+            // cantidadstock
+            // 
+            this.cantidadstock.HeaderText = "Stock";
+            this.cantidadstock.MinimumWidth = 6;
+            this.cantidadstock.Name = "cantidadstock";
+            this.cantidadstock.ReadOnly = true;
+            this.cantidadstock.Width = 125;
+            // 
+            // Precio_Entrada
+            // 
+            this.Precio_Entrada.HeaderText = "Precio Entrada";
+            this.Precio_Entrada.MinimumWidth = 6;
+            this.Precio_Entrada.Name = "Precio_Entrada";
+            this.Precio_Entrada.ReadOnly = true;
+            this.Precio_Entrada.Width = 125;
+            // 
+            // Precio_Salida
+            // 
+            this.Precio_Salida.HeaderText = "Precio Salida";
+            this.Precio_Salida.MinimumWidth = 6;
+            this.Precio_Salida.Name = "Precio_Salida";
+            this.Precio_Salida.ReadOnly = true;
+            this.Precio_Salida.Width = 125;
+            // 
+            // Fecha_Ingreso
+            // 
+            this.Fecha_Ingreso.HeaderText = "Fecha Ingreso";
+            this.Fecha_Ingreso.MinimumWidth = 6;
+            this.Fecha_Ingreso.Name = "Fecha_Ingreso";
+            this.Fecha_Ingreso.ReadOnly = true;
+            this.Fecha_Ingreso.Width = 125;
+            // 
+            // Proveedor
+            // 
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.MinimumWidth = 6;
+            this.Proveedor.Name = "Proveedor";
+            this.Proveedor.ReadOnly = true;
+            this.Proveedor.Width = 125;
+            // 
+            // test
+            // 
+            this.test.HeaderText = "Column1";
+            this.test.MinimumWidth = 6;
+            this.test.Name = "test";
+            this.test.ReadOnly = true;
+            this.test.Width = 125;
+            // 
             // frmInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -433,6 +443,7 @@
         public System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudStock;
+        public System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
@@ -441,7 +452,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio_Salida;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Ingreso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
-        public System.Windows.Forms.TextBox txt_nombre;
+        private System.Windows.Forms.DataGridViewButtonColumn test;
     }
 }
 

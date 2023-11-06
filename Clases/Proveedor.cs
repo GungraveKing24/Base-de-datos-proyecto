@@ -1,76 +1,55 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using static Base_de_datos.Clases.Inventario;
 
 namespace Base_de_datos.Clases
 {
-    internal class Inventario
+    internal class Proveedor
     {
-        conexion conexion = new conexion();
+        conexion Conectar = new conexion();
 
-        public class Datos_Stock
+        public void Rechazado(int id_pedido_reposicion, string estado_de_pedido)
         {
-            //datos del stock
-            int id_stock { get; set; }
-            int cantidadStock { get; set; }
-            public string descripcion { get; set; }
-            int id_productostock { get; set; }
+            try
+            {
+                string connectionString = Conectar.conectar();
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = "UPDATE pedido_reposicion SET estadodepedido = @estadodepedido WHERE id_pedido_reposicion = @id_pedido_reposicion;";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@estadodepedido", estado_de_pedido);
+                    command.Parameters.AddWithValue("@id_pedido_reposicion", id_pedido_reposicion);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
         }
 
-        public class Datos_Producto
+        public class DatosStock()
         {
-            int id_producto { get; set; }
-            string nombre_producto { get; set; }
-            string descripcion { get; set; }
-            double precio_entrada { get; set; }
-            double precio_salida { get; set; }
-            DateTime Fecha_ingreso { get; set; }
-            int id_proveedorproducto { get; set; }
+            //Datos para actualizar stock en SUMA
+            public int id_stock {  get; set; }
+            public int cantidadstock { get; set; }
+            public string fecha_stock { get; set; }
+
+            //Datos para movimiento inventario
+
+
+
         }
 
-        public class Datos_Pedido_Repocision
+        public void Aceptado(DatosStock Datos)
         {
-            int id_pedido { get; set; }
-            DateTime Fecha_Repocicion { get; set; }
-            int Cantidad_Reposicion { get; set; }
-            string Estado_Pedido { get; set; }
-            int id_productopedido { get; set; }
-        }
-
-        public class informe_Inventario
-        {
-            int id_informe { get; set; }
-            DateTime fecha_informe { get; set; }
-            string descripcion_informe { get; set; }
-            int id_producto_informe { get; set; }
-            int id_empleado_informe { get; set; }
-        }
-
-        public class Empleado
-        {
-            public int id_empleado { get; set; }
-            public string nombre_empleado { get; set; }
-        }
-
-        public class movimiento_inventario
-        {
-            public int id_movimiento { get; set; }
-            public DateTime fecha_movimiento { get; set; }
-            public int cantidad_movimiento { get; set; }
-            public string tipo_movimiento { get; set; }
-            public int id_productomovimiento { get; set; }
-        }
-
-        public void guardar(Empleado empleado, movimiento_inventario movimiento)
-        {
-            string connectionString = conexion.conectar();
-
-          
+            string connectionString = Conectar.conectar();
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
@@ -79,14 +58,15 @@ namespace Base_de_datos.Clases
                 {
                     try
                     {
-                        string queryTabla1 = "INSERT INTO tabla1 (columna1, columna2) VALUES (@valor1, @valor2)";
+                        string queryTabla1 = "Update stock SET cantidadstock += @cantidadstock, Fecha_stock = @Fecha_stock WHERE id_stock = @id_stock";
                         string queryTabla2 = "INSERT INTO tabla2 (columna3, columna4) VALUES (@valor3, @valor4)";
                         string queryTabla3 = "INSERT INTO tabla2 (columna5, columna6) VALUES (@valor5, @valor6)";
 
                         using (MySqlCommand cmd1 = new MySqlCommand(queryTabla1, connection, transaction))
                         {
-                            cmd1.Parameters.AddWithValue("@valor1", empleado.id_empleado);
-                            cmd1.Parameters.AddWithValue("@valor2", empleado.nombre_empleado);
+                            cmd1.Parameters.AddWithValue("@cantidadstock",Datos.cantidadstock);
+                            cmd1.Parameters.AddWithValue("@Fecha_stock", Datos.fecha_stock);
+                            cmd1.Parameters.AddWithValue("@id_stock", Datos.id_stock);
                             cmd1.ExecuteNonQuery();
                         }
 

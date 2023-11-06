@@ -334,7 +334,7 @@ namespace Machote_Admin_Bases_D
         {
             frmMain mainForm = new frmMain();
             mainForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btn_agregar_Click(object sender, EventArgs e)

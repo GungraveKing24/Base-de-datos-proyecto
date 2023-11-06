@@ -17,6 +17,7 @@ namespace Machote_Admin_Bases_D
         public frmMain()
         {
             InitializeComponent();
+            this.FormClosing += frmMain_FormClosing;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -89,6 +90,27 @@ namespace Machote_Admin_Bases_D
         private void btn_informes_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //Para Cerrar todo en el formulario
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // Cancela el cierre del formulario principal si el usuario elige "No".
+            }
+            else
+            {
+                // Cierra todos los formularios abiertos.
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form != this) // No cerrar el formulario principal nuevamente.
+                    {
+                        form.Close();
+                    }
+                }
+            }
         }
     }
 }
