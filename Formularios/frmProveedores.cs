@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Base_de_datos.Clases.Proveedor;
 
 namespace Machote_Admin_Bases_D
 {
@@ -120,8 +121,24 @@ namespace Machote_Admin_Bases_D
         {
             try
             {
+                //para stock
+                int id_stock = Convert.ToInt32(txt_id_stock.Text);
+                int cantidad = Convert.ToInt32(txt_cantidad.Text);
+                DateTime Fecha_Actual = DateTime.Now;
+
+                // Create an instance of the Proveedor class
                 Proveedor proveedor = new Proveedor();
-                //proveedor.Aceptado();
+
+                // Create a DatosStock object and set its properties
+                DatosStock datosStock = new DatosStock
+                {
+                    id_stock = id_stock,
+                    cantidadstock = cantidad,
+                    fecha_stock = Fecha_Actual
+                };
+
+                // Call the Aceptado method with the DatosStock object as a parameter
+                proveedor.Aceptado(datosStock);
             }
             catch (Exception ex)
             {

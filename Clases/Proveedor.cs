@@ -39,12 +39,11 @@ namespace Base_de_datos.Clases
             //Datos para actualizar stock en SUMA
             public int id_stock {  get; set; }
             public int cantidadstock { get; set; }
-            public string fecha_stock { get; set; }
+            public DateTime fecha_stock { get; set; }
 
             //Datos para movimiento inventario
-
-
-
+            public int id_pedido_reposicion {  get; set; }
+            public string estado_pedido {  get; set; }
         }
 
         public void Aceptado(DatosStock Datos)
@@ -58,7 +57,7 @@ namespace Base_de_datos.Clases
                 {
                     try
                     {
-                        string queryTabla1 = "Update stock SET cantidadstock += @cantidadstock, Fecha_stock = @Fecha_stock WHERE id_stock = @id_stock";
+                        string queryTabla1 = "Update stock SET cantidadstock = cantidadstock + @cantidadstock, Fecha_stock = @Fecha_stock WHERE id_stock = @id_stock";
                         string queryTabla2 = "INSERT INTO tabla2 (columna3, columna4) VALUES (@valor3, @valor4)";
                         string queryTabla3 = "INSERT INTO tabla2 (columna5, columna6) VALUES (@valor5, @valor6)";
 
@@ -72,8 +71,8 @@ namespace Base_de_datos.Clases
 
                         using (MySqlCommand cmd2 = new MySqlCommand(queryTabla2, connection, transaction))
                         {
-                            cmd2.Parameters.AddWithValue("@valor3", movimiento.id_movimiento);
-                            cmd2.Parameters.AddWithValue("@valor4", movimiento.fecha_movimiento);
+                            cmd2.Parameters.AddWithValue("@valor3", Datos.id_pedido_reposicion);
+                            cmd2.Parameters.AddWithValue("@valor4", Datos.fecha_stock);
                             cmd2.ExecuteNonQuery();
                         }
 
