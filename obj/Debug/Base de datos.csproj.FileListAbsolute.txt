@@ -156,3 +156,4 @@ C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\o
 C:\Users\Sony\Downloads\Base-de-datos-proyecto-10 27 23\Base-de-datos-proyecto\obj\Debug\Base de datos.pdb
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.frmEntradas.resources
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.frmSalidas.resources
+C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.frmInforme.resources

@@ -34,16 +34,22 @@ namespace Base_de_datos.Clases
             }
         }
 
-        public class DatosStock()
+        public class DatosStock
         {
             //Datos para actualizar stock en SUMA
-            public int id_stock {  get; set; }
+            public int id_stock { get; set; }
             public int cantidadstock { get; set; }
             public DateTime fecha_stock { get; set; }
 
-            //Datos para movimiento inventario
-            public int id_pedido_reposicion {  get; set; }
-            public string estado_pedido {  get; set; }
+            //Datos para pedido reposicion
+            public int id_pedido_reposicion { get; set; }
+            public string estado_pedido { get; set; }
+
+            //Datos para informeinventario
+            public DateTime fecha_reposicion { get; set;}
+            public string descripcion_informe {  get; set; }
+            public int id_producto_informe { get; set; }
+            public int id_empleado_informe { get; set; }
         }
 
         public void Aceptado(DatosStock Datos)
@@ -58,8 +64,11 @@ namespace Base_de_datos.Clases
                     try
                     {
                         string queryTabla1 = "Update stock SET cantidadstock = cantidadstock + @cantidadstock, Fecha_stock = @Fecha_stock WHERE id_stock = @id_stock";
-                        string queryTabla2 = "INSERT INTO tabla2 (columna3, columna4) VALUES (@valor3, @valor4)";
-                        string queryTabla3 = "INSERT INTO tabla2 (columna5, columna6) VALUES (@valor5, @valor6)";
+
+                        string queryTabla2 = "INSERT INTO informesinventario (fecha_informe, descripcion_informe, id_producto_informe, id_empleado_informe) " +
+                                             "VALUES (@fecha_informe, @descripcion_informe, @id_producto_informe, @id_empleado_informe)";
+
+                        string queryTabla3 = "INSERT INTO tabla2 () VALUES ()";
 
                         using (MySqlCommand cmd1 = new MySqlCommand(queryTabla1, connection, transaction))
                         {
@@ -71,15 +80,17 @@ namespace Base_de_datos.Clases
 
                         using (MySqlCommand cmd2 = new MySqlCommand(queryTabla2, connection, transaction))
                         {
-                            cmd2.Parameters.AddWithValue("@valor3", Datos.id_pedido_reposicion);
-                            cmd2.Parameters.AddWithValue("@valor4", Datos.fecha_stock);
+                            cmd2.Parameters.AddWithValue("@fecha_reposicion", Datos.fecha_reposicion);
+                            cmd2.Parameters.AddWithValue("@descripcion_informe", Datos.descripcion_informe);
+                            cmd2.Parameters.AddWithValue("@id_producto_informe", Datos.id_producto_informe);
+                            cmd2.Parameters.AddWithValue("@id_empleado_informe", Datos.id_empleado_informe);
                             cmd2.ExecuteNonQuery();
                         }
 
                         using (MySqlCommand cmd3 = new MySqlCommand(queryTabla3, connection, transaction))
                         {
-                            cmd3.Parameters.AddWithValue("@valor3", movimiento.id_movimiento);
-                            cmd3.Parameters.AddWithValue("@valor4", movimiento.fecha_movimiento);
+                            //cmd3.Parameters.AddWithValue("@valor3", movimiento.id_movimiento);
+                            //cmd3.Parameters.AddWithValue("@valor4", movimiento.fecha_movimiento);
                             cmd3.ExecuteNonQuery();
                         }
 

@@ -59,6 +59,9 @@
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txt_id_empleado = new System.Windows.Forms.TextBox();
+            this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.txt_id_stock = new System.Windows.Forms.TextBox();
             this.txt_id_Producto = new System.Windows.Forms.TextBox();
             this.txt_id_Reposicion = new System.Windows.Forms.TextBox();
@@ -80,7 +83,8 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_cantidad = new System.Windows.Forms.TextBox();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_descripcion = new System.Windows.Forms.RichTextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -381,6 +385,9 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txt_descripcion);
+            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.txt_id_empleado);
             this.panel2.Controls.Add(this.txt_cantidad);
             this.panel2.Controls.Add(this.txt_id_stock);
             this.panel2.Controls.Add(this.txt_id_Producto);
@@ -399,23 +406,47 @@
             this.panel2.Size = new System.Drawing.Size(921, 200);
             this.panel2.TabIndex = 38;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(22, 123);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(102, 21);
+            this.label11.TabIndex = 52;
+            this.label11.Text = "Descripcion:";
+            // 
+            // txt_id_empleado
+            // 
+            this.txt_id_empleado.Location = new System.Drawing.Point(706, 83);
+            this.txt_id_empleado.Name = "txt_id_empleado";
+            this.txt_id_empleado.Size = new System.Drawing.Size(183, 22);
+            this.txt_id_empleado.TabIndex = 50;
+            // 
+            // txt_cantidad
+            // 
+            this.txt_cantidad.Location = new System.Drawing.Point(846, 13);
+            this.txt_cantidad.Name = "txt_cantidad";
+            this.txt_cantidad.Size = new System.Drawing.Size(60, 22);
+            this.txt_cantidad.TabIndex = 49;
+            // 
             // txt_id_stock
             // 
-            this.txt_id_stock.Location = new System.Drawing.Point(706, 21);
+            this.txt_id_stock.Location = new System.Drawing.Point(779, 13);
             this.txt_id_stock.Name = "txt_id_stock";
             this.txt_id_stock.Size = new System.Drawing.Size(60, 22);
             this.txt_id_stock.TabIndex = 48;
             // 
             // txt_id_Producto
             // 
-            this.txt_id_Producto.Location = new System.Drawing.Point(640, 21);
+            this.txt_id_Producto.Location = new System.Drawing.Point(713, 13);
             this.txt_id_Producto.Name = "txt_id_Producto";
             this.txt_id_Producto.Size = new System.Drawing.Size(60, 22);
             this.txt_id_Producto.TabIndex = 47;
             // 
             // txt_id_Reposicion
             // 
-            this.txt_id_Reposicion.Location = new System.Drawing.Point(574, 21);
+            this.txt_id_Reposicion.Location = new System.Drawing.Point(647, 13);
             this.txt_id_Reposicion.Name = "txt_id_Reposicion";
             this.txt_id_Reposicion.Size = new System.Drawing.Size(60, 22);
             this.txt_id_Reposicion.TabIndex = 46;
@@ -432,7 +463,7 @@
             // 
             // txt_nombre_producto
             // 
-            this.txt_nombre_producto.Location = new System.Drawing.Point(118, 57);
+            this.txt_nombre_producto.Location = new System.Drawing.Point(124, 57);
             this.txt_nombre_producto.Name = "txt_nombre_producto";
             this.txt_nombre_producto.Size = new System.Drawing.Size(183, 22);
             this.txt_nombre_producto.TabIndex = 44;
@@ -441,7 +472,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(22, 106);
+            this.label9.Location = new System.Drawing.Point(330, 20);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(67, 21);
             this.label9.TabIndex = 43;
@@ -450,7 +481,7 @@
             // chk_estado
             // 
             this.chk_estado.AutoSize = true;
-            this.chk_estado.Location = new System.Drawing.Point(118, 111);
+            this.chk_estado.Location = new System.Drawing.Point(403, 25);
             this.chk_estado.Name = "chk_estado";
             this.chk_estado.Size = new System.Drawing.Size(18, 17);
             this.chk_estado.TabIndex = 42;
@@ -458,7 +489,7 @@
             // 
             // txt_nombre_proveedor
             // 
-            this.txt_nombre_proveedor.Location = new System.Drawing.Point(118, 19);
+            this.txt_nombre_proveedor.Location = new System.Drawing.Point(124, 19);
             this.txt_nombre_proveedor.Name = "txt_nombre_proveedor";
             this.txt_nombre_proveedor.Size = new System.Drawing.Size(183, 22);
             this.txt_nombre_proveedor.TabIndex = 41;
@@ -490,7 +521,7 @@
             // 
             this.Btn_rechazar.BackColor = System.Drawing.Color.IndianRed;
             this.Btn_rechazar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_rechazar.Location = new System.Drawing.Point(357, 105);
+            this.Btn_rechazar.Location = new System.Drawing.Point(462, 105);
             this.Btn_rechazar.Name = "Btn_rechazar";
             this.Btn_rechazar.Size = new System.Drawing.Size(179, 84);
             this.Btn_rechazar.TabIndex = 2;
@@ -502,7 +533,7 @@
             // 
             this.Btn_aceptar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.Btn_aceptar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_aceptar.Location = new System.Drawing.Point(357, 13);
+            this.Btn_aceptar.Location = new System.Drawing.Point(462, 13);
             this.Btn_aceptar.Name = "Btn_aceptar";
             this.Btn_aceptar.Size = new System.Drawing.Size(179, 84);
             this.Btn_aceptar.TabIndex = 0;
@@ -523,7 +554,8 @@
             this.Column4,
             this.Column5,
             this.Column8,
-            this.Column9});
+            this.Column9,
+            this.Column6});
             this.dgvProveedoresRepocision.Location = new System.Drawing.Point(6, 6);
             this.dgvProveedoresRepocision.Name = "dgvProveedoresRepocision";
             this.dgvProveedoresRepocision.RowHeadersVisible = false;
@@ -589,12 +621,20 @@
             this.Column9.Name = "Column9";
             this.Column9.Width = 125;
             // 
-            // txt_cantidad
+            // Column6
             // 
-            this.txt_cantidad.Location = new System.Drawing.Point(772, 21);
-            this.txt_cantidad.Name = "txt_cantidad";
-            this.txt_cantidad.Size = new System.Drawing.Size(60, 22);
-            this.txt_cantidad.TabIndex = 49;
+            this.Column6.HeaderText = "Descripcion";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 125;
+            // 
+            // txt_descripcion
+            // 
+            this.txt_descripcion.Location = new System.Drawing.Point(124, 93);
+            this.txt_descripcion.Name = "txt_descripcion";
+            this.txt_descripcion.Size = new System.Drawing.Size(183, 96);
+            this.txt_descripcion.TabIndex = 53;
+            this.txt_descripcion.Text = "";
             // 
             // frmProveedores
             // 
@@ -610,6 +650,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmProveedores";
             this.Text = "Proveedores";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProveedores_FormClosing);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -667,6 +708,12 @@
         private System.Windows.Forms.CheckBox chk_estado;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_nombre_producto;
+        private System.Windows.Forms.TextBox txt_id_stock;
+        private System.Windows.Forms.TextBox txt_id_Producto;
+        private System.Windows.Forms.TextBox txt_id_Reposicion;
+        private System.Windows.Forms.TextBox txt_cantidad;
+        private System.Windows.Forms.TextBox txt_id_empleado;
+        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -675,9 +722,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.TextBox txt_id_stock;
-        private System.Windows.Forms.TextBox txt_id_Producto;
-        private System.Windows.Forms.TextBox txt_id_Reposicion;
-        private System.Windows.Forms.TextBox txt_cantidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.RichTextBox txt_descripcion;
     }
 }

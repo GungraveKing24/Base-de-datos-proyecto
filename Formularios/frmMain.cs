@@ -112,5 +112,11 @@ namespace Machote_Admin_Bases_D
                 }
             }
         }
+
+        private void btn_informes_Click_1(object sender, EventArgs e)
+        {
+            frmInforme INFORME = new frmInforme();
+            INFORME.Show();
+        }
     }
 }

@@ -87,6 +87,7 @@
             this.btn_informes.TabIndex = 14;
             this.btn_informes.Text = "Informes";
             this.btn_informes.UseVisualStyleBackColor = true;
+            this.btn_informes.Click += new System.EventHandler(this.btn_informes_Click_1);
             // 
             // btn_salidas
             // 

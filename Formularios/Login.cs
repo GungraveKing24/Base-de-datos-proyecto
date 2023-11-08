@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Base_de_datos.Clases.Inventario;
 
 namespace Base_de_datos.Formularios
 {
@@ -23,6 +24,9 @@ namespace Base_de_datos.Formularios
         {
             InitializeComponent();
         }
+
+        // Variable de clase para almacenar id_empleado
+        public static int IdEmpleado { get; private set; } 
 
         //Resultado del tipo de login al usuario
         private bool login()
@@ -45,6 +49,7 @@ namespace Base_de_datos.Formularios
                 MySqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read())
                 {
+                    IdEmpleado = Convert.ToInt32(reader["id_empleado"]);
                     // Credenciales válidas, obtén el valor de "administrador"
                     bool esAdmin = Convert.ToBoolean(reader["administrador"]);
 
