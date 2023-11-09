@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using MySqlConnector; 
 using Machote_Admin_Bases_D;
+using System.Linq;
 
 namespace Base_de_datos.Formularios
 {
@@ -18,7 +19,7 @@ namespace Base_de_datos.Formularios
         {
             frmMain mainForm = new frmMain();
             mainForm.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -39,38 +40,63 @@ namespace Base_de_datos.Formularios
 
         private void CrearArchivoCSV()
         {
-            string filePath = "C:\\Users\\dabur\\OneDrive\\Escritorio\\archivo.csv";//Cambiar ruta hacia un archiv csv ya creado
-
-            if (dgvInformes.Rows.Count > 0)
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                using (StreamWriter sw = new StreamWriter(filePath))
-                {
-                    int columnCount = dgvInformes.ColumnCount;
-                    for (int i = 0; i < columnCount; i++)
-                    {
-                        sw.Write(dgvInformes.Columns[i].HeaderText);
-                        if (i < columnCount - 1)
-                            sw.Write(",");
-                    }
-                    sw.WriteLine();
+                string getpath = saveFileDialog.FileName;
+                string filePath = getpath;
 
-                    foreach (DataGridViewRow row in dgvInformes.Rows)
+                if (dgvInformes.Rows.Count > 0)
+                {
+                    using (StreamWriter sw = new StreamWriter(filePath))
                     {
+                        int columnCount = dgvInformes.ColumnCount;
                         for (int i = 0; i < columnCount; i++)
                         {
-                            if (row.Cells[i].Value != null)
-                                sw.Write(row.Cells[i].Value.ToString());
+                            sw.Write(dgvInformes.Columns[i].HeaderText);
                             if (i < columnCount - 1)
                                 sw.Write(",");
                         }
                         sw.WriteLine();
+
+                        foreach (DataGridViewRow row in dgvInformes.Rows)
+                        {
+                            for (int i = 0; i < columnCount; i++)
+                            {
+                                if (row.Cells[i].Value != null)
+                                    sw.Write(row.Cells[i].Value.ToString());
+                                if (i < columnCount - 1)
+                                    sw.Write(",");
+                            }
+                            sw.WriteLine();
+                        }
                     }
+                    MessageBox.Show("Archivo CSV creado exitosamente en " + filePath, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                MessageBox.Show("Archivo CSV creado exitosamente en " + filePath, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                {
+                    MessageBox.Show("No hay datos para exportar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void frmInforme_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // Cancela el cierre del formulario principal si el usuario elige "No".
             }
             else
             {
-                MessageBox.Show("No hay datos para exportar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Muestra el formulario frmMain y oculta frmEmpleado
+                frmMain mainForm = Application.OpenForms.OfType<frmMain>().FirstOrDefault();
+                if (mainForm != null)
+                {
+                    mainForm.Show();
+                }
+                this.Hide();
             }
         }
     }

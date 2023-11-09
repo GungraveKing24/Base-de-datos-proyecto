@@ -98,7 +98,6 @@ namespace Base_de_datos.Formularios
             frmInventario FormularioInventario = new frmInventario();
             frmEmpleado FormularioEmpleado = new frmEmpleado();
             frmProveedores FormularioProovedor = new frmProveedores();
-            VistaProducto FormularioVistaProducto = new VistaProducto();
 
             //Main formulario
             FormularioMain.btn_empleados.Enabled = false;
@@ -113,7 +112,6 @@ namespace Base_de_datos.Formularios
             frmInventario FormularioInventario = new frmInventario();
             frmEmpleado FormularioEmpleado = new frmEmpleado();
             frmProveedores FormularioProovedor = new frmProveedores();
-            VistaProducto FormularioVistaProducto = new VistaProducto();
 
             //Main formulario
             FormularioMain.btn_empleados.Enabled = true;

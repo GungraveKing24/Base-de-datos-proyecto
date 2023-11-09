@@ -416,5 +416,24 @@ namespace Machote_Admin_Bases_D
         {
 
         }
+
+        private void frmEmpleado_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // Cancela el cierre del formulario principal si el usuario elige "No".
+            }
+            else
+            {
+                // Muestra el formulario frmMain y oculta frmEmpleado
+                frmMain mainForm = Application.OpenForms.OfType<frmMain>().FirstOrDefault();
+                if (mainForm != null)
+                {
+                    mainForm.Show();
+                }
+                this.Hide();
+            }
+        }
     }
 }

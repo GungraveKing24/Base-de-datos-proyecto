@@ -36,9 +36,12 @@
             // 
             // dgvInformes
             // 
-            this.dgvInformes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInformes.Location = new System.Drawing.Point(52, 12);
+            this.dgvInformes.AllowUserToAddRows = false;
+            this.dgvInformes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvInformes.ColumnHeadersHeight = 29;
+            this.dgvInformes.Location = new System.Drawing.Point(12, 12);
             this.dgvInformes.Name = "dgvInformes";
+            this.dgvInformes.RowHeadersVisible = false;
             this.dgvInformes.RowHeadersWidth = 51;
             this.dgvInformes.RowTemplate.Height = 24;
             this.dgvInformes.Size = new System.Drawing.Size(889, 415);
@@ -46,7 +49,7 @@
             // 
             // btnCrearInforme
             // 
-            this.btnCrearInforme.Location = new System.Drawing.Point(530, 493);
+            this.btnCrearInforme.Location = new System.Drawing.Point(121, 433);
             this.btnCrearInforme.Name = "btnCrearInforme";
             this.btnCrearInforme.Size = new System.Drawing.Size(198, 84);
             this.btnCrearInforme.TabIndex = 1;
@@ -59,7 +62,7 @@
             this.btn_terminado.BackColor = System.Drawing.Color.IndianRed;
             this.btn_terminado.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_terminado.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_terminado.Location = new System.Drawing.Point(766, 493);
+            this.btn_terminado.Location = new System.Drawing.Point(577, 433);
             this.btn_terminado.Name = "btn_terminado";
             this.btn_terminado.Size = new System.Drawing.Size(198, 84);
             this.btn_terminado.TabIndex = 4;
@@ -69,11 +72,12 @@
             // 
             // frmInforme
             // 
-            this.ClientSize = new System.Drawing.Size(986, 675);
+            this.ClientSize = new System.Drawing.Size(920, 526);
             this.Controls.Add(this.btn_terminado);
             this.Controls.Add(this.btnCrearInforme);
             this.Controls.Add(this.dgvInformes);
             this.Name = "frmInforme";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmInforme_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInformes)).EndInit();
             this.ResumeLayout(false);
 

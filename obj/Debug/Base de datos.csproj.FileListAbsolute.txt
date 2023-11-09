@@ -67,7 +67,6 @@ C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Machote_Admin_B
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmMain.resources
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Machote_Admin_Bases_D.frmProveedores.resources
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Formularios.Login.resources
-C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.VistaProducto.resources
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base_de_datos.Properties.Resources.resources
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.GenerateResource.cache
 C:\Users\gungr\Documents\GitHub\Base-de-datos-proyecto\obj\Debug\Base de datos.csproj.CoreCompileInputs.cache

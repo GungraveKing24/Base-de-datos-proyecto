@@ -44,14 +44,13 @@ namespace Machote_Admin_Bases_D
             frmProveedores frmPro = new frmProveedores();
             frmPro.Close();
             //formulario productos
-            VistaProducto frmvistaproducto = new VistaProducto();
-            frmvistaproducto.Close();
             //login
             Login login = new Login();
             login.Close();
             Application.Exit();
         }
 
+        //Botones de formularios
         private void btn_empleados_Click(object sender, EventArgs e)
         {
             frmEmpleado empleadoForm = new frmEmpleado();
@@ -87,9 +86,11 @@ namespace Machote_Admin_Bases_D
             this.Hide();
         }
 
-        private void btn_informes_Click(object sender, EventArgs e)
+        private void btn_informes_Click_1(object sender, EventArgs e)
         {
-
+            frmInforme FRMinforme = new frmInforme();
+            FRMinforme.Show();
+            this.Hide();
         }
 
         //Para Cerrar todo en el formulario
@@ -113,10 +114,5 @@ namespace Machote_Admin_Bases_D
             }
         }
 
-        private void btn_informes_Click_1(object sender, EventArgs e)
-        {
-            frmInforme INFORME = new frmInforme();
-            INFORME.Show();
-        }
     }
 }

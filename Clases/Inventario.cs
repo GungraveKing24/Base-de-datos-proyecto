@@ -1,9 +1,7 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,111 +9,127 @@ namespace Base_de_datos.Clases
 {
     internal class Inventario
     {
-        conexion conexion = new conexion();
+        conexion conectar = new conexion();
 
-        public class Datos_Stock
+        //Esto es para añadir productos
+        public class DatosInventario
         {
-            //datos del stock
-            int id_stock { get; set; }
-            int cantidadStock { get; set; }
+            //productos
+            public string nombre_producto {  get; set; }
             public string descripcion { get; set; }
-            int id_productostock { get; set; }
+            public double precio_entrada { get; set; }
+            public double precio_salida { get; set; }
+            public DateTime fecha_ingreso { get; set; }
+            public string categoria {  get; set; }
+            public int id_proveedor { get; set; }
+
+            //stock
+            public int cantidadstock { get; set; }
+            public DateTime fecha_stock { get; set; }
         }
 
-        public class Datos_Producto
+        public void guardar(DatosInventario Datos)
         {
-            int id_producto { get; set; }
-            string nombre_producto { get; set; }
-            string descripcion { get; set; }
-            double precio_entrada { get; set; }
-            double precio_salida { get; set; }
-            DateTime Fecha_ingreso { get; set; }
-            int id_proveedorproducto { get; set; }
-        }
+            string connectionString = conectar.conectar();
+            int idProductoInsertado;
 
-        public class Datos_Pedido_Repocision
-        {
-            int id_pedido { get; set; }
-            DateTime Fecha_Repocicion { get; set; }
-            int Cantidad_Reposicion { get; set; }
-            string Estado_Pedido { get; set; }
-            int id_productopedido { get; set; }
-        }
-
-        public class informe_Inventario
-        {
-            int id_informe { get; set; }
-            DateTime fecha_informe { get; set; }
-            string descripcion_informe { get; set; }
-            int id_producto_informe { get; set; }
-            int id_empleado_informe { get; set; }
-        }
-
-        public class Empleado
-        {
-            public int id_empleado { get; set; }
-            public string nombre_empleado { get; set; }
-        }
-
-        public class movimiento_inventario
-        {
-            public int id_movimiento { get; set; }
-            public DateTime fecha_movimiento { get; set; }
-            public int cantidad_movimiento { get; set; }
-            public string tipo_movimiento { get; set; }
-            public int id_productomovimiento { get; set; }
-        }
-
-        public void guardar(Empleado empleado, movimiento_inventario movimiento)
-        {
-            string connectionString = conexion.conectar();
-
-          
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-
                 using (MySqlTransaction transaction = connection.BeginTransaction())
                 {
                     try
                     {
-                        string queryTabla1 = "INSERT INTO tabla1 (columna1, columna2) VALUES (@valor1, @valor2)";
-                        string queryTabla2 = "INSERT INTO tabla2 (columna3, columna4) VALUES (@valor3, @valor4)";
-                        string queryTabla3 = "INSERT INTO tabla2 (columna5, columna6) VALUES (@valor5, @valor6)";
-
-                        using (MySqlCommand cmd1 = new MySqlCommand(queryTabla1, connection, transaction))
+                        // Insertar un nuevo registro en la tabla producto (id_producto es autoincremental)
+                        using (MySqlCommand command = new MySqlCommand("INSERT INTO producto (nombre_producto, descripcion, precio_entrada, precio_salida, fecha_ingreso, categoria, id_proveedorproducto) VALUES (@nombre, @descripcion, @precio_entrada, @precio_salida, @fecha_ingreso, @categoria, @id_proveedorproducto); SELECT LAST_INSERT_ID();", connection, transaction))
                         {
-                            cmd1.Parameters.AddWithValue("@valor1", empleado.id_empleado);
-                            cmd1.Parameters.AddWithValue("@valor2", empleado.nombre_empleado);
-                            cmd1.ExecuteNonQuery();
+                            // Configurar parámetros para el nuevo producto
+                            command.Parameters.AddWithValue("@nombre", Datos.nombre_producto);
+                            command.Parameters.AddWithValue("@descripcion", Datos.descripcion);
+                            command.Parameters.AddWithValue("@precio_entrada", Datos.precio_entrada);
+                            command.Parameters.AddWithValue("@precio_salida", Datos.precio_salida);
+                            command.Parameters.AddWithValue("@fecha_ingreso", Datos.fecha_ingreso);
+                            command.Parameters.AddWithValue("@categoria", Datos.categoria);
+                            command.Parameters.AddWithValue("@id_proveedorproducto", Datos.id_proveedor);
+
+                            // Obtener el ID del producto insertado
+                            idProductoInsertado = Convert.ToInt32(command.ExecuteScalar());
                         }
 
-                        using (MySqlCommand cmd2 = new MySqlCommand(queryTabla2, connection, transaction))
+                        // Insertar un nuevo registro en la tabla stock utilizando el ID del producto insertado
+                        using (MySqlCommand command2 = new MySqlCommand("INSERT INTO stock (cantidadstock, fecha_stock, id_productostock) VALUES (@cantidadstock, @fecha_stock, @id_productostock);", connection, transaction))
                         {
-                            cmd2.Parameters.AddWithValue("@valor3", movimiento.id_movimiento);
-                            cmd2.Parameters.AddWithValue("@valor4", movimiento.fecha_movimiento);
-                            cmd2.ExecuteNonQuery();
+                            // Configurar parámetros para el nuevo registro en stock
+                            command2.Parameters.AddWithValue("@cantidadstock", Datos.cantidadstock);
+                            command2.Parameters.AddWithValue("@fecha_stock", Datos.fecha_stock);
+                            command2.Parameters.AddWithValue("@id_productostock", idProductoInsertado);
+
+                            // Ejecutar la inserción en stock
+                            command2.ExecuteNonQuery();
                         }
 
-                        using (MySqlCommand cmd3 = new MySqlCommand(queryTabla3, connection, transaction))
-                        {
-                            cmd3.Parameters.AddWithValue("@valor3", movimiento.id_movimiento);
-                            cmd3.Parameters.AddWithValue("@valor4", movimiento.fecha_movimiento);
-                            cmd3.ExecuteNonQuery();
-                        }
-
-                        // Si llegas a este punto sin excepciones, la transacción se completa correctamente
+                        // Confirmar la transacción
                         transaction.Commit();
-                        Console.WriteLine("Datos insertados en ambas tablas correctamente.");
                     }
                     catch (Exception ex)
                     {
-                        // Si ocurre una excepción, se revierte la transacción
+                        // Si ocurre una excepción, revertir la transacción
                         transaction.Rollback();
-                        Console.WriteLine("Error al insertar datos: " + ex.Message);
+                        throw ex;
                     }
                 }
             }
         }
+
+        public void EliminarProducto(int idProducto)
+        {
+            string connectionString = conectar.conectar();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+
+                try
+                {
+                    // Iniciar la transacción si es necesario
+                    using (MySqlTransaction transaction = connection.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Eliminar las entradas correspondientes en la tabla stock
+                            string deleteStockQuery = "DELETE FROM stock WHERE id_productostock = @id_producto";
+                            using (MySqlCommand deleteStockCommand = new MySqlCommand(deleteStockQuery, connection, transaction))
+                            {
+                                deleteStockCommand.Parameters.AddWithValue("@id_producto", idProducto);
+                                deleteStockCommand.ExecuteNonQuery();
+                            }
+
+                            // Eliminar el producto de la tabla producto
+                            string deleteProductoQuery = "DELETE FROM producto WHERE id_producto = @id_producto";
+                            using (MySqlCommand deleteProductoCommand = new MySqlCommand(deleteProductoQuery, connection, transaction))
+                            {
+                                deleteProductoCommand.Parameters.AddWithValue("@id_producto", idProducto);
+                                deleteProductoCommand.ExecuteNonQuery();
+                            }
+
+                            // Confirmar la transacción
+                            transaction.Commit();
+                        }
+                        catch (Exception ex)
+                        {
+                            // Si ocurre una excepción, revertir la transacción
+                            transaction.Rollback();
+                            throw ex;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+        }
+
+
     }
 }

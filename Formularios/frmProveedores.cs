@@ -25,6 +25,9 @@ namespace Machote_Admin_Bases_D
             InitializeComponent();
             CargarDatosProveedor();
             CargarDatosReposicion();
+
+            int idEmpleado = Login.IdEmpleado;
+            txt_id_empleado.Text = idEmpleado.ToString();  
         }
         private void CargarDatosProveedor()
         {
@@ -34,7 +37,7 @@ namespace Machote_Admin_Bases_D
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    string query = "SELECT id_proveedor, nombre_proveedor, telefono_proveedor, correoelectronico_proveedor, ciudad_proveedor, descripcion " +
+                    string query = "SELECT id_proveedor, nombre_proveedor, telefono_proveedor, correoelectronico_proveedor, ciudad_proveedor " +
                                     "FROM proveedor p ";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
@@ -48,11 +51,9 @@ namespace Machote_Admin_Bases_D
                             string NombrePro = reader.GetString(1);
                             string Telefono_proveedor = reader.GetString(2);
                             string Correo_proveedor = reader.GetString(3);
-                            string Ciudad = reader.GetString (4);
-                            string descripcion = reader.GetString(5);
-                
+                            string Ciudad = reader.GetString (4);                
 
-                            int rowIndex = dgvProveedores.Rows.Add(ID, NombrePro, Telefono_proveedor, Correo_proveedor, Ciudad, descripcion);
+                            int rowIndex = dgvProveedores.Rows.Add(ID, NombrePro, Telefono_proveedor, Correo_proveedor, Ciudad);
 
                         }
                     }
@@ -63,7 +64,7 @@ namespace Machote_Admin_Bases_D
                 MessageBox.Show("Error al cargar los datos: " + ex.Message);
             }
         }
-
+        
         private void CargarDatosReposicion()
         {
             try
@@ -136,21 +137,31 @@ namespace Machote_Admin_Bases_D
                 //Compartidos
                 DateTime Fecha_Actual = DateTime.Now;
 
+                //Para poner que a sido aceptado
+                string stockestado = "Aceptado";
+                int idpedido_repo = Convert.ToInt32(txt_id_Reposicion.Text);
+
                 // Create an instance of the Proveedor class
                 Proveedor proveedor = new Proveedor();
 
                 // Create a DatosStock object and set its properties
                 DatosStock datosStock = new DatosStock
                 {
+                    //dato para rellenar el stock
                     id_stock = id_stock,
                     cantidadstock = cantidad,
 
-                    //Datos Compartidos
-                    fecha_stock = Fecha_Actual,
+                    //Dato para informe
+                    descripcion_informe = descripcion_informe,
                     id_producto_informe = id_producto,
-                    id_empleado_informe = id_empleado
+                    id_empleado_informe = id_empleado,
+                        
+                    //Dato compartido
+                    fecha_actual = Fecha_Actual,
 
-
+                    //Dato pedido resctock aceptado
+                    estado_pedido = stockestado,
+                    id_pedido_reposicion = idpedido_repo
                 };
 
                 // Call the Aceptado method with the DatosStock object as a parameter
@@ -177,11 +188,15 @@ namespace Machote_Admin_Bases_D
         private void Btn_aceptar_Click(object sender, EventArgs e)
         {
             AceptarPedido();
+            dgvProveedoresRepocision.Rows.Clear();
+            CargarDatosReposicion();
         }
 
         private void Btn_rechazar_Click(object sender, EventArgs e)
         {
             rechazo();
+            dgvProveedoresRepocision.Rows.Clear();
+            CargarDatosReposicion();
         }
 
         private void dgvProveedoresRepocision_ColumnStateChanged(object sender, DataGridViewColumnStateChangedEventArgs e)
@@ -191,8 +206,6 @@ namespace Machote_Admin_Bases_D
 
         private void dgvProveedoresRepocision_SelectionChanged(object sender, EventArgs e)
         {
-            int idEmpleado = Login.IdEmpleado;
-            txt_id_empleado.Text = idEmpleado.ToString();
             if (dgvProveedoresRepocision.CurrentRow != null)
             {
                 DataGridViewRow row = dgvProveedoresRepocision.CurrentRow;
@@ -227,16 +240,8 @@ namespace Machote_Admin_Bases_D
                     chk_estado.Checked = false;
                     Btn_aceptar.Enabled = false;
                     Btn_rechazar.Enabled = false;
-                }
-
+                } 
             }
-        }
-
-        private void Btn_terminar_Click(object sender, EventArgs e)
-        {
-            frmMain mainForm = new frmMain();
-            mainForm.Show();
-            this.Close();
         }
 
         private void frmProveedores_FormClosing(object sender, FormClosingEventArgs e)
@@ -248,15 +253,33 @@ namespace Machote_Admin_Bases_D
             }
             else
             {
-                // Cierra todos los formularios abiertos.
-                foreach (Form form in Application.OpenForms)
+                // Muestra el formulario frmMain y oculta frmEmpleado
+                frmMain mainForm = Application.OpenForms.OfType<frmMain>().FirstOrDefault();
+                if (mainForm != null)
                 {
-                    if (form != this) // No cerrar el formulario principal nuevamente.
-                    {
-                        form.Close();
-                    }
+                    mainForm.Show();
                 }
+                this.Hide();
             }
+        }
+
+        private void Btn_terminar_Click(object sender, EventArgs e)
+        {
+            frmMain mainForm = new frmMain();
+            mainForm.Show();
+            this.Hide();
+        }
+
+        private void btn_terminado_Click_1(object sender, EventArgs e)
+        {
+            frmMain mainForm = new frmMain();
+            mainForm.Show();
+            this.Hide();
+        }
+
+        private void btn_agregar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

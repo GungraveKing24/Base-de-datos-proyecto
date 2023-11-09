@@ -123,6 +123,7 @@
             // 
             // dgvSalidas
             // 
+            this.dgvSalidas.AllowUserToAddRows = false;
             this.dgvSalidas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSalidas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_productomovimiento,
@@ -131,6 +132,7 @@
             this.tipo_movimiento});
             this.dgvSalidas.Location = new System.Drawing.Point(32, 88);
             this.dgvSalidas.Name = "dgvSalidas";
+            this.dgvSalidas.RowHeadersVisible = false;
             this.dgvSalidas.RowHeadersWidth = 51;
             this.dgvSalidas.RowTemplate.Height = 24;
             this.dgvSalidas.Size = new System.Drawing.Size(740, 366);
@@ -236,6 +238,7 @@
             this.Controls.Add(this.dgvSalidas);
             this.Name = "frmSalidas";
             this.Text = "frmSalidas";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSalidas_FormClosing);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalidas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantSalida)).EndInit();
