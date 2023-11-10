@@ -216,7 +216,7 @@
             this.panel1.Controls.Add(this.btn_agregar);
             this.panel1.Location = new System.Drawing.Point(15, 419);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1035, 240);
+            this.panel1.Size = new System.Drawing.Size(1053, 240);
             this.panel1.TabIndex = 21;
             // 
             // label4
@@ -238,9 +238,9 @@
             // 
             // txt_id_proveedor
             // 
-            this.txt_id_proveedor.Location = new System.Drawing.Point(698, 153);
+            this.txt_id_proveedor.Location = new System.Drawing.Point(722, 94);
             this.txt_id_proveedor.Name = "txt_id_proveedor";
-            this.txt_id_proveedor.Size = new System.Drawing.Size(100, 22);
+            this.txt_id_proveedor.Size = new System.Drawing.Size(49, 22);
             this.txt_id_proveedor.TabIndex = 39;
             // 
             // label5
@@ -371,6 +371,7 @@
             this.btn_eliminar.Text = "Eliminar";
             this.btn_eliminar.UseVisualStyleBackColor = true;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
+            this.btn_eliminar.MouseHover += new System.EventHandler(this.btn_eliminar_MouseHover);
             // 
             // btn_modificar
             // 
@@ -382,6 +383,7 @@
             this.btn_modificar.Text = "Modificar";
             this.btn_modificar.UseVisualStyleBackColor = true;
             this.btn_modificar.Click += new System.EventHandler(this.btn_modificar_Click);
+            this.btn_modificar.MouseHover += new System.EventHandler(this.btn_modificar_MouseHover);
             // 
             // btn_agregar
             // 
@@ -393,6 +395,7 @@
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
             this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
+            this.btn_agregar.MouseHover += new System.EventHandler(this.btn_agregar_MouseHover);
             // 
             // txt_buscador
             // 

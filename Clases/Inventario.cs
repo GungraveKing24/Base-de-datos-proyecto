@@ -15,17 +15,20 @@ namespace Base_de_datos.Clases
         public class DatosInventario
         {
             //productos
-            public string nombre_producto {  get; set; }
+            public string nombre_producto { get; set; }
             public string descripcion { get; set; }
             public double precio_entrada { get; set; }
             public double precio_salida { get; set; }
             public DateTime fecha_ingreso { get; set; }
-            public string categoria {  get; set; }
+            public string categoria { get; set; }
             public int id_proveedor { get; set; }
 
             //stock
             public int cantidadstock { get; set; }
             public DateTime fecha_stock { get; set; }
+
+            //movimiento
+            public string tipo_movimiento { get; set; }
         }
 
         public void guardar(DatosInventario Datos)
@@ -68,6 +71,18 @@ namespace Base_de_datos.Clases
                             command2.ExecuteNonQuery();
                         }
 
+                        using (MySqlCommand command2 = new MySqlCommand("INSERT INTO movimiento_inventario (fecha_movimiento, cantidad_movimiento, tipo_movimiento, id_productomovimiento) VALUES (@fecha_movimiento, @cantidad_movimiento, @tipo_movimiento, @id_productomovimiento);", connection, transaction))
+                        {
+                            // Configurar parámetros para el nuevo registro en stock
+                            command2.Parameters.AddWithValue("@fecha_movimiento", Datos.fecha_stock);
+                            command2.Parameters.AddWithValue("@cantidad_movimiento", Datos.cantidadstock);
+                            command2.Parameters.AddWithValue("@tipo_movimiento", Datos.tipo_movimiento);
+                            command2.Parameters.AddWithValue("@id_productomovimiento", idProductoInsertado);
+
+                            // Ejecutar la inserción en stock
+                            command2.ExecuteNonQuery();
+                        }
+
                         // Confirmar la transacción
                         transaction.Commit();
                     }
@@ -104,6 +119,22 @@ namespace Base_de_datos.Clases
                                 deleteStockCommand.ExecuteNonQuery();
                             }
 
+                            //elimiar de la tabla movimiento
+                            string deletemovimientoQuery = "DELETE FROM movimiento_inventario WHERE id_productomovimiento = @id_producto";
+                            using (MySqlCommand deletemovimientoCommand = new MySqlCommand(deletemovimientoQuery, connection, transaction))
+                            {
+                                deletemovimientoCommand.Parameters.AddWithValue("@id_producto", idProducto);
+                                deletemovimientoCommand.ExecuteNonQuery();
+                            }
+
+                            //eliminar de la tabla pedido_reposicion
+                            string deletepedidoQuery = "DELETE FROM pedido_reposicion WHERE id_productopedido = @id_producto";
+                            using (MySqlCommand deletepedidoCommand = new MySqlCommand(deletepedidoQuery, connection, transaction))
+                            {
+                                deletepedidoCommand.Parameters.AddWithValue("@id_producto", idProducto);
+                                deletepedidoCommand.ExecuteNonQuery();
+                            }
+
                             // Eliminar el producto de la tabla producto
                             string deleteProductoQuery = "DELETE FROM producto WHERE id_producto = @id_producto";
                             using (MySqlCommand deleteProductoCommand = new MySqlCommand(deleteProductoQuery, connection, transaction))
@@ -130,6 +161,33 @@ namespace Base_de_datos.Clases
             }
         }
 
+        public void modificar(string nombre, string categoria, double precioE, double precioS, int proovedorid, string descripcion, int idProducto)
+        {
+            try 
+            {
+                string connectionString = conectar.conectar();
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = "UPDATE producto SET nombre_producto = @nombre_producto, descripcion = @descripcion, precio_entrada = @precio_entrada, precio_salida = @precio_salida, fecha_ingreso = @fecha_ingreso, categoria = @categoria, id_proveedorproducto = @id_proveedorproducto WHERE id_producto = @id_producto";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@nombre_producto", nombre);
+                    command.Parameters.AddWithValue("@descripcion", descripcion);
+                    command.Parameters.AddWithValue("@precio_entrada", precioE);
+                    command.Parameters.AddWithValue("@precio_salida", precioS);
+                    command.Parameters.AddWithValue("@fecha_ingreso", DateTime.Now); // Puedes establecer la fecha actual o modificar según sea necesario
+                    command.Parameters.AddWithValue("@categoria", categoria);
+                    command.Parameters.AddWithValue("@id_proveedorproducto", proovedorid);
+                    command.Parameters.AddWithValue("@id_producto", idProducto);
 
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        
+        }
     }
 }

@@ -32,7 +32,6 @@
             this.btn_terminado = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_buscar = new System.Windows.Forms.Button();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvSalidas = new System.Windows.Forms.DataGridView();
@@ -40,12 +39,13 @@
             this.fecha_movimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad_movimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo_movimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmb_proveedor = new System.Windows.Forms.ComboBox();
+            this.cmb_tipo_movimiento = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_idProducto = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.nudCantSalida = new System.Windows.Forms.NumericUpDown();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalidas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantSalida)).BeginInit();
@@ -83,6 +83,7 @@
             this.btn_agregar.TabIndex = 0;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
+            this.btn_agregar.Click += new System.EventHandler(this.btn_agregar_Click);
             // 
             // label1
             // 
@@ -93,16 +94,6 @@
             this.label1.Size = new System.Drawing.Size(124, 34);
             this.label1.TabIndex = 29;
             this.label1.Text = "SALIDAS";
-            // 
-            // btn_buscar
-            // 
-            this.btn_buscar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_buscar.Location = new System.Drawing.Point(194, 34);
-            this.btn_buscar.Name = "btn_buscar";
-            this.btn_buscar.Size = new System.Drawing.Size(75, 23);
-            this.btn_buscar.TabIndex = 32;
-            this.btn_buscar.Text = "Buscar";
-            this.btn_buscar.UseVisualStyleBackColor = true;
             // 
             // txt_id
             // 
@@ -129,7 +120,8 @@
             this.id_productomovimiento,
             this.fecha_movimiento,
             this.cantidad_movimiento,
-            this.tipo_movimiento});
+            this.tipo_movimiento,
+            this.Column1});
             this.dgvSalidas.Location = new System.Drawing.Point(32, 88);
             this.dgvSalidas.Name = "dgvSalidas";
             this.dgvSalidas.RowHeadersVisible = false;
@@ -137,7 +129,7 @@
             this.dgvSalidas.RowTemplate.Height = 24;
             this.dgvSalidas.Size = new System.Drawing.Size(740, 366);
             this.dgvSalidas.TabIndex = 28;
-            this.dgvSalidas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
+            this.dgvSalidas.SelectionChanged += new System.EventHandler(this.dgvSalidas_SelectionChanged);
             // 
             // id_productomovimiento
             // 
@@ -167,13 +159,13 @@
             this.tipo_movimiento.Name = "tipo_movimiento";
             this.tipo_movimiento.Width = 125;
             // 
-            // cmb_proveedor
+            // cmb_tipo_movimiento
             // 
-            this.cmb_proveedor.FormattingEnabled = true;
-            this.cmb_proveedor.Location = new System.Drawing.Point(434, 487);
-            this.cmb_proveedor.Name = "cmb_proveedor";
-            this.cmb_proveedor.Size = new System.Drawing.Size(121, 24);
-            this.cmb_proveedor.TabIndex = 38;
+            this.cmb_tipo_movimiento.FormattingEnabled = true;
+            this.cmb_tipo_movimiento.Location = new System.Drawing.Point(434, 487);
+            this.cmb_tipo_movimiento.Name = "cmb_tipo_movimiento";
+            this.cmb_tipo_movimiento.Size = new System.Drawing.Size(121, 24);
+            this.cmb_tipo_movimiento.TabIndex = 38;
             // 
             // label10
             // 
@@ -219,6 +211,13 @@
             this.nudCantSalida.Size = new System.Drawing.Size(86, 22);
             this.nudCantSalida.TabIndex = 41;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id producto";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
             // frmSalidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -228,11 +227,10 @@
             this.Controls.Add(this.nudCantSalida);
             this.Controls.Add(this.txt_idProducto);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.cmb_proveedor);
+            this.Controls.Add(this.cmb_tipo_movimiento);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvSalidas);
@@ -253,11 +251,10 @@
         private System.Windows.Forms.Button btn_terminado;
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_buscar;
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvSalidas;
-        private System.Windows.Forms.ComboBox cmb_proveedor;
+        private System.Windows.Forms.ComboBox cmb_tipo_movimiento;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txt_idProducto;
         private System.Windows.Forms.Label label7;
@@ -267,5 +264,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha_movimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantidad_movimiento;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo_movimiento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }

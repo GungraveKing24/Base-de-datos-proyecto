@@ -18,11 +18,21 @@ namespace Machote_Admin_Bases_D
         {
             InitializeComponent();
             this.FormClosing += frmMain_FormClosing;
+
+            LoadButtonDescriptions();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
+        //descripcion de botones
+        private void LoadButtonDescriptions()
         {
-
+            ToolTip toolTip1 = new ToolTip();
+            toolTip1.SetToolTip(btn_empleados, "Aqui se encuentra el control de registro para empleados (solo administradores).");
+            toolTip1.SetToolTip(btn_inventario, "Aqui se puede modificar el inventario.");
+            toolTip1.SetToolTip(btn_proveedores, "Las solicitudes de llenado de stock y procesamientos de proveedores que hay (solo administradores).");
+            toolTip1.SetToolTip(btn_entradas, "Aqui es donde se hace el pedido de stock al proveedor (solo administradores).");
+            toolTip1.SetToolTip(btn_salidas, "Aqui se puede simular el quitarle producto stock a un producto.");
+            toolTip1.SetToolTip(btn_informes, "Para poder crear un informe en CSV use este boton.");
+            toolTip1.SetToolTip(btn_salir, "Sirve para cerrar todo el programa.");   
         }
 
         private void btn_inventario_Click(object sender, EventArgs e)
@@ -113,6 +123,5 @@ namespace Machote_Admin_Bases_D
                 }
             }
         }
-
     }
 }

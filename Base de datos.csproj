@@ -99,6 +99,7 @@
     <Compile Include="Clases\informe.cs" />
     <Compile Include="Clases\Inventario.cs" />
     <Compile Include="Clases\Proveedor.cs" />
+    <Compile Include="Clases\Salida.cs" />
     <Compile Include="Formularios\frmEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>

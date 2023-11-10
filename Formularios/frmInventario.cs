@@ -103,7 +103,6 @@ namespace Machote_Admin_Bases_D
                         }
                     }
                 }
-
             }
         }
 
@@ -115,7 +114,6 @@ namespace Machote_Admin_Bases_D
             {
                 // Abre la conexión
                 connection.Open();
-
                 // Aquí ejecutarás la consulta y poblarás el ComboBox
 
                 string query = "SELECT id_proveedor, nombre_proveedor FROM proveedor;";
@@ -190,6 +188,9 @@ namespace Machote_Admin_Bases_D
                 //Dato compartido
                 DateTime fecha_stock = DateTime.Now;
 
+                //dato movimiento inventario
+                string tipo_movimiento = "Agregado";
+
                 Inventario inventario = new Inventario();
                 DatosInventario datosInventario = new DatosInventario
                 {
@@ -200,11 +201,14 @@ namespace Machote_Admin_Bases_D
                     precio_salida = precio_Salida,
                     fecha_ingreso = fecha_stock,
                     categoria = categoria,
-                    id_proveedor = id_proveedor, 
+                    id_proveedor = id_proveedor,
 
                     //datos para sotck
                     cantidadstock = cantidadstock,
-                    fecha_stock = fecha_stock
+                    fecha_stock = fecha_stock,
+
+                    //datos para movimiento inventario
+                    tipo_movimiento = tipo_movimiento
                 };
                 inventario.guardar(datosInventario);
                 MessageBox.Show("Producto agregado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -229,15 +233,32 @@ namespace Machote_Admin_Bases_D
             catch (Exception ex)
             {
                 MessageBox.Show("Error al eliminar producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw ex;
             }
         }
-
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        
+        private void modificar()
         {
-           
+            try
+            {
+                int id_producto = Convert.ToInt32(txt_id.Text);
+                string nombre = txt_nombre.Text;
+                string categoria = cmb_categoria.Text;
+                double precioE = Convert.ToDouble(txt_pEntrada.Text);
+                double precioS = Convert.ToDouble(txt_pSalida.Text);
+                int proveedor = Convert.ToInt32(txt_id_proveedor.Text);
+                string descripcion = txt_descripcion.Text;
+
+                Inventario inventario = new Inventario();
+                inventario.modificar(nombre, categoria, precioE, precioS, proveedor, descripcion, id_producto);
+                MessageBox.Show("Producto modificado correctamente!!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al modificar el producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
+
         //botones crud
         private void btn_agregar_Click(object sender, EventArgs e)
         {
@@ -246,19 +267,26 @@ namespace Machote_Admin_Bases_D
             CargarDatos();
         }
 
-        private void btn_eliminar_Click(object sender, EventArgs e)
-        {
-            Eliminar();
-            dgvProductos.Rows.Clear();
-            CargarDatos();
-        }
-
         private void btn_modificar_Click(object sender, EventArgs e)
         {
+            modificar();
             dgvProductos.Rows.Clear();
             CargarDatos();
         }
 
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este producto?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                Eliminar();
+                dgvProductos.Rows.Clear();
+                CargarDatos();
+            }
+        }
+
+        //Botones funciones no explicar
         private void btn_terminado_Click(object sender, EventArgs e)
         {
             frmMain mainForm = new frmMain();
@@ -326,9 +354,9 @@ namespace Machote_Admin_Bases_D
         //buscador
         private void txt_buscador_TextChanged(object sender, EventArgs e)
         {
+            string ColumnaBusqueda = txt_buscador.Text.Trim().ToLower();
             try
             {
-                string ColumnaBusqueda = txt_id.Text;
                 foreach (DataGridViewRow row in dgvProductos.Rows)
                 {
                     string valorCelda = row.Cells[0].Value?.ToString().ToLower();
@@ -341,6 +369,24 @@ namespace Machote_Admin_Bases_D
             catch
             {
             }
+        }
+
+        private void btn_modificar_MouseHover(object sender, EventArgs e)
+        {
+            label5.Hide();
+            nudStock.Hide();
+        }
+
+        private void btn_agregar_MouseHover(object sender, EventArgs e)
+        {
+            label5.Show();
+            nudStock.Show();
+        }
+
+        private void btn_eliminar_MouseHover(object sender, EventArgs e)
+        {
+            label5.Show();
+            nudStock.Show();
         }
     }
 }

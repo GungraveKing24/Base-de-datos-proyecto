@@ -32,7 +32,6 @@
             this.txt_id = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_ciudad = new System.Windows.Forms.TextBox();
@@ -45,10 +44,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_terminado = new System.Windows.Forms.Button();
-            this.btn_eliminar = new System.Windows.Forms.Button();
-            this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
+            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefono_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correoelectronico_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ciudad_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_descripcion = new System.Windows.Forms.RichTextBox();
@@ -68,6 +70,7 @@
             this.Btn_rechazar = new System.Windows.Forms.Button();
             this.Btn_aceptar = new System.Windows.Forms.Button();
             this.dgvProveedoresRepocision = new System.Windows.Forms.DataGridView();
+            this.txt_id_proveedor = new System.Windows.Forms.TextBox();
             this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,11 +80,7 @@
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefono_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correoelectronico_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ciudad_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -127,14 +126,6 @@
             this.label1.Size = new System.Drawing.Size(204, 34);
             this.label1.TabIndex = 9;
             this.label1.Text = "PROVEEDORES";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(367, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 37;
             // 
             // tabControl1
             // 
@@ -238,8 +229,6 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btn_terminado);
-            this.panel1.Controls.Add(this.btn_eliminar);
-            this.panel1.Controls.Add(this.btn_modificar);
             this.panel1.Controls.Add(this.btn_agregar);
             this.panel1.Location = new System.Drawing.Point(68, 470);
             this.panel1.Name = "panel1";
@@ -258,26 +247,6 @@
             this.btn_terminado.Text = "Terminado";
             this.btn_terminado.UseVisualStyleBackColor = false;
             this.btn_terminado.Click += new System.EventHandler(this.btn_terminado_Click_1);
-            // 
-            // btn_eliminar
-            // 
-            this.btn_eliminar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(385, 14);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(179, 84);
-            this.btn_eliminar.TabIndex = 2;
-            this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = true;
-            // 
-            // btn_modificar
-            // 
-            this.btn_modificar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modificar.Location = new System.Drawing.Point(200, 14);
-            this.btn_modificar.Name = "btn_modificar";
-            this.btn_modificar.Size = new System.Drawing.Size(179, 84);
-            this.btn_modificar.TabIndex = 1;
-            this.btn_modificar.Text = "Modificar";
-            this.btn_modificar.UseVisualStyleBackColor = true;
             // 
             // btn_agregar
             // 
@@ -308,6 +277,41 @@
             this.dgvProveedores.Size = new System.Drawing.Size(938, 351);
             this.dgvProveedores.TabIndex = 9;
             // 
+            // id_proveedor
+            // 
+            this.id_proveedor.HeaderText = "ID";
+            this.id_proveedor.MinimumWidth = 6;
+            this.id_proveedor.Name = "id_proveedor";
+            this.id_proveedor.Width = 125;
+            // 
+            // nombre_proveedor
+            // 
+            this.nombre_proveedor.HeaderText = "Nombre";
+            this.nombre_proveedor.MinimumWidth = 6;
+            this.nombre_proveedor.Name = "nombre_proveedor";
+            this.nombre_proveedor.Width = 125;
+            // 
+            // telefono_proveedor
+            // 
+            this.telefono_proveedor.HeaderText = "Teléfono";
+            this.telefono_proveedor.MinimumWidth = 6;
+            this.telefono_proveedor.Name = "telefono_proveedor";
+            this.telefono_proveedor.Width = 125;
+            // 
+            // correoelectronico_proveedor
+            // 
+            this.correoelectronico_proveedor.HeaderText = "Correo";
+            this.correoelectronico_proveedor.MinimumWidth = 6;
+            this.correoelectronico_proveedor.Name = "correoelectronico_proveedor";
+            this.correoelectronico_proveedor.Width = 125;
+            // 
+            // ciudad_proveedor
+            // 
+            this.ciudad_proveedor.HeaderText = "Ciudad";
+            this.ciudad_proveedor.MinimumWidth = 6;
+            this.ciudad_proveedor.Name = "ciudad_proveedor";
+            this.ciudad_proveedor.Width = 125;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.panel2);
@@ -323,6 +327,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txt_id_proveedor);
             this.panel2.Controls.Add(this.txt_descripcion);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.txt_id_empleado);
@@ -364,9 +369,9 @@
             // 
             // txt_id_empleado
             // 
-            this.txt_id_empleado.Location = new System.Drawing.Point(706, 83);
+            this.txt_id_empleado.Location = new System.Drawing.Point(647, 57);
             this.txt_id_empleado.Name = "txt_id_empleado";
-            this.txt_id_empleado.Size = new System.Drawing.Size(183, 22);
+            this.txt_id_empleado.Size = new System.Drawing.Size(88, 22);
             this.txt_id_empleado.TabIndex = 50;
             // 
             // txt_cantidad
@@ -501,7 +506,8 @@
             this.Column5,
             this.Column8,
             this.Column9,
-            this.Column6});
+            this.Column6,
+            this.Column7});
             this.dgvProveedoresRepocision.Location = new System.Drawing.Point(6, 6);
             this.dgvProveedoresRepocision.Name = "dgvProveedoresRepocision";
             this.dgvProveedoresRepocision.RowHeadersVisible = false;
@@ -510,6 +516,13 @@
             this.dgvProveedoresRepocision.Size = new System.Drawing.Size(928, 392);
             this.dgvProveedoresRepocision.TabIndex = 0;
             this.dgvProveedoresRepocision.SelectionChanged += new System.EventHandler(this.dgvProveedoresRepocision_SelectionChanged);
+            // 
+            // txt_id_proveedor
+            // 
+            this.txt_id_proveedor.Location = new System.Drawing.Point(741, 59);
+            this.txt_id_proveedor.Name = "txt_id_proveedor";
+            this.txt_id_proveedor.Size = new System.Drawing.Size(60, 22);
+            this.txt_id_proveedor.TabIndex = 54;
             // 
             // Column0
             // 
@@ -574,40 +587,12 @@
             this.Column6.Name = "Column6";
             this.Column6.Width = 125;
             // 
-            // id_proveedor
+            // Column7
             // 
-            this.id_proveedor.HeaderText = "ID";
-            this.id_proveedor.MinimumWidth = 6;
-            this.id_proveedor.Name = "id_proveedor";
-            this.id_proveedor.Width = 125;
-            // 
-            // nombre_proveedor
-            // 
-            this.nombre_proveedor.HeaderText = "Nombre";
-            this.nombre_proveedor.MinimumWidth = 6;
-            this.nombre_proveedor.Name = "nombre_proveedor";
-            this.nombre_proveedor.Width = 125;
-            // 
-            // telefono_proveedor
-            // 
-            this.telefono_proveedor.HeaderText = "Teléfono";
-            this.telefono_proveedor.MinimumWidth = 6;
-            this.telefono_proveedor.Name = "telefono_proveedor";
-            this.telefono_proveedor.Width = 125;
-            // 
-            // correoelectronico_proveedor
-            // 
-            this.correoelectronico_proveedor.HeaderText = "Correo";
-            this.correoelectronico_proveedor.MinimumWidth = 6;
-            this.correoelectronico_proveedor.Name = "correoelectronico_proveedor";
-            this.correoelectronico_proveedor.Width = 125;
-            // 
-            // ciudad_proveedor
-            // 
-            this.ciudad_proveedor.HeaderText = "Ciudad";
-            this.ciudad_proveedor.MinimumWidth = 6;
-            this.ciudad_proveedor.Name = "ciudad_proveedor";
-            this.ciudad_proveedor.Width = 125;
+            this.Column7.HeaderText = "id proveedor";
+            this.Column7.MinimumWidth = 6;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 125;
             // 
             // frmProveedores
             // 
@@ -615,7 +600,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(963, 754);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btn_buscar);
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.label2);
@@ -644,7 +628,6 @@
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TextBox txt_ciudad;
@@ -657,8 +640,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_terminado;
-        private System.Windows.Forms.Button btn_eliminar;
-        private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.DataGridView dgvProveedores;
         private System.Windows.Forms.TabPage tabPage2;
@@ -679,6 +660,13 @@
         private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.TextBox txt_id_empleado;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RichTextBox txt_descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn correoelectronico_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ciudad_proveedor;
+        private System.Windows.Forms.TextBox txt_id_proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -688,11 +676,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.RichTextBox txt_descripcion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre_proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefono_proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn correoelectronico_proveedor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ciudad_proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

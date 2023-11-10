@@ -3,6 +3,7 @@ using Base_de_datos.Clases;
 using Base_de_datos.Formularios;
 using MySqlConnector;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -73,7 +74,7 @@ namespace Machote_Admin_Bases_D
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    string query = "SELECT pe.id_pedido_reposicion, p.nombre_proveedor, pr.nombre_producto, pe.fecha_reposicion, pe.cantidad_reposicion, pe.estadodepedido, pr.id_producto, st.id_stock, ifi.descripcion_informe FROM proveedor p JOIN producto pr ON p.id_proveedor = pr.id_proveedorproducto JOIN pedido_reposicion pe ON pe.id_productopedido = pr.id_producto JOIN stock st ON st.id_productostock = pr.id_producto JOIN informesinventario ifi ON ifi.id_producto_informe = pr.id_producto;";
+                    string query = "SELECT pe.id_pedido_reposicion, p.nombre_proveedor, pr.nombre_producto, pe.fecha_reposicion, pe.cantidad_reposicion, pe.estadodepedido, pr.id_producto, st.id_stock, ifi.descripcion_informe, p.id_proveedor FROM proveedor p JOIN producto pr ON p.id_proveedor = pr.id_proveedorproducto JOIN pedido_reposicion pe ON pe.id_productopedido = pr.id_producto JOIN stock st ON st.id_productostock = pr.id_producto JOIN informesinventario ifi ON ifi.id_producto_informe = pr.id_producto;";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
                     connection.Open();
@@ -91,9 +92,9 @@ namespace Machote_Admin_Bases_D
                             int id_producto = reader.GetInt32(6);
                             int id_stock = reader.GetInt32(7);
                             string descripcion = reader.GetString(8);
+                            int id_proveedor = reader.GetInt32(9);
 
-
-                            int rowIndex = dgvProveedoresRepocision.Rows.Add(ID, NombreProveedor, NombreProducto, Fecha_reposicion, cantidad, estado, id_producto, id_stock, descripcion);
+                            int rowIndex = dgvProveedoresRepocision.Rows.Add(ID, NombreProveedor, NombreProducto, Fecha_reposicion, cantidad, estado, id_producto, id_stock, descripcion, id_proveedor);
 
                         }
                     }
@@ -114,10 +115,11 @@ namespace Machote_Admin_Bases_D
             {
                 Proveedor proveedor = new Proveedor();
                 proveedor.Rechazado(idpedido_repo, estado);
+                MessageBox.Show("El pedido fue rachazado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("El rechazo a fallado" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -129,11 +131,6 @@ namespace Machote_Admin_Bases_D
                 int id_stock = Convert.ToInt32(txt_id_stock.Text);
                 int cantidad = Convert.ToInt32(txt_cantidad.Text);
 
-                //informe inventario
-                string descripcion_informe = txt_descripcion.Text;
-                int id_producto = Convert.ToInt32(txt_id_Producto.Text);
-                int id_empleado = Convert.ToInt32(txt_id_empleado.Text);
-
                 //Compartidos
                 DateTime Fecha_Actual = DateTime.Now;
 
@@ -141,8 +138,20 @@ namespace Machote_Admin_Bases_D
                 string stockestado = "Aceptado";
                 int idpedido_repo = Convert.ToInt32(txt_id_Reposicion.Text);
 
-                // Create an instance of the Proveedor class
+                //informe inventario
+                int id_producto = Convert.ToInt32(txt_id_Producto.Text);
+                int id_empleado = Convert.ToInt32(txt_id_empleado.Text);
+
+                //datos para la descripcion del informe
                 Proveedor proveedor = new Proveedor();
+                string nombre_producto = txt_nombre_producto.Text;
+                int id_proveedor = Convert.ToInt32(txt_id_proveedor.Text);
+
+                string nombreEmpleado = proveedor.ObtenerNombreEmpleado(id_empleado); // Supongamos que tienes el ID del empleado
+                string nombreProveedor = proveedor.ObtenerNombreProveedor(id_proveedor);
+                string descripcion_informe = "El producto reabastecido fue: " + nombre_producto + "en la fecha: " + Fecha_Actual + "con una cantidad total de: " + cantidad + " por el proveedor:" + nombreProveedor + "En el turno de: " + nombreEmpleado;
+                
+                // Create an instance of the Proveedor class
 
                 // Create a DatosStock object and set its properties
                 DatosStock datosStock = new DatosStock
@@ -166,10 +175,32 @@ namespace Machote_Admin_Bases_D
 
                 // Call the Aceptado method with the DatosStock object as a parameter
                 proveedor.Aceptado(datosStock);
+                MessageBox.Show("Pedido aceptado y procesado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show("El producto no fue aceptado debido a un fallo " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //para añadir usuario
+        private void agregar_usuario()
+        {
+            try
+            {
+                string nombre_proveedor = txt_nombre.Text;
+                int telefono_proveedor = Convert.ToInt32(txt_telefono.Text);
+                string correo = txt_correo.Text;
+                string ciudad = txt_ciudad.Text;
+                
+                Proveedor proveedor = new Proveedor();
+                proveedor.UsuarioAdd(nombre_proveedor, telefono_proveedor, correo, ciudad);
+                MessageBox.Show("El proveedor fue agregado con exito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo una falla al agregar un proveedor" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -178,11 +209,6 @@ namespace Machote_Admin_Bases_D
             frmMain mainForm = new frmMain();
             mainForm.Show();
             this.Close();
-        }
-
-        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void Btn_aceptar_Click(object sender, EventArgs e)
@@ -199,9 +225,13 @@ namespace Machote_Admin_Bases_D
             CargarDatosReposicion();
         }
 
-        private void dgvProveedoresRepocision_ColumnStateChanged(object sender, DataGridViewColumnStateChangedEventArgs e)
-        {
+        //Metodos para crear los proveedores
 
+        private void btn_agregar_Click(object sender, EventArgs e)
+        {
+            agregar_usuario();
+            dgvProveedores.Rows.Clear();
+            CargarDatosProveedor();
         }
 
         private void dgvProveedoresRepocision_SelectionChanged(object sender, EventArgs e)
@@ -219,6 +249,7 @@ namespace Machote_Admin_Bases_D
                 txt_id_Producto.Text = Convert.ToString(row.Cells[6].Value);
                 txt_id_stock.Text = Convert.ToString(row.Cells[7].Value);
                 txt_descripcion.Text = Convert.ToString(row.Cells[8].Value);
+                txt_id_proveedor.Text = Convert.ToString(row.Cells[9].Value);
 
                 if (row.Cells[5].Value != null && row.Cells[5].Value?.ToString() == "Completado")
                 {
@@ -275,11 +306,6 @@ namespace Machote_Admin_Bases_D
             frmMain mainForm = new frmMain();
             mainForm.Show();
             this.Hide();
-        }
-
-        private void btn_agregar_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

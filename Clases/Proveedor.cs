@@ -87,7 +87,7 @@ namespace Base_de_datos.Clases
                             cmd2.ExecuteNonQuery();
                         }
 
-                        using (MySqlCommand cmd3 = new MySqlCommand(queryTabla2, connection, transaction))
+                        using (MySqlCommand cmd3 = new MySqlCommand(queryTabla3, connection, transaction))
                         {
                             cmd3.Parameters.AddWithValue("@estadodepedido", Datos.estado_pedido);
                             cmd3.Parameters.AddWithValue("@id_pedido_reposicion", Datos.id_pedido_reposicion);
@@ -106,6 +106,94 @@ namespace Base_de_datos.Clases
                     }
                 }
             }
+        }
+
+        public void UsuarioAdd(string nombre, int telefono, string correo, string ciudad)
+        {
+            conexion Conectar = new conexion();
+
+            try
+            {
+                string connectionString = Conectar.conectar();
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = "INSERT INTO proveedor (nombre_proveedor, telefono_proveedor, correoelectronico_proveedor, ciudad_proveedor) VALUES (@nombre_proveedor, @telefono, @correo, @ciudad)";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@nombre_proveedor", nombre);
+                    command.Parameters.AddWithValue("@telefono", telefono);
+                    command.Parameters.AddWithValue("@correo", correo);
+                    command.Parameters.AddWithValue("@ciudad", ciudad);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string ObtenerNombreEmpleado(int idEmpleado)
+        {
+            string nombreEmpleado = string.Empty;
+            conexion Conectar = new conexion();
+
+            try
+            {
+                string connectionString = Conectar.conectar();
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = "SELECT id_empleado, nombre_empleado FROM empleado WHERE id_empleado = @id_empleado;";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id_empleado", idEmpleado);
+
+                    connection.Open();
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            nombreEmpleado = reader["nombre_empleado"].ToString();
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
+            return nombreEmpleado;
+        }
+
+        public string ObtenerNombreProveedor(int idProveedor)
+        {
+            string nombreProveedor = string.Empty;
+            conexion Conectar = new conexion();
+
+            try
+            {
+                string connectionString = Conectar.conectar();
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = "SELECT id_proveedor, nombre_proveedor FROM proveedor WHERE id_proveedor = @id_proveedor;";
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id_proveedor", idProveedor);
+
+                    connection.Open();
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            nombreProveedor = reader["nombre_proveedor"].ToString();
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
+            return nombreProveedor;
         }
     }
 }
