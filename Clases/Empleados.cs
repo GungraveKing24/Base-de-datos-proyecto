@@ -70,27 +70,6 @@ namespace Base_de_datos.Clases
             }
         }
 
-        public void Delete(int id)
-        {
-            try
-            {
-                string connectionString = Conectar.conectar();
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    string query = "DELETE FROM empleado WHERE id_empleado = @id;";
-                    MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@id", id);
-
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         public string ObtenerContraseña(int id)
         {
             try

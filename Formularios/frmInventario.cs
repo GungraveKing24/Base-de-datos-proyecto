@@ -32,6 +32,27 @@ namespace Machote_Admin_Bases_D
             //Cargar los combobox con datos
             categoriaBox(); 
             provedorbox();
+
+            bloquear();
+        }
+
+        private void bloquear()
+        {
+            Login login = new Login();
+            bool admin = login.Admin();
+
+            if (admin)
+            {
+                txt_administrador.Text = "1";
+                panel_inventario.Visible = true;
+            }
+            else 
+            {
+                panel_inventario.Visible = false;
+                txt_administrador.Text = "0";
+                this.Width = 850;
+                this.Height = 400;
+            }
         }
 
         //metodo cargar datos

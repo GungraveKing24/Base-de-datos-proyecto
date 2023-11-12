@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.panel_inventario = new System.Windows.Forms.Panel();
+            this.txt_administrador = new System.Windows.Forms.TextBox();
             this.btn_nuevo = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_descripcion = new System.Windows.Forms.TextBox();
@@ -188,6 +189,7 @@
             // 
             // txt_id
             // 
+            this.txt_id.Enabled = false;
             this.txt_id.Location = new System.Drawing.Point(66, 29);
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(100, 22);
@@ -196,6 +198,7 @@
             // panel_inventario
             // 
             this.panel_inventario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_inventario.Controls.Add(this.txt_administrador);
             this.panel_inventario.Controls.Add(this.btn_nuevo);
             this.panel_inventario.Controls.Add(this.label4);
             this.panel_inventario.Controls.Add(this.txt_descripcion);
@@ -220,6 +223,14 @@
             this.panel_inventario.Name = "panel_inventario";
             this.panel_inventario.Size = new System.Drawing.Size(1053, 240);
             this.panel_inventario.TabIndex = 21;
+            // 
+            // txt_administrador
+            // 
+            this.txt_administrador.Location = new System.Drawing.Point(865, 99);
+            this.txt_administrador.Name = "txt_administrador";
+            this.txt_administrador.Size = new System.Drawing.Size(49, 22);
+            this.txt_administrador.TabIndex = 43;
+            this.txt_administrador.Visible = false;
             // 
             // btn_nuevo
             // 
@@ -433,7 +444,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1086, 675);
+            this.ClientSize = new System.Drawing.Size(1086, 697);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txt_buscador);
             this.Controls.Add(this.panel_inventario);
@@ -493,6 +504,7 @@
         private System.Windows.Forms.TextBox txt_buscador;
         private System.Windows.Forms.Label label8;
         public System.Windows.Forms.Button btn_nuevo;
+        public System.Windows.Forms.TextBox txt_administrador;
     }
 }
 

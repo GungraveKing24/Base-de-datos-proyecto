@@ -42,7 +42,7 @@ namespace Machote_Admin_Bases_D
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     string query = "SELECT id_proveedor, nombre_proveedor, telefono_proveedor, correoelectronico_proveedor, ciudad_proveedor " +
-                                    "FROM proveedor p ";
+                                    "FROM proveedor p";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
                     connection.Open();
@@ -77,7 +77,7 @@ namespace Machote_Admin_Bases_D
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    string query = "SELECT pe.id_pedido_reposicion, p.nombre_proveedor, pr.nombre_producto, pe.fecha_reposicion, pe.cantidad_reposicion, pe.estadodepedido, pr.id_producto, st.id_stock, ifi.descripcion_informe, p.id_proveedor FROM proveedor p JOIN producto pr ON p.id_proveedor = pr.id_proveedorproducto JOIN pedido_reposicion pe ON pe.id_productopedido = pr.id_producto JOIN stock st ON st.id_productostock = pr.id_producto JOIN informesinventario ifi ON ifi.id_producto_informe = pr.id_producto;";
+                    string query = "SELECT pe.id_pedido_reposicion, p.nombre_proveedor, pr.nombre_producto, pe.fecha_reposicion, pe.cantidad_reposicion, pe.estadodepedido, pr.id_producto, st.id_stock, p.id_proveedor FROM proveedor p JOIN producto pr ON p.id_proveedor = pr.id_proveedorproducto JOIN pedido_reposicion pe ON pe.id_productopedido = pr.id_producto JOIN stock st ON st.id_productostock = pr.id_producto;";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
                     connection.Open();
@@ -94,10 +94,9 @@ namespace Machote_Admin_Bases_D
                             string estado = reader.GetString(5);
                             int id_producto = reader.GetInt32(6);
                             int id_stock = reader.GetInt32(7);
-                            string descripcion = reader.GetString(8);
-                            int id_proveedor = reader.GetInt32(9);
+                            int id_proveedor = reader.GetInt32(8);
 
-                            int rowIndex = dgvProveedoresRepocision.Rows.Add(ID, NombreProveedor, NombreProducto, Fecha_reposicion, cantidad, estado, id_producto, id_stock, descripcion, id_proveedor);
+                            int rowIndex = dgvProveedoresRepocision.Rows.Add(ID, NombreProveedor, NombreProducto, Fecha_reposicion, cantidad, estado, id_producto, id_stock, id_proveedor);
 
                         }
                     }
@@ -251,8 +250,7 @@ namespace Machote_Admin_Bases_D
 
                 txt_id_Producto.Text = Convert.ToString(row.Cells[6].Value);
                 txt_id_stock.Text = Convert.ToString(row.Cells[7].Value);
-                txt_descripcion.Text = Convert.ToString(row.Cells[8].Value);
-                txt_id_proveedor.Text = Convert.ToString(row.Cells[9].Value);
+                txt_id_proveedor.Text = Convert.ToString(row.Cells[8].Value);
 
                 if (row.Cells[5].Value != null && row.Cells[5].Value?.ToString() == "Completado")
                 {

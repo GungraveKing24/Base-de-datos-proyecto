@@ -65,44 +65,41 @@ namespace Base_de_datos.Clases
                 {
                     try
                     {
-                        string queryTabla1 = "Update stock SET cantidadstock = cantidadstock + @cantidadstock, Fecha_stock = @Fecha_stock WHERE id_stock = @id_stock;";
+                        string queryTabla1 = "UPDATE pedido_reposicion SET estadodepedido = @estadodepedido WHERE id_pedido_reposicion = @id_pedido_reposicion;";
+                        string queryTabla2 = "UPDATE stock SET cantidadstock = cantidadstock + @cantidadstock, Fecha_stock = @Fecha_stock WHERE id_stock = @id_stock;";
+                        string queryTabla3 = "INSERT INTO informesinventario (fecha_informe, descripcion_informe, id_producto_informe, id_empleado_informe) VALUES (@fecha_informe, @descripcion_informe, @id_producto_informe, @id_empleado_informe);";
 
-                        string queryTabla2 = "INSERT INTO informesinventario (fecha_informe, descripcion_informe, id_producto_informe, id_empleado_informe) VALUES (@fecha_informe, @descripcion_informe, @id_producto_informe, @id_empleado_informe)";
-
-                        string queryTabla3 = "UPDATE pedido_reposicion SET estadodepedido = @estadodepedido WHERE id_pedido_reposicion = @id_pedido_reposicion;";
                         using (MySqlCommand cmd1 = new MySqlCommand(queryTabla1, connection, transaction))
                         {
-                            cmd1.Parameters.AddWithValue("@cantidadstock",Datos.cantidadstock);
-                            cmd1.Parameters.AddWithValue("@Fecha_stock", Datos.fecha_actual);
-                            cmd1.Parameters.AddWithValue("@id_stock", Datos.id_stock);
+                            cmd1.Parameters.AddWithValue("@estadodepedido", Datos.estado_pedido);
+                            cmd1.Parameters.AddWithValue("@id_pedido_reposicion", Datos.id_pedido_reposicion);
                             cmd1.ExecuteNonQuery();
                         }
 
                         using (MySqlCommand cmd2 = new MySqlCommand(queryTabla2, connection, transaction))
                         {
-                            cmd2.Parameters.AddWithValue("@fecha_informe", Datos.fecha_actual);
-                            cmd2.Parameters.AddWithValue("@descripcion_informe", Datos.descripcion_informe);
-                            cmd2.Parameters.AddWithValue("@id_producto_informe", Datos.id_producto_informe);
-                            cmd2.Parameters.AddWithValue("@id_empleado_informe", Datos.id_empleado_informe);
+                            cmd2.Parameters.AddWithValue("@cantidadstock", Datos.cantidadstock);
+                            cmd2.Parameters.AddWithValue("@Fecha_stock", Datos.fecha_actual);
+                            cmd2.Parameters.AddWithValue("@id_stock", Datos.id_stock);
                             cmd2.ExecuteNonQuery();
                         }
 
                         using (MySqlCommand cmd3 = new MySqlCommand(queryTabla3, connection, transaction))
                         {
-                            cmd3.Parameters.AddWithValue("@estadodepedido", Datos.estado_pedido);
-                            cmd3.Parameters.AddWithValue("@id_pedido_reposicion", Datos.id_pedido_reposicion);
+                            cmd3.Parameters.AddWithValue("@fecha_informe", Datos.fecha_actual);
+                            cmd3.Parameters.AddWithValue("@descripcion_informe", Datos.descripcion_informe);
+                            cmd3.Parameters.AddWithValue("@id_producto_informe", Datos.id_producto_informe);
+                            cmd3.Parameters.AddWithValue("@id_empleado_informe", Datos.id_empleado_informe);
                             cmd3.ExecuteNonQuery();
                         }
 
                         // Si llegas a este punto sin excepciones, la transacción se completa correctamente
                         transaction.Commit();
-                        MessageBox.Show("Datos insertados en ambas tablas correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    catch (Exception ex)
+                    catch
                     {
                         // Si ocurre una excepción, se revierte la transacción
                         transaction.Rollback();
-                        MessageBox.Show("Error al insertar datos en la base de datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

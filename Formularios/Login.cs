@@ -20,6 +20,12 @@ namespace Base_de_datos.Formularios
         //Un bool que permite obtener un parametro para detectar los usuario administradores de los normales
         public static bool GetAdmin { get; private set; }
 
+        public bool Admin()
+        {
+            bool admin = GetAdmin;
+            return admin;
+        }
+
         //Declarar frmmain como variable
         private frmMain FormularioMain;
 

@@ -15,20 +15,19 @@ public class Informe
             using (MySqlConnection conexion = new MySqlConnection(connectionString))
             {
                 string consulta = @"
-                    SELECT
+                    SELECT 
                         p.id_producto AS 'Id Producto',
                         p.nombre_producto AS 'Nombre Producto',
                         e.nombre_empleado AS 'Nombre Empleado',
                         e.apellido_empleado AS 'Apellido Empleado',
                         p.precio_entrada AS 'Precio Entrada',
                         pr.fecha_reposicion AS 'Fecha de Reposición',
-                        s.cantidadstock AS 'Cantidad Stock'
+                        s.cantidad_reposicion AS 'Cantidad Stock'
                     FROM producto p
                     JOIN informesinventario i ON p.id_producto = i.id_producto_informe
                     JOIN empleado e ON i.id_empleado_informe = e.id_empleado
-                    JOIN stock s ON p.id_producto = s.id_productostock
-                    JOIN pedido_reposicion pr ON p.id_producto = pr.id_productopedido;
-                ";
+                    JOIN pedido_reposicion s ON p.id_producto = s.id_productopedido
+                    JOIN pedido_reposicion pr ON p.id_producto = pr.id_productopedido;";
 
                 using (MySqlCommand comando = new MySqlCommand(consulta, conexion))
                 {

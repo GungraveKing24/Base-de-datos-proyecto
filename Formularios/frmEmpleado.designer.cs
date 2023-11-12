@@ -57,7 +57,6 @@
             this.chk_admin = new System.Windows.Forms.CheckBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_terminado = new System.Windows.Forms.Button();
-            this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_modificar = new System.Windows.Forms.Button();
             this.btn_agregar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -319,7 +318,6 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.btn_terminado);
-            this.panel1.Controls.Add(this.btn_eliminar);
             this.panel1.Controls.Add(this.btn_modificar);
             this.panel1.Controls.Add(this.btn_agregar);
             this.panel1.Location = new System.Drawing.Point(19, 590);
@@ -339,17 +337,6 @@
             this.btn_terminado.Text = "Terminado";
             this.btn_terminado.UseVisualStyleBackColor = false;
             this.btn_terminado.Click += new System.EventHandler(this.btn_terminado_Click);
-            // 
-            // btn_eliminar
-            // 
-            this.btn_eliminar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(678, 15);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.Size = new System.Drawing.Size(207, 84);
-            this.btn_eliminar.TabIndex = 2;
-            this.btn_eliminar.Text = "Eliminar";
-            this.btn_eliminar.UseVisualStyleBackColor = true;
-            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_modificar
             // 
@@ -466,7 +453,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox chk_admin;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_eliminar;
         private System.Windows.Forms.Button btn_modificar;
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.Button btn_terminado;

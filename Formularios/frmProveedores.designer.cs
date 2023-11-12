@@ -55,8 +55,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_administrador = new System.Windows.Forms.TextBox();
             this.txt_id_proveedor = new System.Windows.Forms.TextBox();
-            this.txt_descripcion = new System.Windows.Forms.RichTextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.txt_id_empleado = new System.Windows.Forms.TextBox();
             this.txt_cantidad = new System.Windows.Forms.TextBox();
             this.txt_id_stock = new System.Windows.Forms.TextBox();
@@ -80,7 +78,6 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -330,8 +327,6 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.txt_administrador);
             this.panel2.Controls.Add(this.txt_id_proveedor);
-            this.panel2.Controls.Add(this.txt_descripcion);
-            this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.txt_id_empleado);
             this.panel2.Controls.Add(this.txt_cantidad);
             this.panel2.Controls.Add(this.txt_id_stock);
@@ -366,24 +361,6 @@
             this.txt_id_proveedor.Size = new System.Drawing.Size(60, 22);
             this.txt_id_proveedor.TabIndex = 54;
             this.txt_id_proveedor.Visible = false;
-            // 
-            // txt_descripcion
-            // 
-            this.txt_descripcion.Location = new System.Drawing.Point(124, 93);
-            this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(183, 96);
-            this.txt_descripcion.TabIndex = 53;
-            this.txt_descripcion.Text = "";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(22, 123);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(102, 21);
-            this.label11.TabIndex = 52;
-            this.label11.Text = "Descripcion:";
             // 
             // txt_id_empleado
             // 
@@ -529,7 +506,6 @@
             this.Column5,
             this.Column8,
             this.Column9,
-            this.Column6,
             this.Column7});
             this.dgvProveedoresRepocision.Location = new System.Drawing.Point(6, 6);
             this.dgvProveedoresRepocision.Name = "dgvProveedoresRepocision";
@@ -595,13 +571,6 @@
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.Width = 125;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Descripcion";
-            this.Column6.MinimumWidth = 6;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 125;
             // 
             // Column7
             // 
@@ -676,14 +645,13 @@
         private System.Windows.Forms.TextBox txt_id_Reposicion;
         private System.Windows.Forms.TextBox txt_cantidad;
         private System.Windows.Forms.TextBox txt_id_empleado;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.RichTextBox txt_descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono_proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn correoelectronico_proveedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn ciudad_proveedor;
         private System.Windows.Forms.TextBox txt_id_proveedor;
+        public System.Windows.Forms.TextBox txt_administrador;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column0;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -692,8 +660,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        public System.Windows.Forms.TextBox txt_administrador;
     }
 }

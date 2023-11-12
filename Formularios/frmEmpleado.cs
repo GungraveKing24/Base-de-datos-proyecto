@@ -269,37 +269,6 @@ namespace Machote_Admin_Bases_D
             }
         }
 
-        private void Eliminar()
-        {
-            try
-            {
-                int id = Convert.ToInt32(txt_id.Text);
-                Empleados empleados = new Empleados();
-
-
-                DialogResult result = MessageBox.Show("¿Estás seguro de que deseas eliminar este registro?",
-                                                      "Confirmar eliminación",
-                                                      MessageBoxButtons.YesNo,
-                                                      MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
-                {
-                    empleados.Delete(id);
-                    MessageBox.Show("Registro eliminado correctamente de la base de datos.");
-                    dgvProductos.Rows.Clear();
-                    CargarDatos();
-                    limpiar();
-                }
-                else
-                {
-                    MessageBox.Show("Se cancelo la operacion", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         private void limpiar()
         {
             txt_id.Clear();
@@ -339,11 +308,6 @@ namespace Machote_Admin_Bases_D
         private void btn_modificar_Click(object sender, EventArgs e)
         {
             modificar();
-        }
-
-        private void btn_eliminar_Click(object sender, EventArgs e)
-        {
-            Eliminar();
         }
 
         private void txt_busqueda_TextChanged(object sender, EventArgs e)
