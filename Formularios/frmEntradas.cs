@@ -148,12 +148,6 @@ namespace Base_de_datos.Formularios
 
         }
 
-        private void btn_terminado_Click(object sender, EventArgs e)
-        {
-            frmMain mainForm = new frmMain();
-            mainForm.Show();
-            this.Hide();
-        }
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
@@ -215,6 +209,19 @@ namespace Base_de_datos.Formularios
                     mainForm.Show();
                 }
                 this.Hide();
+            }
+        }
+
+        private void btn_terminado_Click(object sender, EventArgs e)
+        {
+            frmEntradas_FormClosing(this, new FormClosingEventArgs(CloseReason.UserClosing, false));
+        }
+
+        private void frmEntradas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Owner != null)
+            {
+                Owner.Show();
             }
         }
     }

@@ -78,6 +78,7 @@
             this.Controls.Add(this.dgvInformes);
             this.Name = "frmInforme";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmInforme_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmInforme_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInformes)).EndInit();
             this.ResumeLayout(false);
 

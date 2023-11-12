@@ -28,8 +28,11 @@ namespace Machote_Admin_Bases_D
             CargarDatosReposicion();
 
             int idEmpleado = Login.IdEmpleado;
+            bool empleado = Login.GetAdmin;
             txt_id_empleado.Text = idEmpleado.ToString();  
+            txt_administrador.Text = empleado.ToString();
         }
+
         private void CargarDatosProveedor()
         {
             try
@@ -275,6 +278,17 @@ namespace Machote_Admin_Bases_D
             }
         }
 
+        //Funciones para cerrar
+        private void Btn_terminar_Click(object sender, EventArgs e)
+        {
+            frmProveedores_FormClosing(this, new FormClosingEventArgs(CloseReason.UserClosing, false));
+        }
+
+        private void btn_terminado_Click_1(object sender, EventArgs e)
+        {
+            frmProveedores_FormClosing(this, new FormClosingEventArgs(CloseReason.UserClosing, false));
+        }
+
         private void frmProveedores_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo);
@@ -294,18 +308,12 @@ namespace Machote_Admin_Bases_D
             }
         }
 
-        private void Btn_terminar_Click(object sender, EventArgs e)
+        private void frmProveedores_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmMain mainForm = new frmMain();
-            mainForm.Show();
-            this.Hide();
-        }
-
-        private void btn_terminado_Click_1(object sender, EventArgs e)
-        {
-            frmMain mainForm = new frmMain();
-            mainForm.Show();
-            this.Hide();
+            if (Owner != null)
+            {
+                Owner.Show();
+            }
         }
     }
 }

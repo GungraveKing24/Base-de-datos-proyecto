@@ -14,13 +14,20 @@ namespace Machote_Admin_Bases_D
 {
     public partial class frmMain : Form
     {
+        private frmEmpleado frmEmpleado;
+        private frmInventario frmInventario;
+        private frmProveedores frmProveedor;
+        private frmInforme FormularioInforme;
+        private frmEntradas frmEntradas;
+        private frmSalidas frmSalida;
+
         public frmMain()
         {
             InitializeComponent();
-            this.FormClosing += frmMain_FormClosing;
-
             LoadButtonDescriptions();
         }
+
+
 
         //descripcion de botones
         private void LoadButtonDescriptions()
@@ -63,44 +70,134 @@ namespace Machote_Admin_Bases_D
         //Botones de formularios
         private void btn_empleados_Click(object sender, EventArgs e)
         {
-            frmEmpleado empleadoForm = new frmEmpleado();
-            empleadoForm.Show();
             this.Hide();
+            // Verificar si ya se ha creado una instancia de frmInforme
+            if (frmEmpleado == null || frmEmpleado.IsDisposed)
+            {
+                // Si no existe, crear una nueva instancia
+                frmEmpleado = new frmEmpleado();
+
+                // Configurar el estado inicial de frmInforme si es necesario
+                // ...
+
+                // Mostrar frmInforme
+                frmEmpleado.Show();
+            }
+            else
+            {
+                // Si ya existe, simplemente mostrarlo
+                frmEmpleado.Show();
+            }
         }
 
         private void btn_proveedores_Click(object sender, EventArgs e)
         {
-            frmProveedores proveedoresForm = new frmProveedores();
-            proveedoresForm.Show();
             this.Hide();
+            // Verificar si ya se ha creado una instancia de frmInforme
+            if (frmProveedor == null || frmProveedor.IsDisposed)
+            {
+                // Si no existe, crear una nueva instancia
+                frmProveedor = new frmProveedores();
+
+                // Configurar el estado inicial de frmInforme si es necesario
+                // ...
+
+                // Mostrar frmInforme
+                frmProveedor.Show();
+            }
+            else
+            {
+                // Si ya existe, simplemente mostrarlo
+                frmProveedor.Show();
+            }
         }
 
         private void btn_inventario_Click_1(object sender, EventArgs e)
         {
-            frmInventario frmInventario = new frmInventario();
-            frmInventario.Show();
             this.Hide();
+            // Verificar si ya se ha creado una instancia de frmInforme
+            if (frmInventario == null || frmInventario.IsDisposed)
+            {
+                // Si no existe, crear una nueva instancia
+                frmInventario = new frmInventario();
+
+                // Configurar el estado inicial de frmInforme si es necesario
+                // ...
+
+                // Mostrar frmInforme
+                frmInventario.Show();
+            }
+            else
+            {
+                // Si ya existe, simplemente mostrarlo
+                frmInventario.Show();
+            }
         }
 
         private void btn_entradas_Click(object sender, EventArgs e)
         {
-            frmEntradas frmEntrada = new frmEntradas();
-            frmEntrada.Show();
             this.Hide();
+            // Verificar si ya se ha creado una instancia de frmInforme
+            if (frmEntradas == null || frmEntradas.IsDisposed)
+            {
+                // Si no existe, crear una nueva instancia
+                frmEntradas = new frmEntradas();
+
+                // Configurar el estado inicial de frmInforme si es necesario
+                // ...
+
+                // Mostrar frmInforme
+                frmEntradas.Show();
+            }
+            else
+            {
+                // Si ya existe, simplemente mostrarlo
+                frmEntradas.Show();
+            }
         }
 
         private void btn_salidas_Click(object sender, EventArgs e)
         {
-            frmSalidas frmSalida = new frmSalidas();
-            frmSalida.Show();
             this.Hide();
+            // Verificar si ya se ha creado una instancia de frmInforme
+            if (frmSalida == null || frmSalida.IsDisposed)
+            {
+                // Si no existe, crear una nueva instancia
+                frmSalida = new frmSalidas();
+
+                // Configurar el estado inicial de frmInforme si es necesario
+                // ...
+
+                // Mostrar frmInforme
+                frmSalida.Show();
+            }
+            else
+            {
+                // Si ya existe, simplemente mostrarlo
+                frmSalida.Show();
+            }
         }
 
         private void btn_informes_Click_1(object sender, EventArgs e)
         {
-            frmInforme FRMinforme = new frmInforme();
-            FRMinforme.Show();
             this.Hide();
+            // Verificar si ya se ha creado una instancia de frmInforme
+            if (FormularioInforme == null || FormularioInforme.IsDisposed)
+            {
+                // Si no existe, crear una nueva instancia
+                FormularioInforme = new frmInforme();
+
+                // Configurar el estado inicial de frmInforme si es necesario
+                // ...
+
+                // Mostrar frmInforme
+                FormularioInforme.Show();
+            }
+            else
+            {
+                // Si ya existe, simplemente mostrarlo
+                FormularioInforme.Show();
+            }
         }
 
         //Para Cerrar todo en el formulario

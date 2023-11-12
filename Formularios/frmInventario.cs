@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Base_de_datos.Clases.Inventario;
+using static Base_de_datos.Formularios.Login;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Machote_Admin_Bases_D
@@ -259,12 +260,23 @@ namespace Machote_Admin_Bases_D
 
         }
 
+        private void limpiador()
+        {
+            txt_id.Clear();
+            txt_nombre.Clear();
+            txt_pEntrada.Clear();
+            txt_pSalida.Clear();
+            txt_descripcion.Clear();
+            txt_id_proveedor.Clear();
+        }
+
         //botones crud
         private void btn_agregar_Click(object sender, EventArgs e)
         {
             Guardar();
             dgvProductos.Rows.Clear();
             CargarDatos();
+            limpiador();
         }
 
         private void btn_modificar_Click(object sender, EventArgs e)
@@ -272,6 +284,7 @@ namespace Machote_Admin_Bases_D
             modificar();
             dgvProductos.Rows.Clear();
             CargarDatos();
+            limpiador();
         }
 
         private void btn_eliminar_Click(object sender, EventArgs e)
@@ -286,33 +299,6 @@ namespace Machote_Admin_Bases_D
             }
         }
 
-        //Botones funciones no explicar
-        private void btn_terminado_Click(object sender, EventArgs e)
-        {
-            frmMain mainForm = new frmMain();
-            mainForm.Show();
-            this.Hide();
-        }
-
-
-        private void frmInventario_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
-            {
-                e.Cancel = true; // Cancela el cierre del formulario principal si el usuario elige "No".
-            }
-            else
-            {
-                // Muestra el formulario frmMain y oculta frmEmpleado
-                frmMain mainForm = Application.OpenForms.OfType<frmMain>().FirstOrDefault();
-                if (mainForm != null)
-                {
-                    mainForm.Show();
-                }
-                this.Hide();
-            }
-        }
 
         private void dgvProductos_SelectionChanged(object sender, EventArgs e)
         {
@@ -371,6 +357,7 @@ namespace Machote_Admin_Bases_D
             }
         }
 
+        //Botones funciones no explicar
         private void btn_modificar_MouseHover(object sender, EventArgs e)
         {
             label5.Hide();
@@ -387,6 +374,44 @@ namespace Machote_Admin_Bases_D
         {
             label5.Show();
             nudStock.Show();
+        }
+
+        //Botones para cerrar
+        private void btn_terminado_Click(object sender, EventArgs e)
+        {
+            frmInventario_FormClosing(this, new FormClosingEventArgs(CloseReason.UserClosing, false));
+        }
+
+        private void frmInventario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // Cancela el cierre del formulario principal si el usuario elige "No".
+            }
+            else
+            {
+                // Muestra el formulario frmMain y oculta frmEmpleado
+                frmMain mainForm = Application.OpenForms.OfType<frmMain>().FirstOrDefault();
+                if (mainForm != null)
+                {
+                    mainForm.Show();
+                }
+                this.Hide();
+            }
+        }
+
+        private void frmInventario_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Owner != null)
+            {
+                Owner.Show();
+            }
+        }
+
+        private void btn_nuevo_Click(object sender, EventArgs e)
+        {
+            limpiador();
         }
     }
 }

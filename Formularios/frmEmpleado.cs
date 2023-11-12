@@ -330,12 +330,6 @@ namespace Machote_Admin_Bases_D
             dgvProductos.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
-        private void btn_terminado_Click(object sender, EventArgs e)
-        {
-            frmMain mainForm = new frmMain();
-            mainForm.Show();
-            this.Hide();
-        }
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {
@@ -417,6 +411,12 @@ namespace Machote_Admin_Bases_D
 
         }
 
+        //Funciones para cerrar
+        private void btn_terminado_Click(object sender, EventArgs e)
+        {
+            frmEmpleado_FormClosing(this, new FormClosingEventArgs(CloseReason.UserClosing, false));
+        }
+
         private void frmEmpleado_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo);
@@ -433,6 +433,14 @@ namespace Machote_Admin_Bases_D
                     mainForm.Show();
                 }
                 this.Hide();
+            }
+        }
+
+        private void frmEmpleado_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Owner != null)
+            {
+                Owner.Show();
             }
         }
     }

@@ -45,7 +45,6 @@
             this.TextBoxUsuario.Name = "TextBoxUsuario";
             this.TextBoxUsuario.Size = new System.Drawing.Size(243, 38);
             this.TextBoxUsuario.TabIndex = 0;
-            this.TextBoxUsuario.Text = "esmenb";
             this.TextBoxUsuario.TextChanged += new System.EventHandler(this.TextBoxUsuario_TextChanged);
             // 
             // TextBoxContraseña
@@ -57,9 +56,9 @@
             this.TextBoxContraseña.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.TextBoxContraseña.Location = new System.Drawing.Point(188, 135);
             this.TextBoxContraseña.Name = "TextBoxContraseña";
+            this.TextBoxContraseña.PasswordChar = '*';
             this.TextBoxContraseña.Size = new System.Drawing.Size(243, 38);
             this.TextBoxContraseña.TabIndex = 1;
-            this.TextBoxContraseña.Text = "mecareempresa0";
             // 
             // LoginButton
             // 

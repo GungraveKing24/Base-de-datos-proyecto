@@ -18,7 +18,10 @@ namespace Base_de_datos.Formularios
         readonly conexion GetConexion = new conexion();
 
         //Un bool que permite obtener un parametro para detectar los usuario administradores de los normales
-        public bool GetAdmin { get; set; }
+        public static bool GetAdmin { get; private set; }
+
+        //Declarar frmmain como variable
+        private frmMain FormularioMain;
 
         public Login()
         {
@@ -26,10 +29,11 @@ namespace Base_de_datos.Formularios
         }
 
         // Variable de clase para almacenar id_empleado
-        public static int IdEmpleado { get; private set; } 
+        public static int IdEmpleado { get; private set; }
 
         //Resultado del tipo de login al usuario
-        private bool login()
+
+        public bool login()
         {
             bool exito = false;
 
@@ -63,7 +67,7 @@ namespace Base_de_datos.Formularios
                     {
                         MessageBox.Show("Inicio de sesión exitoso como usuario regular");
                         // Haz lo que necesites hacer si es un usuario regular
-                        GetAdmin =false;
+                        GetAdmin = false;
                     }
 
                     exito = true;
@@ -73,7 +77,6 @@ namespace Base_de_datos.Formularios
                     // Credenciales incorrectas, muestra un mensaje de error
                     MessageBox.Show("Credenciales incorrectas. Inténtalo de nuevo.");
                 }
-
                 reader.Close();
             }
             catch (Exception ex)
@@ -94,15 +97,24 @@ namespace Base_de_datos.Formularios
         public void Campos_usuario_regular()
         {
             //Formularios
-            frmMain FormularioMain = new frmMain(); 
+            frmMain FormularioMain = new frmMain();
             frmInventario FormularioInventario = new frmInventario();
-            frmEmpleado FormularioEmpleado = new frmEmpleado();
-            frmProveedores FormularioProovedor = new frmProveedores();
 
             //Main formulario
             FormularioMain.btn_empleados.Enabled = false;
+            FormularioMain.btn_inventario.Enabled = true;
             FormularioMain.btn_proveedores.Enabled = false;
+            FormularioMain.btn_entradas.Enabled = false;
+            FormularioMain.btn_salidas.Enabled = true;
+            FormularioMain.btn_informes.Enabled = true;
+            FormularioMain.txt_administrador.Text= "0";
+
+            //Formulario Inventario
+            FormularioInventario.panel_inventario.Visible = false;
+            FormularioInventario.Refresh();
+
             FormularioMain.Show();
+            this.Hide();
         }
 
         public void Campos_usuario_admin()
@@ -110,15 +122,23 @@ namespace Base_de_datos.Formularios
             //Formularios
             frmMain FormularioMain = new frmMain();
             frmInventario FormularioInventario = new frmInventario();
-            frmEmpleado FormularioEmpleado = new frmEmpleado();
-            frmProveedores FormularioProovedor = new frmProveedores();
 
             //Main formulario
             FormularioMain.btn_empleados.Enabled = true;
+            FormularioMain.btn_inventario.Enabled = true;
             FormularioMain.btn_proveedores.Enabled = true;
+            FormularioMain.btn_entradas.Enabled = true;
+            FormularioMain.btn_salidas.Enabled = true;
+            FormularioMain.btn_informes.Enabled = true;
+            FormularioMain.txt_administrador.Text = "1";
+
+            //Formulario Inventario
+            FormularioInventario.panel_inventario.Visible = true;
+
             FormularioMain.Show();
             this.Hide();
         }
+
         //Boton login
         private void button1_Click(object sender, EventArgs e)
         {
@@ -127,8 +147,6 @@ namespace Base_de_datos.Formularios
             // Ahora puedes utilizar el valor "resultadoLogin" según sea necesario
             if (resultadoLogin)
             {
-                frmMain FormularioMain = new frmMain();
-                FormularioMain.Close();
                 if (GetAdmin == false)
                 {
                     Campos_usuario_regular();

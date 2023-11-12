@@ -53,6 +53,8 @@
             this.ciudad_proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_administrador = new System.Windows.Forms.TextBox();
+            this.txt_id_proveedor = new System.Windows.Forms.TextBox();
             this.txt_descripcion = new System.Windows.Forms.RichTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txt_id_empleado = new System.Windows.Forms.TextBox();
@@ -70,7 +72,6 @@
             this.Btn_rechazar = new System.Windows.Forms.Button();
             this.Btn_aceptar = new System.Windows.Forms.Button();
             this.dgvProveedoresRepocision = new System.Windows.Forms.DataGridView();
-            this.txt_id_proveedor = new System.Windows.Forms.TextBox();
             this.Column0 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,7 +155,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(940, 610);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Control Empleados";
+            this.tabPage1.Text = "Control Proveedores";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // txt_ciudad
@@ -327,6 +328,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txt_administrador);
             this.panel2.Controls.Add(this.txt_id_proveedor);
             this.panel2.Controls.Add(this.txt_descripcion);
             this.panel2.Controls.Add(this.label11);
@@ -348,6 +350,22 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(921, 200);
             this.panel2.TabIndex = 38;
+            // 
+            // txt_administrador
+            // 
+            this.txt_administrador.Location = new System.Drawing.Point(828, 59);
+            this.txt_administrador.Name = "txt_administrador";
+            this.txt_administrador.Size = new System.Drawing.Size(49, 22);
+            this.txt_administrador.TabIndex = 55;
+            this.txt_administrador.Visible = false;
+            // 
+            // txt_id_proveedor
+            // 
+            this.txt_id_proveedor.Location = new System.Drawing.Point(741, 59);
+            this.txt_id_proveedor.Name = "txt_id_proveedor";
+            this.txt_id_proveedor.Size = new System.Drawing.Size(60, 22);
+            this.txt_id_proveedor.TabIndex = 54;
+            this.txt_id_proveedor.Visible = false;
             // 
             // txt_descripcion
             // 
@@ -373,6 +391,7 @@
             this.txt_id_empleado.Name = "txt_id_empleado";
             this.txt_id_empleado.Size = new System.Drawing.Size(88, 22);
             this.txt_id_empleado.TabIndex = 50;
+            this.txt_id_empleado.Visible = false;
             // 
             // txt_cantidad
             // 
@@ -380,6 +399,7 @@
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(60, 22);
             this.txt_cantidad.TabIndex = 49;
+            this.txt_cantidad.Visible = false;
             // 
             // txt_id_stock
             // 
@@ -387,6 +407,7 @@
             this.txt_id_stock.Name = "txt_id_stock";
             this.txt_id_stock.Size = new System.Drawing.Size(60, 22);
             this.txt_id_stock.TabIndex = 48;
+            this.txt_id_stock.Visible = false;
             // 
             // txt_id_Producto
             // 
@@ -394,6 +415,7 @@
             this.txt_id_Producto.Name = "txt_id_Producto";
             this.txt_id_Producto.Size = new System.Drawing.Size(60, 22);
             this.txt_id_Producto.TabIndex = 47;
+            this.txt_id_Producto.Visible = false;
             // 
             // txt_id_Reposicion
             // 
@@ -401,6 +423,7 @@
             this.txt_id_Reposicion.Name = "txt_id_Reposicion";
             this.txt_id_Reposicion.Size = new System.Drawing.Size(60, 22);
             this.txt_id_Reposicion.TabIndex = 46;
+            this.txt_id_Reposicion.Visible = false;
             // 
             // label10
             // 
@@ -517,13 +540,6 @@
             this.dgvProveedoresRepocision.TabIndex = 0;
             this.dgvProveedoresRepocision.SelectionChanged += new System.EventHandler(this.dgvProveedoresRepocision_SelectionChanged);
             // 
-            // txt_id_proveedor
-            // 
-            this.txt_id_proveedor.Location = new System.Drawing.Point(741, 59);
-            this.txt_id_proveedor.Name = "txt_id_proveedor";
-            this.txt_id_proveedor.Size = new System.Drawing.Size(60, 22);
-            this.txt_id_proveedor.TabIndex = 54;
-            // 
             // Column0
             // 
             this.Column0.HeaderText = "ID";
@@ -608,6 +624,7 @@
             this.Name = "frmProveedores";
             this.Text = "Proveedores";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmProveedores_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmProveedores_FormClosed);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -677,5 +694,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        public System.Windows.Forms.TextBox txt_administrador;
     }
 }

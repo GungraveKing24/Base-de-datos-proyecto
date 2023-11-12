@@ -15,12 +15,6 @@ namespace Base_de_datos.Formularios
             CargarDatosEnDataGridView();
         }
 
-        private void btn_terminado_Click(object sender, EventArgs e)
-        {
-            frmMain mainForm = new frmMain();
-            mainForm.Show();
-            this.Hide();
-        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -81,6 +75,7 @@ namespace Base_de_datos.Formularios
             }
         }
 
+        //Funciones de cerrar
         private void frmInforme_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo);
@@ -97,6 +92,19 @@ namespace Base_de_datos.Formularios
                     mainForm.Show();
                 }
                 this.Hide();
+            }
+        }
+
+        private void btn_terminado_Click(object sender, EventArgs e)
+        {
+            frmInforme_FormClosing(this, new FormClosingEventArgs(CloseReason.UserClosing, false));
+        }
+
+        private void frmInforme_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Owner != null)
+            {
+                Owner.Show();
             }
         }
     }

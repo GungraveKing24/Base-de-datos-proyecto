@@ -37,6 +37,7 @@
             this.btn_inventario = new System.Windows.Forms.Button();
             this.btn_empleados = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txt_administrador = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
@@ -150,6 +151,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.txt_administrador);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -157,6 +159,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(509, 523);
             this.panel1.TabIndex = 16;
+            // 
+            // txt_administrador
+            // 
+            this.txt_administrador.Location = new System.Drawing.Point(12, 59);
+            this.txt_administrador.Name = "txt_administrador";
+            this.txt_administrador.Size = new System.Drawing.Size(49, 22);
+            this.txt_administrador.TabIndex = 15;
+            this.txt_administrador.Visible = false;
             // 
             // pictureBox2
             // 
@@ -203,14 +213,15 @@
         #endregion
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_salir;
-        private System.Windows.Forms.Button btn_informes;
-        private System.Windows.Forms.Button btn_salidas;
-        private System.Windows.Forms.Button btn_entradas;
-        private System.Windows.Forms.Button btn_inventario;
         public System.Windows.Forms.Button btn_empleados;
         public System.Windows.Forms.Button btn_proveedores;
+        public System.Windows.Forms.Button btn_informes;
+        public System.Windows.Forms.Button btn_salidas;
+        public System.Windows.Forms.Button btn_entradas;
+        public System.Windows.Forms.Button btn_inventario;
+        public System.Windows.Forms.TextBox txt_administrador;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

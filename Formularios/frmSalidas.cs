@@ -97,30 +97,41 @@ namespace Base_de_datos.Formularios
             }
         }
 
-        private void btn_terminado_Click(object sender, EventArgs e)
+        private int obtenerStock()
         {
-            frmMain mainForm = new frmMain();
-            mainForm.Show();
-            this.Hide();
-        }
+            int stockObtenido = 0;
+            string connectionString = GetConexion.conectar();
 
-        private void frmSalidas_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo);
-            if (result == DialogResult.No)
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                e.Cancel = true; // Cancela el cierre del formulario principal si el usuario elige "No".
-            }
-            else
-            {
-                // Muestra el formulario frmMain y oculta frmEmpleado
-                frmMain mainForm = Application.OpenForms.OfType<frmMain>().FirstOrDefault();
-                if (mainForm != null)
+                // Abre la conexión
+                connection.Open();
+
+                string query = "SELECT cantidadstock FROM stock WHERE id_stock = @id;";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
-                    mainForm.Show();
+                    // Agrega el parámetro y su valor
+                    cmd.Parameters.AddWithValue("@id", txt_idProducto.Text);
+
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Verifica si hay filas en el resultado
+                        if (reader.HasRows)
+                        {
+                            // Itera a través de las filas
+                            while (reader.Read())
+                            {
+                                // Obtén el valor de cantidadstock y asígnalo a la variable
+                                stockObtenido = Convert.ToInt32(reader["cantidadstock"]);
+                                // Puedes hacer algo más con el valor si es necesario
+                            }
+                        }
+                    }
                 }
-                this.Hide();
             }
+
+            return stockObtenido; // Devuelve el valor de cantidadstock
         }
 
         //Usar para reducir
@@ -134,17 +145,25 @@ namespace Base_de_datos.Formularios
                 string tipo = cmb_tipo_movimiento.Text;
                 int cantidad = Convert.ToInt32(nudCantSalida.Value);
 
-                Salida salida = new Salida();
-                DatosSalida Dsalida = new DatosSalida
+                int verificarstock = obtenerStock();
+                if (cantidad < verificarstock)
                 {
-                    id_movimiento = id,
-                    id_productomovimiento = id_producto,
-                    fecha_movimiento = fecha_movimiento,
-                    tipo_movimiento = tipo,
-                    cantidad_movimientoS = cantidad
-                };
-                salida.disminuir(Dsalida);
-                MessageBox.Show("El stock ha sido quitado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Salida salida = new Salida();
+                    DatosSalida Dsalida = new DatosSalida
+                    {
+                        id_movimiento = id,
+                        id_productomovimiento = id_producto,
+                        fecha_movimiento = fecha_movimiento,
+                        tipo_movimiento = tipo,
+                        cantidad_movimientoS = cantidad
+                    };
+                    salida.disminuir(Dsalida);
+                    MessageBox.Show("El stock ha sido disminuido correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (cantidad > verificarstock)
+                {
+                    MessageBox.Show("Esta intentando disminuir más halla del limite de stock existente" , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -166,6 +185,39 @@ namespace Base_de_datos.Formularios
                 nudCantSalida.Text = Convert.ToString(row.Cells[2].Value);
                 cmb_tipo_movimiento.Text = Convert.ToString(row.Cells[3].Value);
                 txt_idProducto.Text = Convert.ToString(row.Cells[4].Value);
+            }
+        }
+
+        //funciones de cerrado
+        private void btn_terminado_Click(object sender, EventArgs e)
+        {
+            frmSalidas_FormClosing(this, new FormClosingEventArgs(CloseReason.UserClosing, true));
+        }
+
+        private void frmSalidas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Estás seguro de que deseas salir?", "Confirmación", MessageBoxButtons.YesNo);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // Cancela el cierre del formulario principal si el usuario elige "No".
+            }
+            else
+            {
+                // Muestra el formulario frmMain y oculta frmEmpleado
+                frmMain mainForm = Application.OpenForms.OfType<frmMain>().FirstOrDefault();
+                if (mainForm != null)
+                {
+                    mainForm.Show();
+                }
+                this.Hide();
+            }
+        }
+
+        private void frmSalidas_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Owner != null)
+            {
+                Owner.Show();
             }
         }
     }

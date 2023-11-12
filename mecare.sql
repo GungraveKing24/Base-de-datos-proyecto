@@ -29,12 +29,13 @@ CREATE TABLE `empleado` (
   `nombre_empleado` varchar(50) NOT NULL,
   `apellido_empleado` varchar(30) NOT NULL,
   `nombre_usuario` varchar(50) NOT NULL,
-  `correoelectronico_empleado` varchar(50) DEFAULT NULL,
+  `correoelectronico_empleado` varchar(50) NOT NULL,
   `telefono_empleado` int DEFAULT NULL,
   `administrador` tinyint NOT NULL,
   `fecharegistro_empleado` varchar(45) NOT NULL,
   `contraseña` varchar(50) NOT NULL,
-  PRIMARY KEY (`id_empleado`)
+  PRIMARY KEY (`id_empleado`),
+  UNIQUE KEY `nombre_usuario` (`nombre_usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -44,7 +45,7 @@ CREATE TABLE `empleado` (
 
 LOCK TABLES `empleado` WRITE;
 /*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
-INSERT INTO `empleado` VALUES (1,'Gerson','Perez','gersonmp',NULL,78475895,0,'2023-05-31','mecareempresa0'),(2,'Esmeralda','Garcia','esmenb','esme@gmail.comm',74589247,1,'2019-07-01','mecareempresa0'),(3,'Wendy','Perez','wendypp','wendy@hotmail.com',73547851,0,'2019-07-02','mecareempresa0'),(4,'Xenia1','Perez','xeniapm','',74158747,0,'2020-05-31','mecare0'),(5,'Jorge','Francisco','jorgefran','fran@gmail.com',78452569,1,'2019-08-31','mecareempresa1'),(6,'Melanie','Giselle','melaniee','melanie@gmail.com',78874474,1,'2019-07-01','mecareempresa0'),(7,'Leslie','Pinedad','lesliep','lesliepine@hotmail.com',78415698,0,'2023-05-15','mecareempresa1'),(8,'Daniela','Alvarez','danialva','daniela@gmail.com',74589524,0,'2020-09-10','mecareempresa0'),(9,'Diego','Burgos','diego@hotmail.com','diego@hotmail.com',74528188,0,'2020-05-31','mecareempresa1'),(10,'Ana','Perez','anita','Anita@gmail.com',74851587,1,'2020-03-01','mecareempresa0');
+INSERT INTO `empleado` VALUES (1,'Gerson','Perez','gersonmp','gerson@gmail.com',78475895,0,'2023-05-31','mecareempresa0'),(2,'Esmeralda','Garcia','esmenb','esme@gmail.comm',74589247,1,'2019-07-01','mecareempresa0'),(3,'Wendy','Perez','wendypp','wendy@hotmail.com',73547851,0,'2019-07-02','mecareempresa0'),(4,'Xenia','Perez','xeniapm','xenia@gmail.com',74158747,0,'2020-05-31','mecare0'),(5,'Jorge','Francisco','jorgefran','fran@gmail.com',78452569,1,'2019-08-31','mecareempresa1'),(6,'Melanie','Giselle','melaniee','melanie@gmail.com',78874474,1,'2019-07-01','mecareempresa0'),(7,'Leslie','Pinedad','lesliep','lesliepine@hotmail.com',78415698,0,'2023-05-15','mecareempresa1'),(8,'Daniela','Alvarez','danialva','daniela@gmail.com',74589524,0,'2020-09-10','mecareempresa0'),(9,'Diego','Burgos','diego@hotmail.com','diego@hotmail.com',74528188,0,'2020-05-31','mecareempresa1'),(10,'Ana','Perez','anita','Anita@gmail.com',74851587,1,'2020-03-01','mecareempresa0');
 /*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -232,4 +233,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-09 21:34:53
+-- Dump completed on 2023-11-11 18:29:34

@@ -39,13 +39,13 @@
             this.fecha_movimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantidad_movimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo_movimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmb_tipo_movimiento = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_idProducto = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.nudCantSalida = new System.Windows.Forms.NumericUpDown();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalidas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantSalida)).BeginInit();
@@ -159,6 +159,13 @@
             this.tipo_movimiento.Name = "tipo_movimiento";
             this.tipo_movimiento.Width = 125;
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Id producto";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 125;
+            // 
             // cmb_tipo_movimiento
             // 
             this.cmb_tipo_movimiento.FormattingEnabled = true;
@@ -211,13 +218,6 @@
             this.nudCantSalida.Size = new System.Drawing.Size(86, 22);
             this.nudCantSalida.TabIndex = 41;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Id producto";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
             // frmSalidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -237,6 +237,7 @@
             this.Name = "frmSalidas";
             this.Text = "frmSalidas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSalidas_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmSalidas_FormClosed);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSalidas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantSalida)).EndInit();

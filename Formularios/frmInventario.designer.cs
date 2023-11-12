@@ -41,7 +41,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txt_id = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_inventario = new System.Windows.Forms.Panel();
+            this.btn_nuevo = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_descripcion = new System.Windows.Forms.TextBox();
             this.txt_id_proveedor = new System.Windows.Forms.TextBox();
@@ -64,7 +65,7 @@
             this.txt_buscador = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panel_inventario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -192,32 +193,44 @@
             this.txt_id.Size = new System.Drawing.Size(100, 22);
             this.txt_id.TabIndex = 3;
             // 
-            // panel1
+            // panel_inventario
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txt_descripcion);
-            this.panel1.Controls.Add(this.txt_id_proveedor);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.nudStock);
-            this.panel1.Controls.Add(this.cmb_proveedor);
-            this.panel1.Controls.Add(this.cmb_categoria);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.txt_pSalida);
-            this.panel1.Controls.Add(this.txt_pEntrada);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txt_nombre);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.btn_terminado);
-            this.panel1.Controls.Add(this.btn_eliminar);
-            this.panel1.Controls.Add(this.btn_modificar);
-            this.panel1.Controls.Add(this.btn_agregar);
-            this.panel1.Location = new System.Drawing.Point(15, 419);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1053, 240);
-            this.panel1.TabIndex = 21;
+            this.panel_inventario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_inventario.Controls.Add(this.btn_nuevo);
+            this.panel_inventario.Controls.Add(this.label4);
+            this.panel_inventario.Controls.Add(this.txt_descripcion);
+            this.panel_inventario.Controls.Add(this.txt_id_proveedor);
+            this.panel_inventario.Controls.Add(this.label5);
+            this.panel_inventario.Controls.Add(this.nudStock);
+            this.panel_inventario.Controls.Add(this.cmb_proveedor);
+            this.panel_inventario.Controls.Add(this.cmb_categoria);
+            this.panel_inventario.Controls.Add(this.label10);
+            this.panel_inventario.Controls.Add(this.label9);
+            this.panel_inventario.Controls.Add(this.txt_pSalida);
+            this.panel_inventario.Controls.Add(this.txt_pEntrada);
+            this.panel_inventario.Controls.Add(this.label7);
+            this.panel_inventario.Controls.Add(this.label6);
+            this.panel_inventario.Controls.Add(this.txt_nombre);
+            this.panel_inventario.Controls.Add(this.label3);
+            this.panel_inventario.Controls.Add(this.btn_terminado);
+            this.panel_inventario.Controls.Add(this.btn_eliminar);
+            this.panel_inventario.Controls.Add(this.btn_modificar);
+            this.panel_inventario.Controls.Add(this.btn_agregar);
+            this.panel_inventario.Location = new System.Drawing.Point(15, 419);
+            this.panel_inventario.Name = "panel_inventario";
+            this.panel_inventario.Size = new System.Drawing.Size(1053, 240);
+            this.panel_inventario.TabIndex = 21;
+            // 
+            // btn_nuevo
+            // 
+            this.btn_nuevo.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nuevo.Location = new System.Drawing.Point(164, 144);
+            this.btn_nuevo.Name = "btn_nuevo";
+            this.btn_nuevo.Size = new System.Drawing.Size(127, 84);
+            this.btn_nuevo.TabIndex = 42;
+            this.btn_nuevo.Text = "Nuevo";
+            this.btn_nuevo.UseVisualStyleBackColor = true;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // label4
             // 
@@ -242,6 +255,7 @@
             this.txt_id_proveedor.Name = "txt_id_proveedor";
             this.txt_id_proveedor.Size = new System.Drawing.Size(49, 22);
             this.txt_id_proveedor.TabIndex = 39;
+            this.txt_id_proveedor.Visible = false;
             // 
             // label5
             // 
@@ -364,7 +378,7 @@
             // btn_eliminar
             // 
             this.btn_eliminar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_eliminar.Location = new System.Drawing.Point(485, 144);
+            this.btn_eliminar.Location = new System.Drawing.Point(549, 144);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.Size = new System.Drawing.Size(207, 84);
             this.btn_eliminar.TabIndex = 2;
@@ -376,7 +390,7 @@
             // btn_modificar
             // 
             this.btn_modificar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_modificar.Location = new System.Drawing.Point(260, 144);
+            this.btn_modificar.Location = new System.Drawing.Point(324, 144);
             this.btn_modificar.Name = "btn_modificar";
             this.btn_modificar.Size = new System.Drawing.Size(207, 84);
             this.btn_modificar.TabIndex = 1;
@@ -388,9 +402,9 @@
             // btn_agregar
             // 
             this.btn_agregar.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_agregar.Location = new System.Drawing.Point(23, 144);
+            this.btn_agregar.Location = new System.Drawing.Point(40, 144);
             this.btn_agregar.Name = "btn_agregar";
-            this.btn_agregar.Size = new System.Drawing.Size(207, 84);
+            this.btn_agregar.Size = new System.Drawing.Size(118, 84);
             this.btn_agregar.TabIndex = 0;
             this.btn_agregar.Text = "Agregar";
             this.btn_agregar.UseVisualStyleBackColor = true;
@@ -411,7 +425,7 @@
             this.label8.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(231, 25);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 26);
+            this.label8.Size = new System.Drawing.Size(76, 21);
             this.label8.TabIndex = 34;
             this.label8.Text = "Bucador:";
             // 
@@ -422,7 +436,7 @@
             this.ClientSize = new System.Drawing.Size(1086, 675);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txt_buscador);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel_inventario);
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -431,9 +445,10 @@
             this.Name = "frmInventario";
             this.Text = "Inventario";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmInventario_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmInventario_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panel_inventario.ResumeLayout(false);
+            this.panel_inventario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -459,7 +474,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Panel panel_inventario;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudStock;
         public System.Windows.Forms.TextBox txt_nombre;
@@ -477,6 +492,7 @@
         private System.Windows.Forms.TextBox txt_descripcion;
         private System.Windows.Forms.TextBox txt_buscador;
         private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Button btn_nuevo;
     }
 }
 

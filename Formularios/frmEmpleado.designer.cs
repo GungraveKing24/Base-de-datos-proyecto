@@ -439,6 +439,7 @@
             this.Name = "frmEmpleado";
             this.Text = "Empleados";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEmpleado_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEmpleado_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
