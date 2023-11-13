@@ -15,19 +15,20 @@ namespace Base_de_datos.Formularios
             CargarDatosEnDataGridView();
         }
 
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+        public void ReloadData()
+        { 
+            dgvInformes.Rows.Clear();
         }
+
 
         private void btnCrearInforme_Click_4(object sender, EventArgs e)
         {
             CrearArchivoCSV();
         }
 
-        private void CargarDatosEnDataGridView()
+        public void CargarDatosEnDataGridView()
         {
+            dgvInformes.DataSource = null;
             Informe informes = new Informe();
             dgvInformes.DataSource = informes.ObtenerInformes();
         }

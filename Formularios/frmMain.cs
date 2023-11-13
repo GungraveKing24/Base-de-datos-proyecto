@@ -165,13 +165,13 @@ namespace Machote_Admin_Bases_D
                 // Mostrar frmInforme
                 frmSalida.Show();
 
-                frmSalida.ReloadData();
-                frmSalida.CargarDatos();
             }
             else
             {
                 // Si ya existe, simplemente mostrarlo
                 frmSalida.Show();
+                frmSalida.ReloadData();
+                frmSalida.CargarDatos();
             }
         }
 
@@ -194,6 +194,8 @@ namespace Machote_Admin_Bases_D
             {
                 // Si ya existe, simplemente mostrarlo
                 FormularioInforme.Show();
+                FormularioInforme.ReloadData();
+                FormularioInforme.CargarDatosEnDataGridView();
             }
         }
 
