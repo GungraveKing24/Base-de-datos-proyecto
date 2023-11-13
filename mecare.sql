@@ -74,7 +74,7 @@ CREATE TABLE `informesinventario` (
 
 LOCK TABLES `informesinventario` WRITE;
 /*!40000 ALTER TABLE `informesinventario` DISABLE KEYS */;
-INSERT INTO `informesinventario` VALUES (1,'2023-09-04','Niacinamide_Ordinary, una de las cajas fue extraviada',1,1),(2,'2023-09-04','Producto Acido Hyaluronico (Serum) en perfecto estado',2,2),(3,'2023-09-04','Producto Acido Hyaluronico (Serum) en perfecto estado (Crema)',3,3),(4,'2023-09-04','El producto fue entregado con retrazo Acido Glycolico',4,4),(5,'2023-09-04','AHA 30% + BHA 2% producto en buen estado',5,5),(6,'2023-09-04','Caffeine Solution producto no encontrado',6,6),(7,'2023-09-04','producto Pycnogenol perfecto estado',7,7),(8,'2023-09-04','Rosa palida en perfecto estado',8,8),(9,'2023-09-04','Producto Agua Micelar derramada ',9,9),(10,'2023-09-04','La mitad de los Correctorectores de ojos venian dañados',10,10);
+INSERT INTO `informesinventario` VALUES (1,'2023-09-04','El producto reabastecido fue: Niacinamide Ordinary en la fecha: 3/12/2023 12:00:00 AM por el empleado: Gerson Perez',1,1),(2,'2023-09-04','El producto reabastecido fue: Acido Hyaluronico en la fecha: 3/12/2023 12:00:00 AM por el empleado: Esmeralda Garcia',2,2),(3,'2023-09-04','El producto reabastecido fue: Acido Hyaluronico en la fecha: 2/14/2020 12:00:00 AM por el empleado: Wendy Perez',3,3),(4,'2023-09-04','El producto reabastecido fue: Acido Glycolico en la fecha: 11/9/2023 12:00:00 AM por el empleado: Xenia Perez',4,4),(5,'2023-09-04','El producto reabastecido fue: AHA 30% + BHA 2% en la fecha: 3/4/2020 12:00:00 AM por el empleado: Jorge Francisco',5,5),(6,'2023-09-04','El producto reabastecido fue: Caffeine Solution en la fecha: 3/4/2020 12:00:00 AM por el empleado: Melanie Giselle',6,6),(7,'2023-09-04','El producto reabastecido fue: Pycnogenol en la fecha: 8/19/2023 12:00:00 AM por el empleado: Leslie Pinedad',7,7),(8,'2023-09-04','El producto reabastecido fue: Rosa palida en la fecha: 8/19/2023 12:00:00 AM por el empleado: Daniela Alvarez',8,8),(9,'2023-09-04','El producto reabastecido fue: Agua Micelar en la fecha: 8/19/2023 12:00:00 AM por el empleado: Diego Burgos',9,9),(10,'2023-09-04','El producto reabastecido fue: Corrector de ojos en la fecha: 7/27/2023 12:00:00 AM por el empleado: Ana Perez',10,10);
 /*!40000 ALTER TABLE `informesinventario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,7 +103,7 @@ CREATE TABLE `movimiento_inventario` (
 
 LOCK TABLES `movimiento_inventario` WRITE;
 /*!40000 ALTER TABLE `movimiento_inventario` DISABLE KEYS */;
-INSERT INTO `movimiento_inventario` VALUES (1,'2023-07-01',100,'AGREGADO',1),(2,'2023-09-01',1,'RETIRADO',1),(3,'2023-03-12',2555,'AGREGADO',2),(4,'2020-02-14',100,'AGREGADO',3),(5,'2023-04-10',2,'RETIRADO',3),(6,'2019-08-12',100,'AGREGADO',4),(7,'2020-03-04',50,'AGREGADO',5),(8,'2020-03-04',100,'AGREGADO',6),(9,'2023-07-27',10,'AGREGADO',10),(10,'2021-05-09',33,'AGREGADO',11),(11,'2022-11-30',255,'AGREGADO',12),(12,'2023-11-12',2,'RETIRADO',5),(13,'2023-09-10',1,'RETIRADO',5),(14,'2023-07-12',6,'RETIRADO',15),(15,'2020-10-05',2,'RETIRADO',12),(16,'2023-10-03',1,'RETIRADO',7),(17,'2022-01-23',1,'RETIRADO',9),(18,'2022-01-27',1,'RETIRADO',9);
+INSERT INTO `movimiento_inventario` VALUES (1,'2023-07-01',100,'VENTA',1),(2,'2023-09-01',1,'RETIRADO',1),(3,'2023-03-12',2555,'VENTA',2),(4,'2020-02-14',100,'VENTA',3),(5,'2023-04-10',2,'RETIRADO',3),(6,'2019-08-12',100,'VENTA',4),(7,'2020-03-04',50,'VENTA',5),(8,'2020-03-04',100,'VENTA',6),(9,'2023-07-27',10,'VENTA',10),(10,'2021-05-09',33,'VENTA',11),(11,'2022-11-30',255,'VENTA',12),(12,'2023-11-12',2,'RETIRADO',5),(13,'2023-09-10',1,'RETIRADO',5),(14,'2023-07-12',6,'RETIRADO',15),(15,'2020-10-05',2,'RETIRADO',12),(16,'2023-10-03',1,'RETIRADO',7),(17,'2022-01-23',1,'RETIRADO',9),(18,'2022-01-27',1,'RETIRADO',9);
 /*!40000 ALTER TABLE `movimiento_inventario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,7 +133,7 @@ CREATE TABLE `pedido_reposicion` (
 
 LOCK TABLES `pedido_reposicion` WRITE;
 /*!40000 ALTER TABLE `pedido_reposicion` DISABLE KEYS */;
-INSERT INTO `pedido_reposicion` VALUES (1,'2023-03-12','2023-12-20',100,'Rechazado',1),(2,'2023-03-12','2023-12-20',2555,'Rechazado',2),(3,'2020-02-14','2023-12-20',100,'Completado',3),(4,'2019-08-12','2023-12-20',30,'Rechazado',4),(5,'2019-08-12','2023-12-20',100,'Completado',4),(6,'2020-03-04','2023-12-20',50,'Completado',5),(7,'2023-08-19','2023-12-20',20,'Rechazado',5),(8,'2020-03-04','2023-12-20',15,'Completado',6),(9,'2023-08-19','2023-12-20',20,'Rechazado',7),(10,'2020-03-04','2023-12-20',15,'Completado',6),(11,'2023-08-19','2023-12-20',1,'Rechazado',8),(12,'2022-09-10','2023-12-20',50,'Rechazado',9),(13,'2023-08-19','2023-12-20',2,'Rechazado',9),(14,'2023-07-27','2023-12-20',10,'Completado',10),(15,'2021-05-09','2023-12-20',33,'Completado',11),(16,'2022-11-30','2023-12-20',255,'Completado',12),(18,'2023-08-29','2023-12-20',100,'Rechazado',14),(19,'2023-08-29','2023-12-20',50,'Rechazado',15),(20,'2023-08-29','2023-12-20',75,'Rechazado',10),(21,'2023-11-09','2023-11-09',20,'Pendiente',3);
+INSERT INTO `pedido_reposicion` VALUES (1,'2023-03-12','2023-12-20',100,'Rechazado',1),(2,'2023-03-12','2023-12-20',2555,'Rechazado',2),(3,'2020-02-14','2023-12-20',100,'Aceptado',3),(4,'2019-08-12','2023-12-20',30,'Rechazado',4),(5,'2019-08-12','2023-12-20',100,'Aceptado',4),(6,'2020-03-04','2023-12-20',50,'Aceptado',5),(7,'2023-08-19','2023-12-20',20,'Rechazado',5),(8,'2020-03-04','2023-12-20',15,'Aceptado',6),(9,'2023-08-19','2023-12-20',20,'Rechazado',7),(10,'2020-03-04','2023-12-20',15,'Aceptado',6),(11,'2023-08-19','2023-12-20',1,'Rechazado',8),(12,'2022-09-10','2023-12-20',50,'Rechazado',9),(13,'2023-08-19','2023-12-20',2,'Rechazado',9),(14,'2023-07-27','2023-12-20',10,'Aceptado',10),(15,'2021-05-09','2023-12-20',33,'Aceptado',11),(16,'2022-11-30','2023-12-20',255,'Aceptado',12),(18,'2023-08-29','2023-12-20',100,'Rechazado',14),(19,'2023-08-29','2023-12-20',50,'Rechazado',15),(20,'2023-08-29','2023-12-20',75,'Rechazado',10),(21,'2023-11-09','2023-11-09',20,'Pendiente',3);
 /*!40000 ALTER TABLE `pedido_reposicion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,4 +233,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-11-11 18:29:34
+-- Dump completed on 2023-11-12 18:47:57
