@@ -189,7 +189,6 @@ namespace Base_de_datos.Formularios
                 // Obtener los valores de las celdas de la fila seleccionada
                 txt_id.Text = Convert.ToString(row.Cells[0].Value);
                 nudCantSalida.Text = Convert.ToString(row.Cells[2].Value);
-                cmb_tipo_movimiento.Text = Convert.ToString(row.Cells[3].Value);
                 txt_idProducto.Text = Convert.ToString(row.Cells[4].Value);
             }
         }
