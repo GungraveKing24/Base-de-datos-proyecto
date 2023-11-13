@@ -28,10 +28,18 @@ namespace Base_de_datos.Formularios
             CargarDatosT2();
         }
 
-        private void CargarDatos()
+
+        public void ReloadData()
+        {
+            // Realiza las operaciones necesarias para recargar los datos en tus controles
+            dtvproductos.Rows.Clear();
+        }
+
+        public void CargarDatos()
         {
             try
             {
+                dtvproductos.DataSource = null;
                 string connectionString = GetConexion.conectar();
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -65,10 +73,12 @@ namespace Base_de_datos.Formularios
                 MessageBox.Show("Error al cargar los datos: " + ex.Message);
             }
         }
-        private void CargarDatosT2()
+
+        public void CargarDatosT2()
         {
             try
             {
+                dgvPedidos.DataSource = null;
                 string connectionString = GetConexion.conectar();
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -132,22 +142,6 @@ namespace Base_de_datos.Formularios
                 MessageBox.Show("Error al agregar el pedido: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void btn_buscar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
 
         private void btn_agregar_Click(object sender, EventArgs e)
         {

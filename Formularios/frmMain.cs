@@ -98,17 +98,15 @@ namespace Machote_Admin_Bases_D
             {
                 // Si no existe, crear una nueva instancia
                 frmProveedor = new frmProveedores();
-
-                // Configurar el estado inicial de frmInforme si es necesario
-                // ...
-
-                // Mostrar frmInforme
                 frmProveedor.Show();
             }
             else
             {
                 // Si ya existe, simplemente mostrarlo
                 frmProveedor.Show();
+
+                frmProveedor.ReloadData();
+                frmProveedor.CargarDatosReposicion();
             }
         }
 
@@ -120,17 +118,15 @@ namespace Machote_Admin_Bases_D
             {
                 // Si no existe, crear una nueva instancia
                 frmInventario = new frmInventario();
-
-                // Configurar el estado inicial de frmInforme si es necesario
-                // ...
-
-                // Mostrar frmInforme
                 frmInventario.Show();
             }
             else
             {
                 // Si ya existe, simplemente mostrarlo
                 frmInventario.Show();
+
+                frmInventario.ReloadData();
+                frmInventario.CargarDatos();
             }
         }
 
@@ -142,17 +138,15 @@ namespace Machote_Admin_Bases_D
             {
                 // Si no existe, crear una nueva instancia
                 frmEntradas = new frmEntradas();
-
-                // Configurar el estado inicial de frmInforme si es necesario
-                // ...
-
-                // Mostrar frmInforme
-                frmEntradas.Show();
+                frmEntradas.Show();                
             }
             else
             {
                 // Si ya existe, simplemente mostrarlo
                 frmEntradas.Show();
+
+                frmEntradas.ReloadData();
+                frmEntradas.CargarDatos();
             }
         }
 
@@ -170,6 +164,9 @@ namespace Machote_Admin_Bases_D
 
                 // Mostrar frmInforme
                 frmSalida.Show();
+
+                frmSalida.ReloadData();
+                frmSalida.CargarDatos();
             }
             else
             {

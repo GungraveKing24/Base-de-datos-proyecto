@@ -36,6 +36,11 @@ namespace Machote_Admin_Bases_D
             bloquear();
         }
 
+        public void ReloadData()
+        {
+            dgvProductos.Rows.Clear();
+        }
+
         private void bloquear()
         {
             Login login = new Login();
@@ -56,10 +61,11 @@ namespace Machote_Admin_Bases_D
         }
 
         //metodo cargar datos
-        private void CargarDatos()
+        public void CargarDatos()
         {
             try
             {
+                dgvProductos.DataSource = null;
                 string connectionString = GetConexion.conectar();
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))

@@ -32,9 +32,9 @@ namespace Base_de_datos.Clases
                 {
                     try
                     {
-                        string queryTabla1 = "Update stock SET cantidadstock = cantidadstock - @cantidadstock WHERE id_stock = @id_stock;";
+                        string queryTabla1 = "UPDATE stock SET cantidadstock = cantidadstock - @cantidadstock WHERE id_stock = @id_stock;";
                         //id_movimiento, fecha_movimiento, cantidad_movimiento, tipo_movimiento, id_productomovimiento
-                        string queryTabla2 = "Update movimiento_inventario SET fecha_movimiento =@fecha_movimiento, tipo_movimiento = @tipo_movimiento WHERE id_movimiento = @id_movimiento";
+                        string queryTabla2 = "UPDATE movimiento_inventario SET fecha_movimiento =@fecha_movimiento, tipo_movimiento = @tipo_movimiento, cantidad_movimiento = @cantidad_movimiento WHERE id_movimiento = @id_movimiento";
 
                         using (MySqlCommand cmd1 = new MySqlCommand(queryTabla1, connection, transaction))
                         {
@@ -47,6 +47,7 @@ namespace Base_de_datos.Clases
                         {
                             cmd2.Parameters.AddWithValue("@fecha_movimiento", Datos.fecha_movimiento);
                             cmd2.Parameters.AddWithValue("@tipo_movimiento", Datos.tipo_movimiento);
+                            cmd2.Parameters.AddWithValue("@cantidad_movimiento", Datos.cantidad_movimientoS);
                             cmd2.Parameters.AddWithValue("@id_movimiento", Datos.id_movimiento);
                             cmd2.ExecuteNonQuery();
                         }

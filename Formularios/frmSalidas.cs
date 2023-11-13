@@ -28,18 +28,23 @@ namespace Base_de_datos.Formularios
             tipemovement();
         }
 
-        private void CargarDatos()      //movimiento inventario
+        public void ReloadData()
+        {
+            dgvSalidas.Rows.Clear();
+        }
+
+        public void CargarDatos()      //movimiento inventario
         {
             try
             {
+                dgvSalidas.DataSource = null;
                 string connectionString = GetConexion.conectar();
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     string query = "SELECT id_movimiento, fecha_movimiento, cantidad_movimiento, tipo_movimiento, id_productomovimiento " +
                                    "FROM movimiento_inventario  " +
-                                   "JOIN producto ON id_producto = id_productomovimiento " +
-                                    "WHERE tipo_movimiento = 'retirado' OR tipo_movimiento = 'venta'";
+                                   "JOIN producto ON id_producto = id_productomovimiento;";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
                     connection.Open();

@@ -80,7 +80,6 @@
             this.dgvPedidos.RowTemplate.Height = 24;
             this.dgvPedidos.Size = new System.Drawing.Size(662, 366);
             this.dgvPedidos.TabIndex = 1;
-            this.dgvPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             // 
             // id_pedido_reposicion
             // 
@@ -275,7 +274,6 @@
             this.label4.Size = new System.Drawing.Size(136, 34);
             this.label4.TabIndex = 29;
             this.label4.Text = "Productos";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 

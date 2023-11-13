@@ -33,6 +33,11 @@ namespace Machote_Admin_Bases_D
             txt_administrador.Text = empleado.ToString();
         }
 
+        public void ReloadData()
+        {
+            dgvProveedoresRepocision.Rows.Clear();
+        }
+
         private void CargarDatosProveedor()
         {
             try
@@ -69,10 +74,11 @@ namespace Machote_Admin_Bases_D
             }
         }
         
-        private void CargarDatosReposicion()
+        public void CargarDatosReposicion()
         {
             try
             {
+                dgvProveedoresRepocision.DataSource = null;
                 string connectionString = GetConexion.conectar();
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
@@ -313,5 +319,6 @@ namespace Machote_Admin_Bases_D
                 Owner.Show();
             }
         }
+
     }
 }
