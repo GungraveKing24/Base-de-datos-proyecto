@@ -36,6 +36,7 @@
             this.Precio_Entrada = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio_Salida = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha_Ingreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.test = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
@@ -82,6 +83,7 @@
             this.Precio_Entrada,
             this.Precio_Salida,
             this.Fecha_Ingreso,
+            this.descripcion,
             this.Proveedor,
             this.test});
             this.dgvProductos.Location = new System.Drawing.Point(15, 62);
@@ -150,6 +152,14 @@
             this.Fecha_Ingreso.Name = "Fecha_Ingreso";
             this.Fecha_Ingreso.ReadOnly = true;
             this.Fecha_Ingreso.Width = 125;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "descripcion";
+            this.descripcion.MinimumWidth = 6;
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.Width = 125;
             // 
             // Proveedor
             // 
@@ -226,7 +236,7 @@
             // 
             // txt_administrador
             // 
-            this.txt_administrador.Location = new System.Drawing.Point(865, 99);
+            this.txt_administrador.Location = new System.Drawing.Point(765, 142);
             this.txt_administrador.Name = "txt_administrador";
             this.txt_administrador.Size = new System.Drawing.Size(49, 22);
             this.txt_administrador.TabIndex = 43;
@@ -255,14 +265,15 @@
             // 
             // txt_descripcion
             // 
-            this.txt_descripcion.Location = new System.Drawing.Point(776, 32);
+            this.txt_descripcion.Location = new System.Drawing.Point(777, 32);
+            this.txt_descripcion.Multiline = true;
             this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(239, 22);
+            this.txt_descripcion.Size = new System.Drawing.Size(239, 61);
             this.txt_descripcion.TabIndex = 40;
             // 
             // txt_id_proveedor
             // 
-            this.txt_id_proveedor.Location = new System.Drawing.Point(722, 94);
+            this.txt_id_proveedor.Location = new System.Drawing.Point(765, 114);
             this.txt_id_proveedor.Name = "txt_id_proveedor";
             this.txt_id_proveedor.Size = new System.Drawing.Size(49, 22);
             this.txt_id_proveedor.TabIndex = 39;
@@ -490,6 +501,12 @@
         private System.Windows.Forms.NumericUpDown nudStock;
         public System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.TextBox txt_id_proveedor;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txt_descripcion;
+        private System.Windows.Forms.TextBox txt_buscador;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Button btn_nuevo;
+        public System.Windows.Forms.TextBox txt_administrador;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre_producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
@@ -497,14 +514,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio_Entrada;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio_Salida;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Ingreso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
         private System.Windows.Forms.DataGridViewButtonColumn test;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt_descripcion;
-        private System.Windows.Forms.TextBox txt_buscador;
-        private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.Button btn_nuevo;
-        public System.Windows.Forms.TextBox txt_administrador;
     }
 }
 

@@ -161,23 +161,22 @@ namespace Base_de_datos.Clases
             }
         }
 
-        public void modificar(string nombre, string categoria, double precioE, double precioS, int proovedorid, string descripcion, int idProducto)
+        public void modificar(string nombre, string categoria, double precioE, double precioS, int proveedorId, string descripcion, int idProducto)
         {
-            try 
+            try
             {
                 string connectionString = conectar.conectar();
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    string query = "UPDATE producto SET nombre_producto = @nombre_producto, descripcion = @descripcion, precio_entrada = @precio_entrada, precio_salida = @precio_salida, fecha_ingreso = @fecha_ingreso, categoria = @categoria, id_proveedorproducto = @id_proveedorproducto WHERE id_producto = @id_producto";
+                    string query = "UPDATE producto SET nombre_producto = @nombre, descripcion = @descripcion, precio_entrada = @precioE, precio_salida = @precioS, categoria = @categoria, id_proveedorproducto = @proveedorId WHERE id_producto = @idProducto";
                     MySqlCommand command = new MySqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@nombre_producto", nombre);
+                    command.Parameters.AddWithValue("@nombre", nombre);
                     command.Parameters.AddWithValue("@descripcion", descripcion);
-                    command.Parameters.AddWithValue("@precio_entrada", precioE);
-                    command.Parameters.AddWithValue("@precio_salida", precioS);
-                    command.Parameters.AddWithValue("@fecha_ingreso", DateTime.Now); // Puedes establecer la fecha actual o modificar según sea necesario
+                    command.Parameters.AddWithValue("@precioE", precioE);
+                    command.Parameters.AddWithValue("@precioS", precioS);
                     command.Parameters.AddWithValue("@categoria", categoria);
-                    command.Parameters.AddWithValue("@id_proveedorproducto", proovedorid);
-                    command.Parameters.AddWithValue("@id_producto", idProducto);
+                    command.Parameters.AddWithValue("@proveedorId", proveedorId);
+                    command.Parameters.AddWithValue("@idProducto", idProducto);
 
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -185,9 +184,8 @@ namespace Base_de_datos.Clases
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("Error al modificar el producto: " + ex.Message);
             }
-        
         }
     }
 }

@@ -37,8 +37,9 @@ namespace Base_de_datos.Formularios
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
                     string query = "SELECT id_movimiento, fecha_movimiento, cantidad_movimiento, tipo_movimiento, id_productomovimiento " +
-                                    "FROM movimiento_inventario  " +
-                                    "JOIN producto ON id_producto = id_productomovimiento";
+                                   "FROM movimiento_inventario  " +
+                                   "JOIN producto ON id_producto = id_productomovimiento " +
+                                    "WHERE tipo_movimiento = 'retirado' OR tipo_movimiento = 'venta'";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
                     connection.Open();
@@ -77,7 +78,7 @@ namespace Base_de_datos.Formularios
 
                 // Aquí ejecutarás la consulta y poblarás el ComboBox
 
-                string query = "SELECT tipo_movimiento FROM movimiento_inventario GROUP BY tipo_movimiento;";
+                string query = "SELECT tipo_movimiento FROM movimiento_inventario  WHERE tipo_movimiento != 'agregado' GROUP BY tipo_movimiento;";
                 using (MySqlCommand cmd = new MySqlCommand(query, connection))
                 {
                     using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -141,7 +142,7 @@ namespace Base_de_datos.Formularios
             {
                 int id = Convert.ToInt32(txt_id.Text);
                 int id_producto = Convert.ToInt32(txt_idProducto.Text);
-                DateTime fecha_movimiento = DateTime.Now; 
+                DateTime fecha_movimiento = DateTime.Now;
                 string tipo = cmb_tipo_movimiento.Text;
                 int cantidad = Convert.ToInt32(nudCantSalida.Value);
 
@@ -162,7 +163,7 @@ namespace Base_de_datos.Formularios
                 }
                 else if (cantidad > verificarstock)
                 {
-                    MessageBox.Show("Esta intentando disminuir más halla del limite de stock existente" , "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Esta intentando disminuir más halla del limite de stock existente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)

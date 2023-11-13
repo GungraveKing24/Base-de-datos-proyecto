@@ -64,7 +64,7 @@ namespace Machote_Admin_Bases_D
 
                 using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    string query = "SELECT p.id_producto, p.nombre_producto,  p.categoria, st.cantidadstock,  p.precio_entrada, p.precio_salida, st.fecha_stock, pr.nombre_proveedor, pr.id_proveedor FROM producto p JOIN stock st ON p.id_producto = st.id_productostock JOIN proveedor pr ON p.id_proveedorproducto = pr.id_proveedor";
+                    string query = "SELECT p.id_producto, p.nombre_producto,  p.categoria, st.cantidadstock,  p.precio_entrada, p.precio_salida, st.fecha_stock, p.descripcion ,pr.nombre_proveedor, pr.id_proveedor FROM producto p JOIN stock st ON p.id_producto = st.id_productostock JOIN proveedor pr ON p.id_proveedorproducto = pr.id_proveedor";
                     MySqlCommand command = new MySqlCommand(query, connection);
 
                     connection.Open();
@@ -80,11 +80,12 @@ namespace Machote_Admin_Bases_D
                             double PrecioEntrada = reader.GetDouble(4);
                             double PrecioSalida = reader.GetDouble(5);
                             DateTime FechaStock = reader.GetDateTime(6);
-                            string nombre_proveedor = reader.GetString(7);
-                            int ID_Proveedor = reader.GetInt32(8);
+                            string  descripcion = reader.GetString(7);
+                            string nombre_proveedor = reader.GetString(8);
+                            int ID_Proveedor = reader.GetInt32(9);
 
 
-                            int rowIndex = dgvProductos.Rows.Add(ID, Nombre, categoria, CantidadStock,  PrecioEntrada, PrecioSalida, FechaStock, nombre_proveedor, ID_Proveedor);
+                            int rowIndex = dgvProductos.Rows.Add(ID, Nombre, categoria, CantidadStock,  PrecioEntrada, PrecioSalida, FechaStock, descripcion, nombre_proveedor, ID_Proveedor);
 
                             dgvProductos.CellFormatting += dgvProductos_CellFormatting;
                         }
@@ -94,6 +95,7 @@ namespace Machote_Admin_Bases_D
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los datos: " + ex.Message);
+                
             }
         }
 
@@ -257,7 +259,7 @@ namespace Machote_Admin_Bases_D
                 MessageBox.Show("Error al eliminar producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private void modificar()
         {
             try
@@ -274,11 +276,10 @@ namespace Machote_Admin_Bases_D
                 inventario.modificar(nombre, categoria, precioE, precioS, proveedor, descripcion, id_producto);
                 MessageBox.Show("Producto modificado correctamente!!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al modificar el producto: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void limpiador()
@@ -334,8 +335,10 @@ namespace Machote_Admin_Bases_D
                 nudStock.Text = Convert.ToString(row.Cells[3].Value);
                 txt_pEntrada.Text = Convert.ToString(row.Cells[4].Value);
                 txt_pSalida.Text = Convert.ToString(row.Cells[5].Value);
-                cmb_proveedor.Text = Convert.ToString(row.Cells[7].Value);
-                txt_id_proveedor.Text = Convert.ToString(row.Cells[8].Value);
+                cmb_proveedor.Text = Convert.ToString(row.Cells[8].Value);
+                txt_descripcion.Text = Convert.ToString(row.Cells[7].Value);
+                txt_id_proveedor.Text = Convert.ToString(row.Cells[9].Value);
+                
             }
         }
 

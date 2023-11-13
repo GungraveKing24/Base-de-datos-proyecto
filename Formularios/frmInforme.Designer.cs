@@ -41,6 +41,7 @@
             this.dgvInformes.ColumnHeadersHeight = 29;
             this.dgvInformes.Location = new System.Drawing.Point(12, 12);
             this.dgvInformes.Name = "dgvInformes";
+            this.dgvInformes.ReadOnly = true;
             this.dgvInformes.RowHeadersVisible = false;
             this.dgvInformes.RowHeadersWidth = 51;
             this.dgvInformes.RowTemplate.Height = 24;
