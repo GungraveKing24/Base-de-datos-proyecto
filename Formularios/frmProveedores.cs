@@ -151,7 +151,7 @@ namespace Machote_Admin_Bases_D
 
                 string nombreEmpleado = proveedor.ObtenerNombreEmpleado(id_empleado); // Supongamos que tienes el ID del empleado
                 string nombreProveedor = proveedor.ObtenerNombreProveedor(id_proveedor);
-                string descripcion_informe = "El producto reabastecido fue: " + nombre_producto + "en la fecha: " + Fecha_Actual + "con una cantidad total de: " + cantidad + " por el proveedor:" + nombreProveedor + "En el turno de: " + nombreEmpleado;
+                string descripcion_informe = "El producto reabastecido fue: " + nombre_producto + " en la fecha: " + Fecha_Actual + " con una cantidad total de: " + cantidad + " por el proveedor:" + nombreProveedor + " En el turno de: " + nombreEmpleado;
                 
                 // Create an instance of the Proveedor class
 
